@@ -1,0 +1,14 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="{{ site.baseurl }}/images/favicon.ico" >
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans&display=swap' rel='stylesheet' >
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+</head>
+
+{% if site.url %}
+  {% assign base_path = site.url | append: site.baseurl %}
+{% else %}
+  {% assign base_path = site.github.url %}
+{% endif %}
