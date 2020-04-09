@@ -236,6 +236,7 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-scholar
 
 
 # Archives
