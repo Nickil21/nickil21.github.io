@@ -119,7 +119,7 @@ author:
       # url: "https://instagram.com/"
     - label: "LinkedIn"
       icon: "fab fa-linkedin-in"
-      url: "https://linkedin/in/nickil21"
+      url: "https://www.linkedin.com/in/nickil21/"
     - label: "StackOverflow"
       icon: "fab fa-stack-overflow"
       url: "https://stackoverflow.com/users/6207849/nickil-maveli"
@@ -285,9 +285,9 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
-      comments: # true
+      comments: true # true
       share: true
       related: true
 
