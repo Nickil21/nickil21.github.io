@@ -13,18 +13,16 @@ category:
   - NLP Papers Summary
 tags:
   - Machine Translation
-  - ACL    
+  - ACL   
 ---
 
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_3.jpg"
  alt="this is a placeholder image" 
  caption="Photo credit: [**Unsplash**](https://unsplash.com)" %}
 
-PDF - [Paper](https://www.aclweb.org/anthology/P19-1164.pdf){:target="_blank"} by {% cite stanovsky-etal-2019-evaluating %} | [Code](https://github.com/gabrielStanovsky/mt_gender){:target="_blank"}
----
+## PDF - [Paper](https://www.aclweb.org/anthology/P19-1164.pdf){:target="_blank"} by {% cite stanovsky-etal-2019-evaluating %} | [Code](https://github.com/gabrielStanovsky/mt_gender){:target="_blank"}
 
-Introduction
----
+## Introduction
 
 * Some languages encode grammatical gender - Spanish, Italian, Russian, etc. One word for male, other word for female.
 * Other languages are gender neutral - English, Turkish, Finnish. One word for both male and female.
@@ -33,8 +31,7 @@ Introduction
  alt="this is a placeholder image" 
  caption="An example of gender bias in machine translation from English (top) to Spanish (bottom)." %}
 
-Problem
----
+## Problem
 
 * Can we quantitatively evaluate gender translation in MT?
 * How much does MT rely on gender stereotypes vs. meaningful context?
@@ -56,8 +53,7 @@ These are very useful for evaluating gender bias in MT!
  female nurse)
  * Gold annotations for gender.
   
-Implementation
----
+## Implementation
 
 **Input :** MT model + target language<br>
 **Output :** Accuracy score for gender translation
@@ -94,8 +90,8 @@ Here, "pretty" and "handsome" are stereotypical adjectives for feminine and masc
 This approach improved performance for most tested languages and models. [mean +8.6%]
 {: .notice--success} 
 
-Limitations and Future Work
----
+## Limitations and Future Work
+
 * Artificially created dataset.
   * Allows for controlled experiment.
   * Yet, might introduce it's own annotation biases.
@@ -103,8 +99,7 @@ Limitations and Future Work
 * Medium Size 
   * Easy to overfit.
  
-Takeaways
----
+## Takeaways
 
 * First quantitative automatic evaluation of gender bias in MT.
   * 6 SOTA MT models on 8 diverse target languages.
@@ -113,8 +108,7 @@ Takeaways
 * Significant gender bias found in all models in all tested languages.
 * Easily extensible with more languages and MT models.
 
-References
----
+## References
 
 {% bibliography --cited %}
 

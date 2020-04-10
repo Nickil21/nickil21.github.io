@@ -22,11 +22,9 @@ tags:
           their non-AAE equivalents, and
           toxicity scores from [PerspectiveAPI](http://perspectiveapi.com){:target='_blank'}." %}
 
-PDF - [Paper](https://www.aclweb.org/anthology/P19-1163.pdf){:target="_blank"} by {% cite sap-etal-2019-risk %}
----
+## PDF - [Paper](https://www.aclweb.org/anthology/P19-1163.pdf){:target="_blank"} by {% cite sap-etal-2019-risk %}
 
-Introduction
----
+## Introduction
 
 * Goal of Hate Detection: _Try and make the internet less toxic_.
 * Toxicity ML models are generally trained on text-only annotations and don't have information about the speaker.
@@ -40,8 +38,7 @@ Problem
 * Do ML models acquire this racial bias from datasets?
 * Can annotation task design affect these racial biases?
 
-How it Solves
----
+## How it Solves
 
 It uses Dialect as a proxy for racial identity. African American English (AAE) dialect is used in the paper. 
 Lexical detector by {% cite blodgett-etal-2016-demographic %} was used to infer the presence of AAE.
@@ -60,7 +57,7 @@ Predictions by both the classifiers were biased against AAE tweets as shown by t
 AAE tweets and tweets by Black folks were more often flagged as toxic. This racial bias generalizes to 
 other Twitter corpora.
 
-**How to reduce the bias?**
+### How to reduce the bias?
 
 Answer is by changing the task of annotation. 
 
@@ -77,8 +74,7 @@ The annotation was done in a three-fold manner:
  alt="this is a placeholder image" 
  caption="Proportion (in %) of offensiveness annotations of AAE tweets in control, dialect, and race priming conditions." %}
 
-Takeaways
----
+## Takeaways
 
 * Evidence of racial bias in existing hate detection corpora.
 * Bias will propagate downstream through ML models.
@@ -86,8 +82,7 @@ Takeaways
 * In general, hate speech language is highly subjective and contextual. Factors like slang,
 dialects, slurs, etc must be taken into consideration.
 
-References
----
+## References
 
 {% bibliography --cited %}
 
