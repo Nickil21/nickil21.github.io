@@ -23,22 +23,22 @@ tags:
           toxicity scores from [PerspectiveAPI](http://perspectiveapi.com){:target='_blank'}." %}
 
 # PDF - [Paper](https://www.aclweb.org/anthology/P19-1163.pdf){:target="_blank"} by {% cite sap-etal-2019-risk %}
-
+---
 # Introduction
-
+---
 * Goal of Hate Detection: _Try and make the internet less toxic_.
 * Toxicity ML models are generally trained on text-only annotations and don't have information about the speaker.
 * Current datasets ignore social context of speech, like - identity of speaker, dialect of English.
 * Ignoring these nuances risks harming minority populations by suppressing inoffensive speech.
 
 # Problem
-
+---
 * Severe Racial bias in hate speech detection.
 * Do ML models acquire this racial bias from datasets?
 * Can annotation task design affect these racial biases?
 
 # How it Solves
-
+---
 It uses Dialect as a proxy for racial identity. African American English (AAE) dialect is used in the paper. 
 Lexical detector by {% cite blodgett-etal-2016-demographic %} was used to infer the presence of AAE.
 
@@ -74,7 +74,7 @@ The annotation was done in a three-fold manner:
  caption="Proportion (in %) of offensiveness annotations of AAE tweets in control, dialect, and race priming conditions." %}
 
 # Takeaways
-
+---
 * Evidence of racial bias in existing hate detection corpora.
 * Bias will propagate downstream through ML models.
 * Priming annotators influences label of offensiveness.
@@ -82,7 +82,7 @@ The annotation was done in a three-fold manner:
 dialects, slurs, etc must be taken into consideration.
 
 # References
-
+---
 {% bibliography --cited %}
 
 ---
