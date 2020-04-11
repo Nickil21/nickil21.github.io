@@ -7,12 +7,12 @@ excerpt: "About me"
 author_profile: true
 ---
 
-## About Me
-
+# About Me
+---
 My broad interests are in the intersection of Machine Learning, Natural Language Processing, and Information Retrieval.
 
-## News
-
+# News
+---
 <table>
 {% for article in site.data.news %}
 <tr>
