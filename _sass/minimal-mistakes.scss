@@ -4,11 +4,6 @@
  * Licensed under MIT (https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE)
 */
 
-/* Hack for disabling left sidebar */
-article.page {
-    float: left;
-    width: 100%;
-}
 
 /* Variables */
 @import "minimal-mistakes/variables";
@@ -44,3 +39,32 @@ article.page {
 @import "minimal-mistakes/archive";
 @import "minimal-mistakes/sidebar";
 @import "minimal-mistakes/print";
+
+
+/* Hack for disabling left sidebar */
+article.page {
+    float: left;
+    width: 100%;
+}
+
+/* Hack for disabling underline from links */
+a {
+text-decoration: none;
+}
+
+/* Hack to make font size smaller */
+html {
+  font-size: 14px; // change to whatever
+
+  @include breakpoint($medium) {
+    font-size: 15px; // change to whatever
+  }
+
+  @include breakpoint($large) {
+    font-size: 16px; // change to whatever
+  }
+
+  @include breakpoint($x-large) {
+    font-size: 17px; // change to whatever
+  }
+}

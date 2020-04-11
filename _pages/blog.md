@@ -5,9 +5,10 @@ permalink: /blog/
 header:
   overlay_image: /assets/images/blog/aaron-burden-y02jEX_B0O0-unsplash.jpg
   actions:
-    - label: "See all Posts by Tags"
-      url: "/blog/tags"
+    - label: "See all Posts"
+      url: "/blog/posts-archive/"
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+excerpt: '"The true alchemists do not change lead into gold; they change the world into words." ― William H. Gass'  
 feature_row:
   - image_path: /assets/images/blog/main-folder/bert-distilbert-sentence-classification.png
     image_caption: "Photo credit: [Jay Alammar](https://jalammar.github.io/)"
