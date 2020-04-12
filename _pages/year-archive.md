@@ -1,7 +1,7 @@
 ---
-title: "Posts by Tags"
-permalink: /blog/tags/
-layout: tags
+title: "Posts by Year"
+permalink: /blog/year-archive/
+layout: posts
 author_profile: false
 ---
 Browse by:

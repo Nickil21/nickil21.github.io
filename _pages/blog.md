@@ -6,7 +6,7 @@ header:
   overlay_image: /assets/images/blog/aaron-burden-y02jEX_B0O0-unsplash.jpg
   actions:
     - label: "See all Posts"
-      url: "/blog/posts-archive/"
+      url: "/blog/year-archive/"
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: '"The true alchemists do not change lead into gold; they change the world into words." ― William H. Gass'  
 feature_row:
