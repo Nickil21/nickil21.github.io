@@ -8,7 +8,7 @@ date: 2020-04-05
 last_modified_at: 2020-04-08
 permalink: "/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/"
 header:
-  teaser: "assets/images/nlp_papers_summary/pic_1.png"
+  teaser: "/assets/images/nlp_papers_summary/pic_1.png"
 category: 
   - NLP Papers Summary
 tags:

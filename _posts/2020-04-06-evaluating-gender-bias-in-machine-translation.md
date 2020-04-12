@@ -8,7 +8,7 @@ date: 2020-04-06
 last_modified_at: 2020-04-08
 permalink: "/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/"
 header: 
-  teaser: "assets/images/nlp_papers_summary/pic_3.jpg"
+  teaser: "/assets/images/nlp_papers_summary/pic_3.png"
 category: 
   - NLP Papers Summary
 tags:
@@ -16,9 +16,8 @@ tags:
   - ACL   
 ---
 
-{% include figure image_path="/assets/images/nlp_papers_summary/pic_3.jpg"
- alt="this is a placeholder image" 
- caption="Photo credit: [**Unsplash**](https://unsplash.com)" %}
+{% include figure image_path="/assets/images/nlp_papers_summary/pic_3.png"
+ alt="this is a placeholder image" %}
 
 # PDF - [Paper](https://www.aclweb.org/anthology/P19-1164.pdf){:target="_blank"} by {% cite stanovsky-etal-2019-evaluating %} | [Code](https://github.com/gabrielStanovsky/mt_gender){:target="_blank"}
 ---

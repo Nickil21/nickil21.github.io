@@ -222,7 +222,9 @@ figure {
   }
 
   img {
-    width: 100%;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: $border-radius;
     -webkit-transition: $global-transition;
     transition: $global-transition;
