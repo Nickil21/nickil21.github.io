@@ -114,7 +114,7 @@ $$
 $$
 
 where ${N}$ is the number of sentence pairs in the training data, $|y^n|$ indicates the length 
-of the ${n}$-th ground truth sentence, $P_n^j$ refers to the predicted probability distribution at the ${j}$-th 
+of the ${n}$-th ground truth sentence, $P_j^n$ refers to the predicted probability distribution at the ${j}$-th 
 step for the ${n}$-th sentence, hence $P_j^n[y_j^n]$ is the probability of generating the 
 ground truth word $y_j^n$ at the ${j}$-th step.
 
