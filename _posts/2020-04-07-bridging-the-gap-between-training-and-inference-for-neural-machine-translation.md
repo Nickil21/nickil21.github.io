@@ -26,17 +26,24 @@ tags:
 # Introduction
 ---
 * During Training, ground truth words as context. At inference, self-generated words as context.
-* Overcorrection, if we only use self-generated words as context.
+* Over-correction, if we only use self-generated words as context.
+* A sentence usually has multiple reasonable translations and it cannot be said that the model makes a
+mistake even if it generates a word different from the ground truth word.
+For example:
+
+**reference**: We should comply with the rule.<br><br>
+**cand1**: We should abide with the rule.<br>
+**cand2**: We should abide by the law.<br>
+**cand3**: We should abide by the rule.<br>
+{: .notice}
 
 # How it Solves
 ---
 
-Propose two samples from ground-truth words and oracle words as context. 
-
-## RNNSearch Model
-
-{% include figure image_path="/assets/images/nlp_papers_summary/pic_9.png"
- alt="this is a placeholder image" %}
+The main framework is to feed as context either the ground truth words 
+or the previous predicted words, i.e. oracle words, with a certain probability. This potentially
+can reduce the gap between training and inference by training the model to handle the situation which
+will appear during test time.
 
 ## Oracle Translation Generation
 
@@ -56,9 +63,9 @@ Gumbel noise, treated as a form of regularization, is added to $o_{j−1}$.
 
 $$
 \begin{align*}
-\eta = -\log(-\log u)\\\\
-\widetilde{o}_{j-1} = (o_{j-1} + \eta) / \tau\\\\
-\widetilde{P}_{j-1} = {softmax}(\widetilde{o}_{j-1})
+\eta&= -\log(-\log u)\\
+\tilde{o}_{j-1}&= (o_{j-1} + \eta) / \tau\\
+\tilde{P}_{j-1}&= {softmax}(\tilde{o}_{j-1})
 \end{align*}
 $$
 
@@ -67,9 +74,9 @@ As $\tau$ approaches 0, the $\{softmax}$ function is similar to the $\{argmax}$ 
 gradually when $\tau$ $\rightarrow$ $\infty$.
 
 2) Sentence Level Oracle (SO)
-  * Generate top-k translation by beam search.
-  * Rerank top-k transaltion with BLEU.
-  * Select top-i.
+  * Generate $top(k)$ translation by beam search.
+  * Re-rank $top(k)$ translation with BLEU.
+  * Select $top(i)$.
 
 ## Context Sampling with Decay  
 
@@ -91,7 +98,9 @@ As the model converges gradually, the model selects from the oracle words more o
  
 where $$\begin{align*}{p} = \frac{\mu}{\mu + \exp(\mathcal{e}/\mu)}\end{align*}$$
 
-Here, $\mathcal{e}$ corresponds to the epoch number.
+Here, $\mathcal{e}$ corresponds to the epoch number and $\mu$ is a hyper-parameter. The function is
+strictly monotone decreasing. As the training proceeds, the probability $p$ of feeding ground truth
+words decreases gradually.
    
 ## Training
  
@@ -107,7 +116,7 @@ $$
 where ${N}$ is the number of sentence pairs in the training data, $|y^n|$ indicates the length 
 of the ${n}$-th ground truth sentence, $P_n^j$ refers to the predicted probability distribution at the ${j}$-th 
 step for the ${n}$-th sentence, hence $P_j^n[y_j^n]$ is the probability of generating the 
-ground truth word $y_n^j$ at the ${j}$-th step.
+ground truth word $y_j^n$ at the ${j}$-th step.
 
 # Takeaways
 ---
