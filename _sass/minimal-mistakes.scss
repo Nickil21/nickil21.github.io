@@ -73,3 +73,84 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-weight: inherit;
 }
+
+/* Hack to make masthead equate to the background color */
+.masthead__inner-wrap{background-color: #333}
+.masthead__inner-wrap nav {background-color: #333}
+.page__footer {background-color: #212121}
+
+html, html[data-theme="light"] {
+  --bold-color: rgb(0, 0, 0);
+  --box-background-color: rgb(249, 249, 250);
+  --highlight-color: hsl(0, 0%, 80%);
+  --light-border-color: rgb(230, 230, 230);
+  --light-text-color: rgb(72, 72, 74);
+  --link-color: rgb(0, 112, 201);
+  --link-color-visited: hsl(250, 100%, 37%);
+  --main-background-color: rgb(255, 255, 255);
+  --main-text-color: rgb(51, 51, 51);
+  --medium-text-color: hsl(0, 0%, 20%);
+  --sidebar-color: hsl(0, 0%, 90%);
+  --underline-color: hsl(0, 0%, 60%);
+}
+
+html[data-theme="dark"] {
+  --bold-color: rgb(240, 240, 240);
+  --box-background-color: hsl(0, 0%, 20%);
+  --highlight-color: hsl(0, 0%, 60%);
+  --light-border-color: hsl(0, 0%, 30%);
+  --light-text-color: rgb(199, 199, 204);
+  --link-color: rgb( 100, 210, 255);
+  --link-color-visited: hsl(250, 100%, 60%);
+  --main-background-color: #333;
+  --main-text-color: rgb(229, 229, 234);
+  --medium-text-color: hsl(0, 0%, 70%);
+  --underline-color: hsl(0, 0%, 50%);
+}
+
+
+@media (prefers-color-scheme: dark) {
+    html, html[data-theme="dark"] {
+      --bold-color: rgb(255, 255, 255);
+      --box-background-color: hsl(0, 0%, 20%);
+      --highlight-color: hsl(0, 0%, 60%);
+      --light-border-color: hsl(0, 0%, 30%);
+      --light-text-color: rgb(199, 199, 204);
+      --link-color: rgb( 100, 210, 255);
+      --link-color-visited: hsl(250, 100%, 60%);
+      --main-background-color: rgb(28, 28, 30);
+      --main-text-color: rgb(229, 229, 234);
+      --medium-text-color: hsl(0, 0%, 70%);
+      --underline-color: hsl(0, 0%, 50%);
+    }
+
+    html[data-theme="light"] {
+  --bold-color: rgb(0, 0, 0);
+  --box-background-color: rgb(249, 249, 250);
+  --highlight-color: hsl(0, 0%, 80%);
+  --light-border-color: rgb(230, 230, 230);
+  --light-text-color: rgb(72, 72, 74);
+  --link-color: rgb(0, 112, 201);
+  --link-color-visited: hsl(250, 100%, 37%);
+  --main-background-color: rgb(255, 255, 255);
+  --main-text-color: rgb(51, 51, 51);
+  --medium-text-color: hsl(0, 0%, 20%);
+  --sidebar-color: hsl(0, 0%, 90%);
+  --underline-color: hsl(0, 0%, 60%);
+  }
+}
+
+
+html, html[data-theme="dark"], html[data-theme="light"] {
+  height: 100%;
+  scroll-behavior: smooth;
+  //-moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+}
+
+
+body {
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+  text-rendering: optimizeLegibility;
+}
