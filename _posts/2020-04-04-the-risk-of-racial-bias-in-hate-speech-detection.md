@@ -5,7 +5,7 @@ toc: true
 title: "The Risk of Racial Bias in Hate Speech Detection"
 excerpt: "Investigate how annotators’ insensitivity to differences in dialect can lead to racial bias in automatic hate speech detection models, potentially amplifying harm against minority populations."
 date: 2020-04-05
-last_modified_at: 2020-04-08
+last_modified_at: 2020-04-15
 permalink: "/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/"
 header:
   teaser: "/assets/images/nlp_papers_summary/pic_1.png"
@@ -24,6 +24,7 @@ tags:
 
 # PDF - [Paper](https://www.aclweb.org/anthology/P19-1163.pdf){:target="_blank"} by {% cite sap-etal-2019-risk %}
 ---
+
 # Introduction
 ---
 * Goal of Hate Detection: _Try and make the internet less toxic_.
@@ -41,11 +42,17 @@ tags:
 ---
 It uses Dialect as a proxy for racial identity. African American English (AAE) dialect is used in the paper. 
 Lexical detector by {% cite blodgett-etal-2016-demographic %} was used to infer the presence of AAE.
-
 To find out whether ML models are affected by racial bias in datasets, train/test classifiers on 2
-corpora ( *TWT-HATEBASE*, *TWT-BOOTSTRAP* ) used in hate detection systems were performed. A held-out set broken
-down by dialect group was used to assess the performance of these classifiers by counting the number of 
-mistakes made.
+corpora ( *TWT-HATEBASE*, *TWT-BOOTSTRAP* ) used in hate detection systems were performed to 
+predict the toxicity label of a tweet. A held-out set broken down by dialect group was used to 
+assess the performance of these classifiers by counting the number of mistakes made. Minimization of the 
+cross-entropy of the annotated class conditional on text, $x$:
+
+$$
+\begin{align*}
+p(class{|}{x}) \propto \exp(\textbf{W}_o\textbf{h} + \textbf{b}_o)
+\end{align*}
+$$
 
 Predictions by both the classifiers were biased against AAE tweets as shown by the following results:
 
@@ -58,11 +65,8 @@ other Twitter corpora.
 
 ## How to reduce the bias?
 
-Answer is by changing the task of annotation. 
-
-To test this hypothesis, 350 AAE tweets stratified by dataset labels were 
+Answer is by changing the task of annotation. To test this hypothesis, 350 AAE tweets stratified by dataset labels were 
 given to Amazon Mechanical Turkers. 
-
 The annotation was done in a three-fold manner:
 
 1. only text. (**55%** were labelled as offensive)
