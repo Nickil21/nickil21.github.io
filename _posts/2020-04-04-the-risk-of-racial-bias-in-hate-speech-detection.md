@@ -54,6 +54,9 @@ p(class{|}{x}) \propto \exp(\textbf{W}_o\textbf{h} + \textbf{b}_o)
 \end{align*}
 $$
 
+with $h = f(x)$, where $f$ is a BiLSTM with attention, followed by a projection layer to encode the
+tweets into an $H$-dimensional vector.
+
 Predictions by both the classifiers were biased against AAE tweets as shown by the following results:
 
 {: .notice}
@@ -76,6 +79,10 @@ The annotation was done in a three-fold manner:
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_2.png"
  alt="this is a placeholder image" 
  caption="Proportion (in %) of offensiveness annotations of AAE tweets in control, dialect, and race priming conditions." %}
+
+Annotators are substantially more likely to rate a tweet as being offensive to someone, 
+than to rate it as offensive to themselves, suggesting that people recognize the subjectivity 
+of offensive language.
 
 # Takeaways
 ---

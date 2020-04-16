@@ -50,6 +50,16 @@ These are very useful for evaluating gender bias in MT!
  * Equally split between stereotypical and non-stereotypical role assignments. (For every female doctor, we'll have a 
  female nurse)
  * Gold annotations for gender.
+ 
+Six widely used MT models, representing the state of the art in both commercial and academic research
+were used:
+1. Google Translate
+2. Microsoft Translator
+3. Amazon Translate
+4. SYSTRAN 
+5. the model of {% cite ott2018scaling %}, which recently achieved the best performance on English-to-French
+translation on the WMT'14 test set.
+6. the model of {% cite edunov-etal-2018-understanding %}, the WMT’18 winner on English-to-German translation. 
   
 # Implementation
 ---
