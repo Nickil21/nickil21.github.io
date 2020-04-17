@@ -40,6 +40,13 @@ tags:
 
 # How it Solves
 ---
+Empirically characterize the racial bias present in several widely used Twitter corpora
+annotated for toxic content, and quantify the propagation of this bias through models trained on them. 
+They established strong associations between AAE markers (e.g., **"n*ggas"**, **"ass"**) 
+and toxicity annotations, and show that models acquire and replicate this bias: in other corpora, 
+tweets inferred to be in AAE and tweets from self-identifying African American users are more likely 
+to be classified as offensive.
+
 It uses Dialect as a proxy for racial identity. African American English (AAE) dialect is used in the paper. 
 Lexical detector by {% cite blodgett-etal-2016-demographic %} was used to infer the presence of AAE.
 To find out whether ML models are affected by racial bias in datasets, train/test classifiers on 2
