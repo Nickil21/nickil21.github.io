@@ -6,6 +6,7 @@ title: "Bridging the Gap between Training and Inference for Neural Machine Trans
 excerpt: "In Neural Machine Translation, at training time, it predicts with the ground truth words as context 
 while at inference it has to generate the entire sequence from scratch. This discrepancy of the fed context leads to error accumulation among the way.
 This paper addresses this and many other issues."
+date: 2020-04-07
 last_modified_at: 2020-04-13
 permalink: "/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/"
 header:

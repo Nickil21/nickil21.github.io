@@ -4,7 +4,7 @@ author_profile: false
 toc: true
 title: "The Risk of Racial Bias in Hate Speech Detection"
 excerpt: "Investigate how annotators’ insensitivity to differences in dialect can lead to racial bias in automatic hate speech detection models, potentially amplifying harm against minority populations."
-date: 2020-04-05
+date: 2020-04-04
 last_modified_at: 2020-04-15
 permalink: "/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/"
 header:
