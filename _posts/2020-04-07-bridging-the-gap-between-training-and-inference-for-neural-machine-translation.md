@@ -27,6 +27,10 @@ tags:
 # Introduction
 ---
 * During Training, ground truth words as context. At inference, self-generated words as context.
+
+This discrepancy, called exposure bias, leads to a gap between training and inference. As
+the target sequence grows, the errors accumulate among the sequence and the model has to predict
+under the condition it has never met at training time.
 * Over-correction, if we only use self-generated words as context.
 * A sentence usually has multiple reasonable translations and it cannot be said that the model makes a
 mistake even if it generates a word different from the ground truth word.
@@ -37,6 +41,14 @@ For example:
 **cand2**: We should abide by the law.<br>
 **cand3**: We should abide by the rule.<br>
 {: .notice}
+
+# Problem
+---
+At training time, [Neural Machine Translation](https://arxiv.org/abs/1409.0473) predicts with the ground truth words as context while at inference 
+it has to generate the entire sequence from scratch. This discrepancy of the fed context 
+leads to error accumulation among the way. Furthermore, word-level training requires strict matching 
+between the generated sequence and the ground truth sequence which leads to overcorrection over 
+different but reasonable translations.
 
 # How it Solves
 ---
@@ -78,6 +90,10 @@ gradually when $\tau$ $\rightarrow$ $\infty$.
   * Generate $top(k)$ translation by beam search.
   * Re-rank $top(k)$ translation with BLEU.
   * Select $top(i)$.
+  
+As the model samples from ground truth word and the sentence-level oracle word at each step, the
+two sequences should have the same number of words. Force decoding is used 
+to make sure the two sequences have the same length. 
 
 ## Context Sampling with Decay  
 

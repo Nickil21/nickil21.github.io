@@ -50,7 +50,7 @@ to be classified as offensive.
 It uses Dialect as a proxy for racial identity. African American English (AAE) dialect is used in the paper. 
 Lexical detector by {% cite blodgett-etal-2016-demographic %} was used to infer the presence of AAE.
 To find out whether ML models are affected by racial bias in datasets, train/test classifiers on 2
-corpora ( *TWT-HATEBASE*, *TWT-BOOTSTRAP* ) used in hate detection systems were performed to 
+corpora (<span style="color:teal;">TWT-HATEBASE, TWT-BOOTSTRAP</span>) used in hate detection systems were performed to 
 predict the toxicity label of a tweet. A held-out set broken down by dialect group was used to 
 assess the performance of these classifiers by counting the number of mistakes made. Minimization of the 
 cross-entropy of the annotated class conditional on text, $x$:
