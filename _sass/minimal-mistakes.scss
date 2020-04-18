@@ -62,10 +62,6 @@ html {
   }
 }
 
-/* Hack to remove bold */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: inherit;
-}
 
 /* Hack to make masthead equate to the background color */
 .masthead__inner-wrap{background-color: #333}
