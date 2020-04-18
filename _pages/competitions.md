@@ -5,7 +5,7 @@ permalink: /competitions/
 feature_row_1:
   - image_path: /assets/images/competitions/quality_cement_2019.jpg
     alt: "Quality Forecasting in Cement Manufacturing"
-    title: "Quality Forecasting in Cement Manufacturing<sup>:medal_sports:</sup>"
+    title: "Quality Forecasting in Cement Manufacturing<sup><i class='fas fa-medal' style='color:gold;'></i></sup>"
     excerpt: 'Finished 2<sup>nd</sup> out of 479 participants and awarded a prize money of 2500 USD.
     <br>
     <br>
@@ -16,7 +16,7 @@ feature_row_1:
 feature_row_2:
   - image_path: /assets/images/competitions/quora_question_2018.png
     alt: "Quora Insincere Questions Classification Challenge"
-    title: "Quora Insincere Questions Classification Challenge"
+    title: "Quora Insincere Questions Classification Challenge<sup><i class='fas fa-medal' style='color:silver;'></i></sup>"
     excerpt: 'Finished in the top 3% hosted on Kaggle. Won a silver medal.'
     url: "https://www.kaggle.com/c/quora-insincere-questions-classification/"
     btn_label: "Read More"
@@ -35,7 +35,7 @@ feature_row_3:
 feature_row_4:
   - image_path: /assets/images/competitions/tennis_australia_2018.jpg
     alt: "Predicting How Points End in Tennis"
-    title: "Predicting How Points End in Tennis<sup>:medal_sports:</sup>"
+    title: "Predicting How Points End in Tennis<sup><i class='fas fa-medal' style='color:gold;'></i></sup>"
     excerpt: 'Finished 2<sup>nd</sup> out of 750 participants and awarded a prize money of 2500 USD.
     Featured in Tennis Australia official press release. See [here](https://ausopen.com/articles/news/tennis-hackathon-draws-record-participation){:target="_blank"}.
     <br>
