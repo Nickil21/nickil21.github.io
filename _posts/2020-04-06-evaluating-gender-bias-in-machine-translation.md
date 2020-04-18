@@ -19,7 +19,7 @@ tags:
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_3.png"
  alt="this is a placeholder image" %}
 
-PDF - [Paper](https://www.aclweb.org/anthology/P19-1164.pdf){:target="_blank"} by {% cite stanovsky-etal-2019-evaluating %} | [Code](https://github.com/gabrielStanovsky/mt_gender){:target="_blank"}
+PDF - [Paper](https://www.aclweb.org/anthology/P19-1164.pdf){:target="_blank"} by {% cite stanovsky-etal-2019-evaluating %} and [Code](https://github.com/gabrielStanovsky/mt_gender){:target="_blank"}
 {: .notice--info}
 
 # Introduction
