@@ -20,11 +20,10 @@ tags:
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_11.png"
  alt="this is a placeholder image" %}
 
-# PDF - [Paper](https://www.aclweb.org/anthology/P19-1412.pdf){:target="_blank"} by {% cite jiang-de-marneffe-2019-know %}
----
+PDF - [Paper](https://www.aclweb.org/anthology/P19-1412.pdf){:target="_blank"} by {% cite jiang-de-marneffe-2019-know %}
+{: .notice--info}
 
 # Introduction
----
 * Prediction of speaker commitment is the task of determining to what extent the speaker is 
 committed to an event in a sentence as actual, non-actual, or uncertain. This matters for downstream
 NLP applications, such as information extraction or question answering.
@@ -45,11 +44,9 @@ Speaker is not committed -  <span style="color:teal">"I **don't know** that Flor
 Mainly, due to "don't know" being a Neg-raising (negation) has a tendency to suggest that the embedding clause is false.
 
 # Problem
----
 * Evaluating SOTA models of Speaker Commitment.
 
 # How it Solves
----
 They explore the hypothesis that linguistic deficits drive the error patterns of speaker commitment 
 models by analyzing the linguistic correlations of model errors on a challenging naturalistic dataset.
 
@@ -85,7 +82,6 @@ Task is to predict a gradience of commitment  $\in [-3, 3]$
 * Mean Absolute Error: Measures the absolute fit of the model. (Lower Better)
 
 # Results
-
 ## Embedding environment
 The rule-based model can only capture inferences involving negation ($r$ = 0.45), while the hybrid model
 performs more consistently across negation, modal, and question ($r$ ∼ 0.25). Both models
@@ -107,18 +103,15 @@ There is almost no correlation between both models' predictions and gold judgmen
 suggesting that the models are not able to capture neg-raising inferences. 
 
 # Limitations and Future Work
----
 To perform robust language understanding, models will need to incorporate more linguistic foreknowledge and be able to generalize
 to a wider range of linguistic constructions.
  
 # Takeaways
----
 * Conditionals, factive verbs, neg-raisings are hard for models.
 * Models can identify polarity, but not gradience.
 * Linguistically motivated models scale more successfully.
 
 # References
----
 {% bibliography --cited %}
 
 ---

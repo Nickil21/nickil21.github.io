@@ -21,11 +21,10 @@ tags:
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_7.png"
  alt="this is a placeholder image" %}
 
-# PDF - [Paper](https://www.aclweb.org/anthology/P19-1426.pdf){:target="_blank"} by {% cite zhang-etal-2019-bridging %}
----
+PDF - [Paper](https://www.aclweb.org/anthology/P19-1426.pdf){:target="_blank"} by {% cite zhang-etal-2019-bridging %}
+{: .notice--info}
  
 # Introduction
----
 * During Training, ground truth words as context. At inference, self-generated words as context.
 
 This discrepancy, called exposure bias, leads to a gap between training and inference. As
@@ -43,7 +42,6 @@ For example:
 {: .notice}
 
 # Problem
----
 At training time, [Neural Machine Translation](https://arxiv.org/abs/1409.0473) predicts with the ground truth words as context while at inference 
 it has to generate the entire sequence from scratch. This discrepancy of the fed context 
 leads to error accumulation among the way. Furthermore, word-level training requires strict matching 
@@ -51,15 +49,12 @@ between the generated sequence and the ground truth sequence which leads to over
 different but reasonable translations.
 
 # How it Solves
----
-
 The main framework is to feed as context either the ground truth words 
 or the previous predicted words, i.e. oracle words, with a certain probability. This potentially
 can reduce the gap between training and inference by training the model to handle the situation which
 will appear during test time.
 
 ## Oracle Translation Generation
-
 1) Word Level Oracle (SO)
 
 Generally, at the $j$-th step, the NMT model needs the ground truth word $y_{j−1}^*$ 
@@ -96,7 +91,6 @@ two sequences should have the same number of words. Force decoding is used
 to make sure the two sequences have the same length. 
 
 ## Context Sampling with Decay  
-
 Employ a sampling mechanism to randomly select the ground truth word $y_{j-1}^*$ 
 or the oracle word $y_{j−1}^{oracle}$ as $y_{j−1}$. At the beginning of training, 
 as the model is not well trained, using $y_{j−1}^{oracle}$ as $y_{j−1}$ too often
@@ -120,7 +114,6 @@ strictly monotone decreasing. As the training proceeds, the probability $p$ of f
 words decreases gradually.
    
 ## Training
- 
 The objective is to maximize the probability of the ground truth sequence based on maximum likelihood estimation (MLE).
 Thus, following loss function is minimized:
 
@@ -136,13 +129,11 @@ step for the ${n}$-th sentence, hence $P_j^n[y_j^n]$ is the probability of gener
 ground truth word $y_j^n$ at the ${j}$-th step.
 
 # Takeaways
----
 * Sampling as context from the ground truth and the generated oracle can mitigate exposure bias. 
 * Sentence-level oracle is better than word-level oracle.
 * Gumbel noise can help improve translation quality.
 
 # References
----
 {% bibliography --cited %}
 
 ---

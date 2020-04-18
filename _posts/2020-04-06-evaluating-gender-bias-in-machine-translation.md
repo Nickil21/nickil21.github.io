@@ -19,10 +19,10 @@ tags:
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_3.png"
  alt="this is a placeholder image" %}
 
-# PDF - [Paper](https://www.aclweb.org/anthology/P19-1164.pdf){:target="_blank"} by {% cite stanovsky-etal-2019-evaluating %} | [Code](https://github.com/gabrielStanovsky/mt_gender){:target="_blank"}
----
+PDF - [Paper](https://www.aclweb.org/anthology/P19-1164.pdf){:target="_blank"} by {% cite stanovsky-etal-2019-evaluating %} | [Code](https://github.com/gabrielStanovsky/mt_gender){:target="_blank"}
+{: .notice--info}
+
 # Introduction
----
 * Some languages encode grammatical gender - Spanish, Italian, Russian, etc. One word for male, other word for female.
 * Other languages are gender neutral - English, Turkish, Finnish. One word for both male and female.
 * When translating between genderless to gender-ed languages, translator needs to take gender into account, and make decisions.
@@ -31,13 +31,11 @@ tags:
  caption="An example of gender bias in machine translation from English (top) to Spanish (bottom)." %}
 
 # Problem
----
 * Can we quantitatively evaluate gender translation in MT?
 * How much does MT rely on gender stereotypes vs. meaningful context?
 * Can we reduce gender bias by rephrasing source texts?
 
 # How it Solves
----
 Winogender {% cite rudinger-etal-2018-gender %} and WinoBias {% cite zhao-etal-2018-gender %} datasets were used 
 following the [Winograd schema](https://www.aaai.org/ocs/index.php/SSS/SSS11/paper/viewFile/2502/2964){:target="_blank"}. 
 Collectively, they compose of 3888 English sentences designed to test gender bias in coreference resolution.
@@ -62,7 +60,6 @@ translation on the WMT'14 test set.
 6. the model of {% cite edunov-etal-2018-understanding %}, the WMT’18 winner on English-to-German translation. 
   
 # Implementation
----
 **Input :** MT model + target language<br>
 **Output :** Accuracy score for gender translation
 
@@ -99,7 +96,6 @@ This approach improved performance for most tested languages and models. [mean +
 {: .notice--success} 
 
 # Limitations and Future Work
----
 * Artificially created dataset.
   * Allows for controlled experiment.
   * Yet, might introduce it's own annotation biases.
@@ -108,7 +104,6 @@ This approach improved performance for most tested languages and models. [mean +
   * Easy to overfit.
  
 # Takeaways
----
 * First quantitative automatic evaluation of gender bias in MT.
   * 6 SOTA MT models on 8 diverse target languages.
   * Doesn't require reference translations.
@@ -117,7 +112,6 @@ This approach improved performance for most tested languages and models. [mean +
 * Easily extensible with more languages and MT models.
 
 # References
----
 {% bibliography --cited %}
 
 ---

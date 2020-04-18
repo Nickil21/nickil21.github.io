@@ -22,24 +22,21 @@ tags:
           their non-AAE equivalents, and
           toxicity scores from [PerspectiveAPI](http://perspectiveapi.com){:target='_blank'}." %}
 
-# PDF - [Paper](https://www.aclweb.org/anthology/P19-1163.pdf){:target="_blank"} by {% cite sap-etal-2019-risk %}
----
+PDF - [Paper](https://www.aclweb.org/anthology/P19-1163.pdf){:target="_blank"} by {% cite sap-etal-2019-risk %}
+{: .notice--info}
 
 # Introduction
----
 * Goal of Hate Detection: _Try and make the internet less toxic_.
 * Toxicity ML models are generally trained on text-only annotations and don't have information about the speaker.
 * Current datasets ignore social context of speech, like - identity of speaker, dialect of English.
 * Ignoring these nuances risks harming minority populations by suppressing inoffensive speech.
 
 # Problem
----
 * Severe Racial bias in hate speech detection.
 * Do ML models acquire this racial bias from datasets?
 * Can annotation task design affect these racial biases?
 
 # How it Solves
----
 Empirically characterize the racial bias present in several widely used Twitter corpora
 annotated for toxic content, and quantify the propagation of this bias through models trained on them. 
 They established strong associations between AAE markers (e.g., **"n*ggas"**, **"ass"**) 
@@ -74,7 +71,6 @@ AAE tweets and tweets by Black folks were more often flagged as toxic. This raci
 other Twitter corpora.
 
 ## How to reduce the bias?
-
 Answer is by changing the task of annotation. To test this hypothesis, 350 AAE tweets stratified by dataset labels were 
 given to Amazon Mechanical Turkers. 
 The annotation was done in a three-fold manner:
@@ -92,7 +88,6 @@ than to rate it as offensive to themselves, suggesting that people recognize the
 of offensive language.
 
 # Takeaways
----
 * Evidence of racial bias in existing hate detection corpora.
 * Bias will propagate downstream through ML models.
 * Priming annotators influences label of offensiveness.
@@ -100,7 +95,6 @@ of offensive language.
 dialects, slurs, etc must be taken into consideration.
 
 # References
----
 {% bibliography --cited %}
 
 ---
