@@ -1,7 +1,7 @@
 ---
-classes: wide
 author_profile: false
-toc: true  
+toc: true
+toc_sticky: true
 title: "Bridging the Gap between Training and Inference for Neural Machine Translation"
 excerpt: "In Neural Machine Translation, at training time, it predicts with the ground truth words as context 
 while at inference it has to generate the entire sequence from scratch. This discrepancy of the fed context leads to error accumulation among the way.

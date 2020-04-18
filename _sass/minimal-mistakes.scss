@@ -40,13 +40,6 @@
 @import "minimal-mistakes/sidebar";
 @import "minimal-mistakes/print";
 
-
-/* Hack for disabling left sidebar */
-article.page {
-    float: left;
-    width: 100%;
-}
-
 /* Hack for disabling underline from links */
 a {
 text-decoration: none;

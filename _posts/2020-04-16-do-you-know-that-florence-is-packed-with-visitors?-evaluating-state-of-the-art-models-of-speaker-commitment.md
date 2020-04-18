@@ -1,7 +1,7 @@
 ---
-classes: wide
 author_profile: false
-toc: true  
+toc: true
+toc_sticky: true 
 title: "Do You Know That Florence Is Packed with Visitors? 
 Evaluating State-of-the-art Models of Speaker Commitment"
 excerpt: "Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering."
