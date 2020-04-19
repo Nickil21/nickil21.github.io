@@ -75,8 +75,6 @@ html, html[data-theme="light"] {
   --medium-text-color: hsl(0, 0%, 20%);
   --sidebar-color: hsl(0, 0%, 90%);
   --underline-color: hsl(0, 0%, 60%);
-  .greedy-nav a {color: #6f777d}
-  .search__toggle {color: #6f777d}
   .page__footer {background-color: #f2f3f3}
 }
 
@@ -89,15 +87,14 @@ html[data-theme="dark"] {
   --link-color: rgb( 100, 210, 255);
   --link-color-visited: hsl(250, 100%, 60%);
   --main-background-color: #111;
-  --main-text-color: #fff;
+  --main-text-color: #6f777d;
   --medium-text-color: hsl(0, 0%, 70%);
   --underline-color: hsl(0, 0%, 50%);
+  .social-icons .fa-github, .social-icons .fa-github-alt, .social-icons .fa-github-square {
+    color: #e64980};
   .masthead__inner-wrap{background-color: #111}
   .masthead__inner-wrap nav {background-color: #111}
-  .greedy-nav a {color: #fc0}
-  .search__toggle {color: #fc0}
   .page__footer {background-color: #212121}
-  .greedy-nav .visible-links a:before {background: darkorange}
 }
 
 
