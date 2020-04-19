@@ -10,7 +10,7 @@ date: 2020-04-07
 last_modified_at: 2020-04-13
 permalink: "/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/"
 header:
-  teaser: "assets/images/nlp_papers_summary/pic_7.png"
+  teaser: "assets/images/nlp_papers_summary/pic_15.png"
 category: 
   - NLP Papers Summary
 tags:
@@ -18,7 +18,7 @@ tags:
   - ACL    
 ---
 
-{% include figure image_path="/assets/images/nlp_papers_summary/pic_7.png"
+{% include figure image_path="/assets/images/nlp_papers_summary/pic_15.png"
  alt="this is a placeholder image" %}
 
 PDF - [Paper](https://www.aclweb.org/anthology/P19-1426.pdf){:target="_blank"} by {% cite zhang-etal-2019-bridging %}
@@ -55,8 +55,8 @@ can reduce the gap between training and inference by training the model to handl
 will appear during test time.
 
 ## Oracle Translation Generation
-1) Word Level Oracle (SO)
-
+Select an oracle word $y_{j−1}^{oracle}$ at word level or sentence level at the {$j−1$}$^{-th}$ step.
+### 1) Word Level Oracle (SO)
 Generally, at the $j$-th step, the NMT model needs the ground truth word $y_{j−1}^*$ 
 as the context word to predict $y_j$ , thus, we could select an oracle word 
 $y_{j−1}^{oracle}$ to simulate the context word. The oracle word should be a word similar 
@@ -64,8 +64,9 @@ to the ground truth or a synonym. Using different strategies will produce a diff
 $y_{j−1}^{oracle}$. One option is that word-level greedy search could be employed to output the 
 oracle word of each step, which is called Word-level Oracle (called WO).
  
-{% include figure image_path="/assets/images/nlp_papers_summary/pic_8.png"
- alt="this is a placeholder image" %}
+{% include figure image_path="/assets/images/nlp_papers_summary/pic_16.png"
+ alt="this is a placeholder image" 
+ caption="Word-level oracle without noise."%}
  
 Gumbel noise, treated as a form of regularization, is added to $o_{j−1}$.
 
@@ -81,7 +82,7 @@ where $\eta$ is the Gumbel noise calculated from a uniform random variable $\{u}
 As $\tau$ approaches 0, the $\{softmax}$ function is similar to the $\{argmax}$ operation, and it becomes uniform distribution 
 gradually when $\tau$ $\rightarrow$ $\infty$.
 
-2) Sentence Level Oracle (SO)
+### 2) Sentence Level Oracle (SO)
   * Generate $top(k)$ translation by beam search.
   * Re-rank $top(k)$ translation with BLEU.
   * Select $top(i)$.
@@ -104,8 +105,9 @@ ground truth word can not be fixed, but has to decrease progressively as the tra
 At the beginning, $p=1$, which means the model is trained entirely based on the ground truth words. 
 As the model converges gradually, the model selects from the oracle words more often. 
   
-{% include figure image_path="/assets/images/nlp_papers_summary/pic_10.png"
- alt="this is a placeholder image" %}
+{% include figure image_path="/assets/images/nlp_papers_summary/pic_17.png"
+ alt="this is a placeholder image"
+ caption="The architecture of their method."%}
  
 where $$\begin{align*}{p} = \frac{\mu}{\mu + \exp(\mathcal{e}/\mu)}\end{align*}$$
 
@@ -127,6 +129,23 @@ where ${N}$ is the number of sentence pairs in the training data, $|y^n|$ indica
 of the ${n}$-th ground truth sentence, $P_j^n$ refers to the predicted probability distribution at the ${j}$-th 
 step for the ${n}$-th sentence, hence $P_j^n[y_j^n]$ is the probability of generating the 
 ground truth word $y_j^n$ at the ${j}$-th step.
+
+# Results
+
+Based on the [RNNSearch](https://arxiv.org/pdf/1409.0473.pdf), the authors introduced the word-level oracles, sentence-level oracles and the 
+Gumbel noises to enhance the overcorrection recovery capacity. They split the translations for the MT03 test
+set into different bins according to the length of source sentences, then test the BLEU scores for
+translations in each bin separately. Their approach can achieve big improvements over the baseline system in all
+bins, especially in the bins (10,20], (40,50] and (70,80] of the super-long sentences.
+
+{% include figure image_path="/assets/images/nlp_papers_summary/pic_14.png"
+ alt="this is a placeholder image" 
+ caption="Performance comparison on the MT03 test set with respect to the different lengths of 
+ source sentences on the Zh→En translation task."%}
+ 
+# Future Scope
+Reporting of [NIST](http://www.mt-archive.info/HLT-2002-Doddington.pdf) or [ROUGE](http://www.aclweb.org/anthology/N03-1020) 
+scores would be helpful for comparison purposes as BLEU doesn't consider sentence structure. 
 
 # Takeaways
 * Sampling as context from the ground truth and the generated oracle can mitigate exposure bias. 

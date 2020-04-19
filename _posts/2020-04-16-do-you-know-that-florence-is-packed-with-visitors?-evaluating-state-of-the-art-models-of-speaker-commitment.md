@@ -24,7 +24,7 @@ PDF - [Paper](https://www.aclweb.org/anthology/P19-1412.pdf){:target="_blank"} b
 {: .notice--info}
 
 # Introduction
-* Prediction of speaker commitment is the task of determining to what extent the speaker is 
+Prediction of speaker commitment is the task of determining to what extent the speaker is 
 committed to an event in a sentence as actual, non-actual, or uncertain. This matters for downstream
 NLP applications, such as information extraction or question answering.
 
@@ -44,7 +44,7 @@ Speaker is not committed -  <span style="color:teal">"I **don't know** that Flor
 Mainly, due to "don't know" being a Neg-raising (negation) has a tendency to suggest that the embedding clause is false.
 
 # Problem
-* Evaluating SOTA models of Speaker Commitment.
+Evaluating SOTA models of Speaker Commitment.
 
 # How it Solves
 They explore the hypothesis that linguistic deficits drive the error patterns of speaker commitment 
@@ -82,6 +82,16 @@ Task is to predict a gradience of commitment  $\in [-3, 3]$
 * Mean Absolute Error: Measures the absolute fit of the model. (Lower Better)
 
 # Results
+
+{% include figure image_path="/assets/images/nlp_papers_summary/pic_13.png"
+ alt="this is a placeholder image" %}
+
+Hybrid model predictions are mostly positive, whereas the rule-based model predictions are clustered at −3
+and +3. This suggests that the rule-based model cannot capture the gradience present in commitment judgments, 
+while the hybrid model struggles to recognize negative commitments. The rule-based model predicts $+$ by default 
+unless it has clear evidence (e.g., negation) for negative commitment. This behavior is reflected in the 
+high precision for $-$. Both models perform well on $+$ and $-$, but neither is able to identify no commitment ($o$).
+
 ## Embedding environment
 The rule-based model can only capture inferences involving negation ($r$ = 0.45), while the hybrid model
 performs more consistently across negation, modal, and question ($r$ ∼ 0.25). Both models
@@ -103,7 +113,10 @@ There is almost no correlation between both models' predictions and gold judgmen
 suggesting that the models are not able to capture neg-raising inferences. 
 
 # Limitations and Future Work
-To perform robust language understanding, models will need to incorporate more linguistic foreknowledge and be able to generalize
+Models are not able to generalize to other linguistic environments such as conditional, modal,
+and neg-raising, which display inference patterns that are important for information extraction. Both
+models are able to identify the polarity of commitment, but cannot capture its gradience. To perform robust 
+language understanding, models will need to incorporate more linguistic foreknowledge and be able to generalize
 to a wider range of linguistic constructions.
  
 # Takeaways

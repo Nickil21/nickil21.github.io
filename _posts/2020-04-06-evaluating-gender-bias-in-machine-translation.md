@@ -59,7 +59,7 @@ were used:
 translation on the WMT'14 test set.
 6. the model of {% cite edunov-etal-2018-understanding %}, the WMT’18 winner on English-to-German translation. 
   
-# Implementation
+## Implementation
 **Input :** MT model + target language<br>
 **Output :** Accuracy score for gender translation
 
@@ -77,24 +77,31 @@ To estimate noise, a sample of gender predictions were shown to native speakers 
 Quality estimated >85% vs. 90% IAA (Inter Annotator Agreement)
 {: .notice--success} 
 
-**To test if gendered adjectives affect translation:**
-
-For the sentence:
-
-"The doctor asked the nurse to help her in the operation."
-{: .notice} 
-
-Black-box injection of gendered adjectives were done:
-
-"The **pretty** doctor asked the nurse to help **<u>her</u>** in the operation."[Since doctor is female]<br>
-"The **handsome** nurse asked the doctor to help **<u>him</u>** in the operation."[Since nurse is male]
-{: .notice}
-
-Here, "pretty" and "handsome" are stereotypical adjectives for feminine and masculine genders respectively.
+> ### To test if gendered adjectives affect translation?
+For the sentence:<br>
+"The doctor asked the nurse to help her in the operation."<br><br>
+Black-box injection of gendered adjectives were done:<br>
+"The **pretty** doctor asked the nurse to help **<u>her</u>** in the operation."
+<span style='color:teal'>[Since doctor is female]</span><br>
+"The **handsome** nurse asked the doctor to help **<u>him</u>** in the operation."
+<span style='color:teal'>[Since nurse is male]</span><br><br>
+Here, "**pretty**" and "**handsome**" are stereotypical adjectives for feminine and masculine genders respectively.
 
 This approach improved performance for most tested languages and models. [mean +8.6%]
 {: .notice--success} 
 
+# Results
+This metric shows that all tested systems have a significant and consistently better performance when presented with pro-stereotypical
+assignments (e.g., a female nurse), while their
+performance deteriorates when translating anti-stereotypical roles (e.g., a male receptionist).
+
+{% include figure image_path="/assets/images/nlp_papers_summary/pic_18.png"
+ alt="this is a placeholder image" 
+ caption="Google Translate’s performance on gender translation on our tested languages. The performance on the
+stereotypical portion of WinoMT is consistently better than that on the non-stereotypical portion. The other MT
+systems we tested display similar trends." %}
+
+ 
 # Limitations and Future Work
 * Artificially created dataset.
   * Allows for controlled experiment.

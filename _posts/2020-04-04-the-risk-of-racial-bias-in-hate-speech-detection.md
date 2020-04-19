@@ -70,8 +70,10 @@ Predictions by both the classifiers were biased against AAE tweets as shown by t
 AAE tweets and tweets by Black folks were more often flagged as toxic. This racial bias generalizes to 
 other Twitter corpora.
 
-## How to reduce the bias?
-Answer is by changing the task of annotation. To test this hypothesis, 350 AAE tweets stratified by dataset labels were 
+> ## How to reduce the bias?
+Answer is by changing the task of annotation. 
+
+To test this hypothesis, 350 AAE tweets stratified by dataset labels were 
 given to Amazon Mechanical Turkers. 
 The annotation was done in a three-fold manner:
 
@@ -86,6 +88,18 @@ The annotation was done in a three-fold manner:
 Annotators are substantially more likely to rate a tweet as being offensive to someone, 
 than to rate it as offensive to themselves, suggesting that people recognize the subjectivity 
 of offensive language.
+
+# Results
+While both models achieve high accuracy, the false positive rates (FPR) differ across groups for several 
+toxicity labels. The <span style="color:teal">DWMW17</span> classifier predicts almost **50%** of non-offensive AAE tweets as being offensive, 
+and <span style="color:teal">FDCL18</span> classifier shows higher FPR for the "Abusive" and "Hateful" categories for AAE tweets. Additionally, 
+both classifiers show strong tendencies to label White tweets as "none". These discrepancies in FPR across 
+groups violate the equality of opportunity criterion, indicating discriminatory impact.
+
+{% include figure image_path="/assets/images/nlp_papers_summary/pic_19.png"
+ alt="this is a placeholder image" 
+ caption="Classification accuracy and per-class rates of false positives (FP) on test data for models trained on
+DWMW17 and FDCL18, where the group with highest rate of FP is bolded." %}
 
 # Takeaways
 * Evidence of racial bias in existing hate detection corpora.
