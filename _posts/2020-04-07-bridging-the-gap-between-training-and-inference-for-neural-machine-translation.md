@@ -131,7 +131,6 @@ step for the ${n}$-th sentence, hence $P_j^n[y_j^n]$ is the probability of gener
 ground truth word $y_j^n$ at the ${j}$-th step.
 
 # Results
-
 Based on the [RNNSearch](https://arxiv.org/pdf/1409.0473.pdf), the authors introduced the word-level oracles, sentence-level oracles and the 
 Gumbel noises to enhance the overcorrection recovery capacity. They split the translations for the MT03 test
 set into different bins according to the length of source sentences, then test the BLEU scores for

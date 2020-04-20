@@ -21,20 +21,6 @@ References
     abstract = "We investigate how annotators{'} insensitivity to differences in dialect can lead to racial bias in automatic hate speech detection models, potentially amplifying harm against minority populations. We first uncover unexpected correlations between surface markers of African American English (AAE) and ratings of toxicity in several widely-used hate speech datasets. Then, we show that models trained on these corpora acquire and propagate these biases, such that AAE tweets and tweets by self-identified African Americans are up to two times more likely to be labelled as offensive compared to others. Finally, we propose *dialect* and *race priming* as ways to reduce the racial bias in annotation, showing that when annotators are made explicitly aware of an AAE tweet{'}s dialect they are significantly less likely to label the tweet as offensive.",
 }
 
-@inproceedings{blodgett-etal-2016-demographic,
-    title = "Demographic Dialectal Variation in Social Media: A Case Study of {A}frican-{A}merican {E}nglish",
-    author = "Blodgett, Su Lin  and
-      Green, Lisa  and
-      O{'}Connor, Brendan",
-    booktitle = "Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing",
-    month = nov,
-    year = "2016",
-    address = "Austin, Texas",
-    publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/D16-1120",
-    doi = "10.18653/v1/D16-1120",
-    pages = "1119--1130",
-}
 
 @inproceedings{stanovsky-etal-2019-evaluating,
     title = "Evaluating Gender Bias in Machine Translation",
@@ -50,55 +36,6 @@ References
     doi = "10.18653/v1/P19-1164",
     pages = "1679--1684",
     abstract = "We present the first challenge set and evaluation protocol for the analysis of gender bias in machine translation (MT). Our approach uses two recent coreference resolution datasets composed of English sentences which cast participants into non-stereotypical gender roles (e.g., {``}The doctor asked the nurse to help her in the operation{''}). We devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis (e.g., the use of female inflection for the word {``}doctor{''}). Our analyses show that four popular industrial MT systems and two recent state-of-the-art academic MT models are significantly prone to gender-biased translation errors for all tested target languages. Our data and code are publicly available at https://github.com/gabrielStanovsky/mt{\_}gender.",
-}
-
-@inproceedings{rudinger-etal-2018-gender,
-    title = "Gender Bias in Coreference Resolution",
-    author = "Rudinger, Rachel  and
-      Naradowsky, Jason  and
-      Leonard, Brian  and
-      Van Durme, Benjamin",
-    booktitle = "Proceedings of the 2018 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 2 (Short Papers)",
-    month = jun,
-    year = "2018",
-    address = "New Orleans, Louisiana",
-    publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/N18-2002",
-    doi = "10.18653/v1/N18-2002",
-    pages = "8--14",
-    abstract = "We present an empirical study of gender bias in coreference resolution systems. We first introduce a novel, Winograd schema-style set of minimal pair sentences that differ only by pronoun gender. With these {``}Winogender schemas,{''} we evaluate and confirm systematic gender bias in three publicly-available coreference resolution systems, and correlate this bias with real-world and textual gender statistics.",
-}
-
-@inproceedings{zhao-etal-2018-gender,
-    title = "Gender Bias in Coreference Resolution: Evaluation and Debiasing Methods",
-    author = "Zhao, Jieyu  and
-      Wang, Tianlu  and
-      Yatskar, Mark  and
-      Ordonez, Vicente  and
-      Chang, Kai-Wei",
-    booktitle = "Proceedings of the 2018 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 2 (Short Papers)",
-    month = jun,
-    year = "2018",
-    address = "New Orleans, Louisiana",
-    publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/N18-2003",
-    doi = "10.18653/v1/N18-2003",
-    pages = "15--20",
-    abstract = "In this paper, we introduce a new benchmark for co-reference resolution focused on gender bias, WinoBias. Our corpus contains Winograd-schema style sentences with entities corresponding to people referred by their occupation (e.g. the nurse, the doctor, the carpenter). We demonstrate that a rule-based, a feature-rich, and a neural coreference system all link gendered pronouns to pro-stereotypical entities with higher accuracy than anti-stereotypical entities, by an average difference of 21.1 in F1 score. Finally, we demonstrate a data-augmentation approach that, in combination with existing word-embedding debiasing techniques, removes the bias demonstrated by these systems in WinoBias without significantly affecting their performance on existing datasets.",
-}
-
-@inproceedings{dyer-etal-2013-simple,
-    title = "A Simple, Fast, and Effective Reparameterization of {IBM} Model 2",
-    author = "Dyer, Chris  and
-      Chahuneau, Victor  and
-      Smith, Noah A.",
-    booktitle = "Proceedings of the 2013 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies",
-    month = jun,
-    year = "2013",
-    address = "Atlanta, Georgia",
-    publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/N13-1073",
-    pages = "644--648",
 }
 
 @inproceedings{zhang-etal-2019-bridging,
@@ -117,69 +54,6 @@ References
     doi = "10.18653/v1/P19-1426",
     pages = "4334--4343",
     abstract = "Neural Machine Translation (NMT) generates target words sequentially in the way of predicting the next word conditioned on the context words. At training time, it predicts with the ground truth words as context while at inference it has to generate the entire sequence from scratch. This discrepancy of the fed context leads to error accumulation among the way. Furthermore, word-level training requires strict matching between the generated sequence and the ground truth sequence which leads to overcorrection over different but reasonable translations. In this paper, we address these issues by sampling context words not only from the ground truth sequence but also from the predicted sequence by the model during training, where the predicted sequence is selected with a sentence-level optimum. Experiment results on Chinese-{\textgreater}English and WMT{'}14 English-{\textgreater}German translation tasks demonstrate that our approach can achieve significant improvements on multiple datasets.",
-}
-
-
-@misc{ott2018scaling,
-    title={Scaling Neural Machine Translation},
-    author={Myle Ott and Sergey Edunov and David Grangier and Michael Auli},
-    year={2018},
-    eprint={1806.00187},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
-}
-
-@inproceedings{edunov-etal-2018-understanding,
-    title = "Understanding Back-Translation at Scale",
-    author = "Edunov, Sergey  and
-      Ott, Myle  and
-      Auli, Michael  and
-      Grangier, David",
-    booktitle = "Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing",
-    month = oct # "-" # nov,
-    year = "2018",
-    address = "Brussels, Belgium",
-    publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/D18-1045",
-    doi = "10.18653/v1/D18-1045",
-    pages = "489--500",
-    abstract = "An effective method to improve neural machine translation with monolingual data is to augment the parallel training corpus with back-translations of target language sentences. This work broadens the understanding of back-translation and investigates a number of methods to generate synthetic source sentences. We find that in all but resource poor settings back-translations obtained via sampling or noised beam outputs are most effective. Our analysis shows that sampling or noisy synthetic data gives a much stronger training signal than data generated by beam or greedy search. We also compare how synthetic data compares to genuine bitext and study various domain effects. Finally, we scale to hundreds of millions of monolingual sentences and achieve a new state of the art of 35 BLEU on the WMT{'}14 English-German test set.",
-}
-
-
-@inproceedings{stanovsky-etal-2017-integrating,
-    title = "Integrating Deep Linguistic Features in Factuality Prediction over Unified Datasets",
-    author = "Stanovsky, Gabriel  and
-      Eckle-Kohler, Judith  and
-      Puzikov, Yevgeniy  and
-      Dagan, Ido  and
-      Gurevych, Iryna",
-    booktitle = "Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)",
-    month = jul,
-    year = "2017",
-    address = "Vancouver, Canada",
-    publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/P17-2056",
-    doi = "10.18653/v1/P17-2056",
-    pages = "352--357",
-    abstract = "Previous models for the assessment of commitment towards a predicate in a sentence (also known as factuality prediction) were trained and tested against a specific annotated dataset, subsequently limiting the generality of their results. In this work we propose an intuitive method for mapping three previously annotated corpora onto a single factuality scale, thereby enabling models to be tested across these corpora. In addition, we design a novel model for factuality prediction by first extending a previous rule-based factuality prediction system and applying it over an abstraction of dependency trees, and then using the output of this system in a supervised classifier. We show that this model outperforms previous methods on all three datasets. We make both the unified factuality corpus and our new model publicly available.",
-}
-
-
-@inproceedings{rudinger-etal-2018-neural-models,
-    title = "Neural Models of Factuality",
-    author = "Rudinger, Rachel  and
-      White, Aaron Steven  and
-      Van Durme, Benjamin",
-    booktitle = "Proceedings of the 2018 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers)",
-    month = jun,
-    year = "2018",
-    address = "New Orleans, Louisiana",
-    publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/N18-1067",
-    doi = "10.18653/v1/N18-1067",
-    pages = "731--744",
-    abstract = "We present two neural models for event factuality prediction, which yield significant performance gains over previous models on three event factuality datasets: FactBank, UW, and MEANTIME. We also present a substantial expansion of the It Happened portion of the Universal Decompositional Semantics dataset, yielding the largest event factuality dataset to date. We report model results on this extended factuality dataset as well.",
 }
 
 @inproceedings{jiang-de-marneffe-2019-know,

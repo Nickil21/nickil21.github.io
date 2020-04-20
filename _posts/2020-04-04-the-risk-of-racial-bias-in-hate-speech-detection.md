@@ -45,7 +45,7 @@ tweets inferred to be in AAE and tweets from self-identifying African American u
 to be classified as offensive.
 
 It uses Dialect as a proxy for racial identity. African American English (AAE) dialect is used in the paper. 
-Lexical detector by {% cite blodgett-etal-2016-demographic %} was used to infer the presence of AAE.
+Lexical detector by ([Blodgett et al., 2016](https://www.aclweb.org/anthology/D16-1120.pdf)) was used to infer the presence of AAE.
 To find out whether ML models are affected by racial bias in datasets, train/test classifiers on 2
 corpora (<span style="color:teal;">TWT-HATEBASE, TWT-BOOTSTRAP</span>) used in hate detection systems were performed to 
 predict the toxicity label of a tweet. A held-out set broken down by dialect group was used to 

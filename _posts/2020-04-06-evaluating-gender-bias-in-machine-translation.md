@@ -29,6 +29,7 @@ PDF - [Paper](https://www.aclweb.org/anthology/P19-1164.pdf){:target="_blank"} b
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_4.png"
  alt="this is a placeholder image" 
  caption="An example of gender bias in machine translation from English (top) to Spanish (bottom)." %}
+* Examples include gender biases in visual Semantic Role Labeling (SRL) - Cooking is stereotypically done by women, construction workers are stereotypically men. 
 
 # Problem
 * Can we quantitatively evaluate gender translation in MT?
@@ -36,7 +37,8 @@ PDF - [Paper](https://www.aclweb.org/anthology/P19-1164.pdf){:target="_blank"} b
 * Can we reduce gender bias by rephrasing source texts?
 
 # How it Solves
-Winogender {% cite rudinger-etal-2018-gender %} and WinoBias {% cite zhao-etal-2018-gender %} datasets were used 
+Winogender ([Rudinger et al., 2018](https://www.aclweb.org/anthology/N18-2002.pdf])) and 
+WinoBias ([Zhao et al., 2018](https://www.aclweb.org/anthology/N18-2003.pdf])) datasets were used 
 following the [Winograd schema](https://www.aaai.org/ocs/index.php/SSS/SSS11/paper/viewFile/2502/2964){:target="_blank"}. 
 Collectively, they compose of 3888 English sentences designed to test gender bias in coreference resolution.
 
@@ -55,9 +57,9 @@ were used:
 2. Microsoft Translator
 3. Amazon Translate
 4. SYSTRAN 
-5. the model of {% cite ott2018scaling %}, which recently achieved the best performance on English-to-French
+5. the model of ([Ott et al., 2018](https://www.aclweb.org/anthology/W18-6301.pdf)), which recently achieved the best performance on English-to-French
 translation on the WMT'14 test set.
-6. the model of {% cite edunov-etal-2018-understanding %}, the WMT’18 winner on English-to-German translation. 
+6. the model of ([Edunov et al., 2018)](https://www.aclweb.org/anthology/D18-1045.pdf)), the WMT’18 winner on English-to-German translation. 
   
 ## Implementation
 **Input :** MT model + target language<br>
@@ -67,7 +69,7 @@ translation on the WMT'14 test set.
   * To target languages with grammatical gender.
  
 2. Align between source and target.
-  * Using fast align. {% cite dyer-etal-2013-simple %}
+  * Using fast align. ([Dyer et al., 2013](https://www.aclweb.org/anthology/N13-1073.pdf))
  
  3. Identify gender in target language.
   * Using off-the-shelf morphological analyzers or simple heuristics in the target languages.
