@@ -55,7 +55,7 @@ can reduce the gap between training and inference by training the model to handl
 will appear during test time.
 
 ## Oracle Translation Generation
-Select an oracle word $y_{j−1}^{oracle}$ at word level or sentence level at the {$j−1$}$^{-th}$ step.
+Select an oracle word $y_{j−1}^{oracle}$ at word level or sentence level at the $$\{j−1\}^{-th}$$ step.
 ### 1) Word Level Oracle (SO)
 Generally, at the $j$-th step, the NMT model needs the ground truth word $y_{j−1}^*$ 
 as the context word to predict $y_j$ , thus, we could select an oracle word 

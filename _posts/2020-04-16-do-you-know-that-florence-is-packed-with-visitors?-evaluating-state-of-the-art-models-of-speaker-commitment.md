@@ -6,7 +6,7 @@ title: "Do You Know That Florence Is Packed with Visitors?
 Evaluating State-of-the-art Models of Speaker Commitment"
 excerpt: "Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering."
 header:
-  teaser: "assets/images/nlp_papers_summary/pic_11.png"
+  teaser: "assets/images/nlp_papers_summary/pic_20.png"
 date: 2020-04-16 
 last_modified_at: 2020-04-17
 permalink: "/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/"
@@ -17,7 +17,7 @@ tags:
   - ACL    
 ---
 
-{% include figure image_path="/assets/images/nlp_papers_summary/pic_11.png"
+{% include figure image_path="/assets/images/nlp_papers_summary/pic_20.png"
  alt="this is a placeholder image" %}
 
 PDF - [Paper](https://www.aclweb.org/anthology/P19-1412.pdf){:target="_blank"} by {% cite jiang-de-marneffe-2019-know %}
@@ -62,14 +62,14 @@ it is true or false, **-3**/speaker is certain that it is false).
 They took the mean annotations of each item as gold score of speaker commitment.
 
 ## Models
-1) **Rule-based TruthTeller** ([Stanovsky et al., 2017](https://www.aclweb.org/anthology/P17-2056.pdf))
+### 1. Rule-based TruthTeller ([Stanovsky et al., 2017](https://www.aclweb.org/anthology/P17-2056.pdf))
 
 It uses a top-down approach on a dependency tree and predicts speaker commitment score in [−3, 3] 
 according to the implicative signatures of the predicates, and whether the predicates are under the 
 scope of negation and uncertainty modifiers. For example, **refuse $\mathcal{p}$** entails **$\neg{\mathcal{p}}$**, 
 so the factuality of its complement $\mathcal{p}$ gets flipped if encountered.
 
-2) **BiLSTM-based models** ([Rudinger et al., 2018](https://www.aclweb.org/anthology/N18-1067.pdf))
+### 2. BiLSTM-based models ([Rudinger et al., 2018](https://www.aclweb.org/anthology/N18-1067.pdf))
 
 * Linear: encodes the sentence left-to-right and right-to-left.
 * Tree: encodes the dependency tree of the sentence top-down and bottom-up.
@@ -111,10 +111,10 @@ There is almost no correlation between both models' predictions and gold judgmen
 suggesting that the models are not able to capture neg-raising inferences. 
 
 # Limitations and Future Work
-Models are not able to generalize to other linguistic environments such as conditional, modal,
-and neg-raising, which display inference patterns that are important for information extraction. Both
-models are able to identify the polarity of commitment, but cannot capture its gradience. To perform robust 
-language understanding, models will need to incorporate more linguistic foreknowledge and be able to generalize
+* Models are not able to generalize to other linguistic environments such as conditional, modal,
+and neg-raising, which display inference patterns that are important for information extraction. 
+* Both models are able to identify the polarity of commitment, but cannot capture its gradience. 
+* To perform robust  language understanding, models will need to incorporate more linguistic foreknowledge and be able to generalize
 to a wider range of linguistic constructions.
  
 # Takeaways
