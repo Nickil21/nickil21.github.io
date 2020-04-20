@@ -17,7 +17,7 @@ tags:
   - Machine Translation
   - ACL    
 ---
-Author: [Nickil Maveli](/)
+Author - [Nickil Maveli](/)
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_15.png"
  alt="this is a placeholder image" %}
 

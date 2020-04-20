@@ -16,7 +16,7 @@ tags:
   - Speaker Commitment
   - ACL    
 ---
-Author: [Nickil Maveli](/)
+Author - [Nickil Maveli](/)
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_20.png"
  alt="this is a placeholder image" %}
 

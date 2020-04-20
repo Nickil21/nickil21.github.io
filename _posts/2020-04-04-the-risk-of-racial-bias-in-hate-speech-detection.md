@@ -15,7 +15,7 @@ tags:
   - Hate Speech Detection
   - ACL  
 ---
-Author: [Nickil Maveli](/)
+Author - [Nickil Maveli](/)
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_1.png"
  alt="this is a placeholder image" 
  caption="Phrases in African American English (AAE),
