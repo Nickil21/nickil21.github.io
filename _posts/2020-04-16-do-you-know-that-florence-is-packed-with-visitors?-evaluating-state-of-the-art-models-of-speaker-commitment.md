@@ -62,14 +62,14 @@ it is true or false, **-3**/speaker is certain that it is false).
 They took the mean annotations of each item as gold score of speaker commitment.
 
 ## Models
-1) **Rule-based TruthTeller** ([Stanovsky et al., 2017)](https://www.aclweb.org/anthology/P17-2056.pdf))
+1) **Rule-based TruthTeller** ([Stanovsky et al., 2017](https://www.aclweb.org/anthology/P17-2056.pdf))
 
 It uses a top-down approach on a dependency tree and predicts speaker commitment score in [−3, 3] 
 according to the implicative signatures of the predicates, and whether the predicates are under the 
 scope of negation and uncertainty modifiers. For example, **refuse $\mathcal{p}$** entails **$\neg{\mathcal{p}}$**, 
 so the factuality of its complement $\mathcal{p}$ gets flipped if encountered.
 
-2) **BiLSTM-based models** ([Rudinger et al., 2018)](https://www.aclweb.org/anthology/N18-1067.pdf))
+2) **BiLSTM-based models** ([Rudinger et al., 2018](https://www.aclweb.org/anthology/N18-1067.pdf))
 
 * Linear: encodes the sentence left-to-right and right-to-left.
 * Tree: encodes the dependency tree of the sentence top-down and bottom-up.

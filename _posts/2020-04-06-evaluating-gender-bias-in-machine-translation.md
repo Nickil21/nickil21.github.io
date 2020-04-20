@@ -59,7 +59,7 @@ were used:
 4. SYSTRAN 
 5. the model of ([Ott et al., 2018](https://www.aclweb.org/anthology/W18-6301.pdf)), which recently achieved the best performance on English-to-French
 translation on the WMT'14 test set.
-6. the model of ([Edunov et al., 2018)](https://www.aclweb.org/anthology/D18-1045.pdf)), the WMT’18 winner on English-to-German translation. 
+6. the model of ([Edunov et al., 2018](https://www.aclweb.org/anthology/D18-1045.pdf)), the WMT’18 winner on English-to-German translation. 
   
 ## Implementation
 **Input :** MT model + target language<br>
