@@ -16,7 +16,7 @@ tags:
   - Emotion Cause Extraction
   - ACL  
 ---
-
+Author: [Nickil Maveli](/)
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_21.png"
  alt="this is a placeholder image" 
  caption="An example showing the difference between the ECE task and the ECPE task." %}
