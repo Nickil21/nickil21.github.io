@@ -1,7 +1,5 @@
 ---
-author_profile: false
 toc: true
-toc_sticky: true
 title: "Evaluating Gender Bias in Machine Translation"
 excerpt: "Devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis."
 date: 2020-04-06

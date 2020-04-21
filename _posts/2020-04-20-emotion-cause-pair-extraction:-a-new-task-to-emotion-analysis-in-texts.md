@@ -1,7 +1,5 @@
 ---
-author_profile: false
 toc: true
-toc_sticky: true
 title: "Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts"
 excerpt: "Aims to extract the potential pairs of emotions and 
 corresponding causes in a document."

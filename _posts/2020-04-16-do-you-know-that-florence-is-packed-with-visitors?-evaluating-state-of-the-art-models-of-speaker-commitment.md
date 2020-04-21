@@ -1,7 +1,5 @@
 ---
-author_profile: false
 toc: true
-toc_sticky: true 
 title: "Do You Know That Florence Is Packed with Visitors? 
 Evaluating State-of-the-art Models of Speaker Commitment"
 excerpt: "Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering."
@@ -55,9 +53,11 @@ verbs under four entailment-canceling environments (negations, modals, questions
 
 For each item, speaker commitment judgments were gathered on Mechanical Turk from at least eight 
 native English speakers. Participants judged whether or not the speaker is certain that the 
-content of the complement in the target sentence is true, using a Likert scale labeled at 3 points 
-(**+3**/speaker is certain that the complement is true, **0**/speaker is not certain whether 
-it is true or false, **-3**/speaker is certain that it is false). 
+content of the complement in the target sentence is true, using a [Likert scale](https://en.wikipedia.org/wiki/Likert_scale)
+labeled at 3 points 
+(<span style='color:green;'>**+3**</span>/speaker is certain that the complement is true, 
+<span style='color:orange;'>**0**</span>/speaker is not certain whether 
+it is true or false, <span style='color:red;'>**-3**</span>/speaker is certain that it is false). 
 They took the mean annotations of each item as gold score of speaker commitment.
 
 ## Models

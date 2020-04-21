@@ -31,8 +31,18 @@ feature_row_3:
     that of the LSTM benchmark.'
     url: "https://www.drivendata.org/competitions/55/schneider-cold-start/"
     btn_label: "Read More"
-    btn_class: "btn--primary"      
+    btn_class: "btn--primary"
 feature_row_4:
+  - image_path: /assets/images/competitions/poverty_2018.png
+    image_caption: "Image courtesy of [DrivenData](https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/97/)"
+    alt: "Pover-T Tests: Predicting Poverty"
+    title: "Pover-T Tests: Predicting Poverty"
+    excerpt: 'Finished 6<sup>th</sup> out of 2,310 participants hosted by the 
+    [World Bank](https://www.worldbank.org/).'
+    url: "https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/99/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"           
+feature_row_5:
   - image_path: /assets/images/competitions/tennis_australia_2018.jpg
     alt: "Predicting How Points End in Tennis"
     title: "Predicting How Points End in Tennis<sup><i class='fas fa-medal' style='color:gold;'></i></sup>"
@@ -44,7 +54,7 @@ feature_row_4:
     url: "https://www.crowdanalytix.com/contests/from-ao-to-ai--predicting-how-points-end-in-tennis/"
     btn_label: "Read More"
     btn_class: "btn--primary" 
-feature_row_5:
+feature_row_6:
   - image_path: /assets/images/competitions/click_prediction.png
     alt: "Click Prediction Hackathon"
     title: "Click Prediction Hackathon"
@@ -63,4 +73,6 @@ feature_row_5:
 {% include feature_row id="feature_row_4" type="center" %}
 
 {% include feature_row id="feature_row_5" type="center" %}
+
+{% include feature_row id="feature_row_6" type="center" %}
 
