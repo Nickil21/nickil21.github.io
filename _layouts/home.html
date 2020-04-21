@@ -1,19 +1,45 @@
 ---
 layout: archive
 ---
+<!-- Just some nice to have styles for the pager buttons -->
+<style>
+  ul.pager { text-align: center; list-style: none; }
+  ul.pager li {display: inline;border: 1px solid black; padding: 10px; margin: 5px;}
+</style>
 
-{{ content }}
+<div class="home">
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+  {{ content }}
 
-{% if paginator %}
-  {% assign posts = paginator.posts %}
-{% else %}
-  {% assign posts = site.posts %}
-{% endif %}
+  <ul class="post-list">
+    <!--
+        Here is the main paginator logic called.
+        All calls to site.posts should be replaced by paginator.posts
+    -->
+    {% for post in paginator.posts %}
+        <span class="post-meta" style="font-size: small">{{ post.date | date: "%b %-d, %Y" }}</span><br>
+        <a class="post-link" href="{{ post.url | relative_url }}"><b>{{ post.title | escape }}</b></a><br>
+        <span class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</span>
+        <br><br>
+    {% endfor %}
+  </ul>
 
-{% for post in posts %}
-  {% include archive-single.html %}
-{% endfor %}
+  <!--
+    Showing buttons to move to the next and to the previous list of posts (pager buttons).
+  -->
+  {% if paginator.total_pages > 1 %}
+  <ul class="pager">
+      {% if paginator.previous_page %}
+      <li class="previous">
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+      </li>
+      {% endif %}
+      {% if paginator.next_page %}
+      <li class="next">
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+      </li>
+      {% endif %}
+  </ul>
+  {% endif %}
 
-{% include paginator.html %}
+</div>

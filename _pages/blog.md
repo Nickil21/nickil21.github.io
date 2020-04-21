@@ -15,7 +15,7 @@ feature_row:
     alt: "Bert Distilbert Sentence Classification"
     title: "Summary of NLP Research Papers"
     excerpt: 'Making NLP papers understandable and approachable from a beginner standpoint in under 5 minutes read.'
-    url: "/blog/categories/#nlp-papers-summary"
+    url: "/blog/nlp-papers-summary"
     btn_label: "Read More"
     btn_class: "btn--primary"
 ---
