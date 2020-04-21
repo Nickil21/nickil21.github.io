@@ -12,4 +12,6 @@
   1 {{ site.data.ui-text[site.locale].minute_read | default: "minute read" }}
 {% else %}
   {{ words | divided_by:words_per_minute }} {{ site.data.ui-text[site.locale].minute_read | default: "minute read" }}
+
+<span>| Written by </span><a href="/">{{ site.author.name }}</a>
 {% endif %}
