@@ -4,7 +4,8 @@ layout: archive
 <!-- Just some nice to have styles for the pager buttons -->
 <style>
   ul.pager { text-align: center; list-style: none; }
-  ul.pager li {display: inline;border: 1px solid black; padding: 10px; margin: 5px;}
+  ul.pager li {display: inline;border: 1px solid #6f777d; padding: 10px; margin: 5px;}
+  body {line-height: 1.2;}
 </style>
 
 <div class="home">
@@ -17,7 +18,7 @@ layout: archive
         All calls to site.posts should be replaced by paginator.posts
     -->
     {% for post in paginator.posts %}
-        <span class="post-meta" style="font-size: small">{{ post.date | date: "%b %-d, %Y" }}</span><br>
+        <span class="post-meta" style="font-size: small; color: #6f777d;">{{ post.date | date: "%b %-d, %Y" }}</span><br>
         <a class="post-link" href="{{ post.url | relative_url }}"><b>{{ post.title | escape }}</b></a><br>
         <span class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</span>
         <br><br>
