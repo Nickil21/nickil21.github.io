@@ -1,6 +1,6 @@
 ---
-layout: archive
-classes: wide
+show_tweet: true
+layout: single
 permalink: /
 title: ""
 excerpt: "About me"

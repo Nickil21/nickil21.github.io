@@ -42,6 +42,13 @@ layout: default
             </nav>
           </aside>
         {% endif %}
+        {% if page.show_tweet %}
+          <aside class="sidebar__right">
+            <nav class="toc">
+            <a class="twitter-timeline" data-height="500" data-theme="light" href="https://twitter.com/nickilmaveli?ref_src=twsrc%5Etfw">Tweets by nickilmaveli</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </nav>
+          </aside>
+        {% endif %}
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
