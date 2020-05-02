@@ -155,6 +155,7 @@ scores would be helpful for comparison purposes as BLEU doesn't consider sentenc
 {% bibliography --query @*[title= {{ page.title }}] %}
 
 ---
+<br>
 <!-- Begin Mailchimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
 <style type="text/css">
