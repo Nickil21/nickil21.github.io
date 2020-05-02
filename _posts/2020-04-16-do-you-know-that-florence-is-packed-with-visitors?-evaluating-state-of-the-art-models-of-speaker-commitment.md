@@ -144,3 +144,5 @@ to a wider range of linguistic constructions.
 </form>
 </div>
 <!--End mc_embed_signup-->
+<br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><i style="font-size:14px">This work is licensed under a </i><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i style="font-size:14px">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</i></a>.
