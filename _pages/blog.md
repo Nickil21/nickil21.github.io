@@ -3,6 +3,7 @@ title: "My Tech Blog"
 layout: splash
 permalink: /blog/
 header:
+  overlay_filter: 0.5
   overlay_image: /assets/images/blog/aaron-burden-y02jEX_B0O0-unsplash.jpg
   actions:
     - label: "Posts Archive"

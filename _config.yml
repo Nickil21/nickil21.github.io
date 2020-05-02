@@ -303,8 +303,8 @@ defaults:
       sidebar: false
 
 # Jekyll Scholar
-scholar:
-  source: _bibliography
+# scholar:
+#  source: _bibliography
 
 permalink: /:year/:month/:title.html
 #permalink: pretty

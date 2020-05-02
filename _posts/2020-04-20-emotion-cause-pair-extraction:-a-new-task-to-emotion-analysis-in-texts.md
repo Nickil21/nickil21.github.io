@@ -7,7 +7,15 @@ date: 2020-04-20
 last_modified_at: 2020-04-20
 permalink: "/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/"
 header:
+  overlay_filter: 0.5
+  overlay_image: /assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg
   teaser: "/assets/images/nlp_papers_summary/pic_21.png"
+  actions:
+    - label: "<i class='fas fa-file-pdf'></i> Read Paper"
+      url: "https://www.aclweb.org/anthology/P19-1096.pdf"  
+    - label: "<i class='fas fa-code'></i> View Code"
+      url: "https://github.com/NUSTM/ECPE"  
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 category: 
   - NLP Papers Summary
 tags:
@@ -17,9 +25,7 @@ tags:
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_21.png"
  alt="this is a placeholder image" 
  caption="An example showing the difference between the ECE task and the ECPE task." %}
-          
-PDF - [Paper](https://www.aclweb.org/anthology/P19-1096.pdf)  by {% cite xia-ding-2019-emotion %} and [Code](https://github.com/NUSTM/ECPE)
-{: .notice--info}
+         
 # Introduction
 Emotion cause extraction (ECE) aims at extracting potential causes that lead to emotion expressions in text.
 
@@ -126,9 +132,6 @@ In the future work, a one-step model that directly extracts the emotion-cause pa
 the annotation of emotion before extracting cause, and allows emotion cause analysis to be applied to real-world scenarios.
 * Approach achieves comparable cause extraction performance to traditional ECE methods and
 removes the emotion annotation dependence.
-
-# References
-{% bibliography --cited %}
 
 ---
 <!-- Begin Mailchimp Signup Form -->

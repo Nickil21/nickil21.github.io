@@ -6,7 +6,13 @@ date: 2020-04-04
 last_modified_at: 2020-04-15
 permalink: "/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/"
 header:
+  overlay_filter: 0.5
+  overlay_image: /assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg
   teaser: "/assets/images/nlp_papers_summary/pic_1.png"
+  actions:
+    - label: "<i class='fas fa-file-pdf'></i> Read Paper"
+      url: "https://www.aclweb.org/anthology/P19-1163.pdf"  
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 category: 
   - NLP Papers Summary
 tags:
@@ -18,9 +24,6 @@ tags:
  caption="Phrases in African American English (AAE),
           their non-AAE equivalents, and
           toxicity scores from [PerspectiveAPI](http://perspectiveapi.com){:target='_blank'}." %}
-
-PDF - [Paper](https://www.aclweb.org/anthology/P19-1163.pdf){:target="_blank"} by {% cite sap-etal-2019-risk %}
-{: .notice--info}
 
 # Introduction
 * Goal of Hate Detection: _Try and make the internet less toxic_.
@@ -104,9 +107,6 @@ DWMW17 and FDCL18, where the group with highest rate of FP is bolded." %}
 * Priming annotators influences label of offensiveness.
 * In general, hate speech language is highly subjective and contextual. Factors like slang,
 dialects, slurs, etc must be taken into consideration.
-
-# References
-{% bibliography --cited %}
 
 ---
 <!-- Begin Mailchimp Signup Form -->

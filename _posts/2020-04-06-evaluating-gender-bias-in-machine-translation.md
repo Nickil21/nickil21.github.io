@@ -5,8 +5,16 @@ excerpt: "Devise an automatic gender bias evaluation method for eight target lan
 date: 2020-04-06
 last_modified_at: 2020-04-08
 permalink: "/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/"
-header: 
+header:
+  overlay_filter: 0.5
+  overlay_image: /assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg
   teaser: "/assets/images/nlp_papers_summary/pic_3.png"
+  actions:
+    - label: "<i class='fas fa-file-pdf'></i> Read Paper"
+      url: "https://www.aclweb.org/anthology/P19-1164.pdf"  
+    - label: "<i class='fas fa-code'></i> View Code"
+      url: "https://github.com/gabrielStanovsky/mt_gender"  
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 category: 
   - NLP Papers Summary
 tags:
@@ -15,9 +23,6 @@ tags:
 ---
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_3.png"
  alt="this is a placeholder image" %}
-
-PDF - [Paper](https://www.aclweb.org/anthology/P19-1164.pdf){:target="_blank"} by {% cite stanovsky-etal-2019-evaluating %} and [Code](https://github.com/gabrielStanovsky/mt_gender){:target="_blank"}
-{: .notice--info}
 
 # Introduction
 * Some languages encode grammatical gender - Spanish, Italian, Russian, etc. One word for male, other word for female.
@@ -117,8 +122,6 @@ systems we tested display similar trends." %}
 * Significant gender bias found in all models in all tested languages.
 * Easily extensible with more languages and MT models.
 
-# References
-{% bibliography --cited %}
 
 ---
 <!-- Begin Mailchimp Signup Form -->

@@ -8,7 +8,13 @@ date: 2020-04-07
 last_modified_at: 2020-04-13
 permalink: "/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/"
 header:
-  teaser: "assets/images/nlp_papers_summary/pic_15.png"
+  overlay_filter: 0.5
+  overlay_image: /assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg
+  teaser: "/assets/images/nlp_papers_summary/pic_15.png"
+  actions:
+    - label: "<i class='fas fa-file-pdf'></i> Read Paper"
+      url: "https://www.aclweb.org/anthology/P19-1426.pdf"  
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 category: 
   - NLP Papers Summary
 tags:
@@ -17,9 +23,6 @@ tags:
 ---
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_15.png"
  alt="this is a placeholder image" %}
-
-PDF - [Paper](https://www.aclweb.org/anthology/P19-1426.pdf){:target="_blank"} by {% cite zhang-etal-2019-bridging %}
-{: .notice--info}
  
 # Introduction
 * During Training, ground truth words as context. At inference, self-generated words as context.
@@ -147,9 +150,6 @@ scores would be helpful for comparison purposes as BLEU doesn't consider sentenc
 * Sampling as context from the ground truth and the generated oracle can mitigate exposure bias. 
 * Sentence-level oracle is better than word-level oracle.
 * Gumbel noise can help improve translation quality.
-
-# References
-{% bibliography --cited %}
 
 ---
 <!-- Begin Mailchimp Signup Form -->

@@ -4,7 +4,13 @@ title: "Do You Know That Florence Is Packed with Visitors?
 Evaluating State-of-the-art Models of Speaker Commitment"
 excerpt: "Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering."
 header:
-  teaser: "assets/images/nlp_papers_summary/pic_20.png"
+  overlay_filter: 0.5
+  overlay_image: /assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg
+  teaser: "/assets/images/nlp_papers_summary/pic_20.png"
+  actions:
+    - label: "<i class='fas fa-file-pdf'></i> Read Paper"
+      url: "https://www.aclweb.org/anthology/P19-1412.pdf"  
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 date: 2020-04-16 
 last_modified_at: 2020-04-17
 permalink: "/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/"
@@ -16,9 +22,6 @@ tags:
 ---
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_20.png"
  alt="this is a placeholder image" %}
-
-PDF - [Paper](https://www.aclweb.org/anthology/P19-1412.pdf){:target="_blank"} by {% cite jiang-de-marneffe-2019-know %}
-{: .notice--info}
 
 # Introduction
 Prediction of speaker commitment is the task of determining to what extent the speaker is 
@@ -120,9 +123,6 @@ to a wider range of linguistic constructions.
 * Conditionals, factive verbs, neg-raisings are hard for models.
 * Models can identify polarity, but not gradience.
 * Linguistically motivated models scale more successfully.
-
-# References
-{% bibliography --cited %}
 
 ---
 <!-- Begin Mailchimp Signup Form -->
