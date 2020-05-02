@@ -1,0 +1,26 @@
+---
+---
+
+<div class="text-justify">
+    {{reference}}
+
+    {% assign simpleKey = entry.key | split: "_" | slice:0, 4 %}
+    {% assign simpleKey = simpleKey | join: "_" %}
+
+    {% if entry.url %}
+    <button class="btn--primary" onclick="window.location.href = '{{ entry.url }}'">Paper</button>
+    {% endif %}
+
+</div>
+
+{% if entry.note %}
+<!--div>
+    <em>{{ entry.note }}</em>
+</div-->
+{% endif %}
+
+<div>
+    {% if entry.pdf %}
+    <span><a href="{{ entry.pdf }}">pdf</a></span>
+    {% endif %}
+</div>

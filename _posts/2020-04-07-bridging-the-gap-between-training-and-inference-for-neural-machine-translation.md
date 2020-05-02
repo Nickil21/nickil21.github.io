@@ -13,7 +13,7 @@ header:
   teaser: "/assets/images/nlp_papers_summary/pic_15.png"
   actions:
     - label: "<i class='fas fa-file-pdf'></i> Read Paper"
-      url: "https://www.aclweb.org/anthology/P19-1426.pdf"  
+      url: "/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/#references"   
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 category: 
   - NLP Papers Summary
@@ -150,6 +150,9 @@ scores would be helpful for comparison purposes as BLEU doesn't consider sentenc
 * Sampling as context from the ground truth and the generated oracle can mitigate exposure bias. 
 * Sentence-level oracle is better than word-level oracle.
 * Gumbel noise can help improve translation quality.
+
+# References
+{% bibliography --query @*[title= {{ page.title }}] %}
 
 ---
 <!-- Begin Mailchimp Signup Form -->

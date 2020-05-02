@@ -303,8 +303,12 @@ defaults:
       sidebar: false
 
 # Jekyll Scholar
-# scholar:
-#  source: _bibliography
+scholar:
+  # more options: https://pages.lip6.fr/Pascal.Poizat/blog/posts/2016/02/01/jekyll-and-bibtex/
+  source: _bibliography
+  style: _bibliography/apa_modified.csl
+  bibliography_template: bib
+  # use_raw_bibtex_entry: true # to enable {{...}} inside bibtex
 
 permalink: /:year/:month/:title.html
 #permalink: pretty

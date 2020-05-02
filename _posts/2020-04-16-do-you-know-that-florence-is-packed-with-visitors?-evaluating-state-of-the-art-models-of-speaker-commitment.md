@@ -9,7 +9,7 @@ header:
   teaser: "/assets/images/nlp_papers_summary/pic_20.png"
   actions:
     - label: "<i class='fas fa-file-pdf'></i> Read Paper"
-      url: "https://www.aclweb.org/anthology/P19-1412.pdf"  
+      url: "/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/#references"  
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 date: 2020-04-16 
 last_modified_at: 2020-04-17
@@ -123,6 +123,9 @@ to a wider range of linguistic constructions.
 * Conditionals, factive verbs, neg-raisings are hard for models.
 * Models can identify polarity, but not gradience.
 * Linguistically motivated models scale more successfully.
+
+# References
+{% bibliography --query @*[title= {{ page.title }}] %}
 
 ---
 <!-- Begin Mailchimp Signup Form -->

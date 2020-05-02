@@ -12,7 +12,7 @@ header:
   teaser: "/assets/images/nlp_papers_summary/pic_21.png"
   actions:
     - label: "<i class='fas fa-file-pdf'></i> Read Paper"
-      url: "https://www.aclweb.org/anthology/P19-1096.pdf"  
+      url: "/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/#references"  
     - label: "<i class='fas fa-code'></i> View Code"
       url: "https://github.com/NUSTM/ECPE"  
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
@@ -132,6 +132,9 @@ In the future work, a one-step model that directly extracts the emotion-cause pa
 the annotation of emotion before extracting cause, and allows emotion cause analysis to be applied to real-world scenarios.
 * Approach achieves comparable cause extraction performance to traditional ECE methods and
 removes the emotion annotation dependence.
+
+# References
+{% bibliography --query @*[title= {{ page.title }}] %}
 
 ---
 <!-- Begin Mailchimp Signup Form -->

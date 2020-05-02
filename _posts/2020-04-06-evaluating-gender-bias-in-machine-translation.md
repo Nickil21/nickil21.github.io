@@ -11,7 +11,7 @@ header:
   teaser: "/assets/images/nlp_papers_summary/pic_3.png"
   actions:
     - label: "<i class='fas fa-file-pdf'></i> Read Paper"
-      url: "https://www.aclweb.org/anthology/P19-1164.pdf"  
+      url: "/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/#references"  
     - label: "<i class='fas fa-code'></i> View Code"
       url: "https://github.com/gabrielStanovsky/mt_gender"  
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
@@ -122,6 +122,8 @@ systems we tested display similar trends." %}
 * Significant gender bias found in all models in all tested languages.
 * Easily extensible with more languages and MT models.
 
+# References
+{% bibliography --query @*[title= {{ page.title }}] %}
 
 ---
 <!-- Begin Mailchimp Signup Form -->

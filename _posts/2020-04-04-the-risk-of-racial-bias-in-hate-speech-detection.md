@@ -11,7 +11,7 @@ header:
   teaser: "/assets/images/nlp_papers_summary/pic_1.png"
   actions:
     - label: "<i class='fas fa-file-pdf'></i> Read Paper"
-      url: "https://www.aclweb.org/anthology/P19-1163.pdf"  
+      url: "/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/#references" 
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 category: 
   - NLP Papers Summary
@@ -107,6 +107,9 @@ DWMW17 and FDCL18, where the group with highest rate of FP is bolded." %}
 * Priming annotators influences label of offensiveness.
 * In general, hate speech language is highly subjective and contextual. Factors like slang,
 dialects, slurs, etc must be taken into consideration.
+
+# References
+{% bibliography --query @*[title= {{ page.title }}] %}
 
 ---
 <!-- Begin Mailchimp Signup Form -->
