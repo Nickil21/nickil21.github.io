@@ -40,11 +40,6 @@
 @import "minimal-mistakes/sidebar";
 @import "minimal-mistakes/print";
 
-/* Hack for getting wider post content */
-.page {
-  width: calc(100% - #{$right-sidebar-width-narrow});
-}
-
 /* Hack for disabling underline from links */
 a {
 text-decoration: none;
