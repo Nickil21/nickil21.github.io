@@ -8,7 +8,7 @@
     {% assign simpleKey = simpleKey | join: "_" %}
 
     {% if entry.url %}
-    <button class="btn--primary" onclick="window.location.href = '{{ entry.url }}'">Paper</button>
+    <button class="btn btn--info" onclick="location.href='{{ entry.url }}'" type="button">Paper</button>
     {% endif %}
 
 </div>
@@ -21,6 +21,6 @@
 
 <div>
     {% if entry.pdf %}
-    <span><a href="{{ entry.pdf }}">pdf</a></span>
+    <span><a href="{{ entry.pdf }}" class="button">pdf</a></span>
     {% endif %}
 </div>
