@@ -64,7 +64,8 @@ feature_row_6:
     btn_class: "btn--primary"                     
 ---
 <style type="text/css">
-.archive__item-teaser img {margin-top: 1em; margin-left: 1em}
+.archive__item-teaser img {margin-top: 1em; margin-left: 1em; margin-right: 1em;}
+.btn--primary {margin-left: 1em;}
 </style>
 {% include feature_row id="feature_row_1" type="left" %}
 
