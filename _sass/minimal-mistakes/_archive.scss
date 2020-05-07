@@ -2,6 +2,8 @@
    ARCHIVE
    ========================================================================== */
 
+$content-padding: 0.5rem;
+
 .archive {
   margin-top: 1em;
   margin-bottom: 2em;
@@ -52,6 +54,10 @@
 }
 
 .archive__item-title {
+  padding-top: $content-padding - 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-left: $content-padding;
+  padding-right: $content-padding;
   margin-bottom: 0.25em;
   font-family: $sans-serif-narrow;
   line-height: initial;
@@ -81,6 +87,9 @@
 }
 
 .archive__item-excerpt {
+  padding-bottom: $content-padding;
+  padding-left: $content-padding;
+  padding-right: $content-padding;
   margin-top: 0;
   font-size: $type-size-6;
 
@@ -100,8 +109,6 @@
   overflow: hidden;
 
   img {
-    margin-top: 1em;
-    margin-left: 1em;
     width: 100%;
   }
 }
@@ -208,6 +215,8 @@
   }
 
   .page__meta {
+    padding-left: $content-padding;
+    padding-right: $content-padding;
     margin: 0 0 4px;
     font-size: 0.6em;
   }
