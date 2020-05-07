@@ -34,7 +34,7 @@ feature_row_3:
     btn_class: "btn--primary"
 feature_row_4:
   - image_path: /assets/images/competitions/poverty_2018.png
-    image_caption: "Image courtesy of [DrivenData](https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/97/)"
+    # image_caption: "Image courtesy of [DrivenData](https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/97/)"
     alt: "Pover-T Tests: Predicting Poverty"
     title: "Pover-T Tests: Predicting Poverty"
     excerpt: 'Finished 6<sup>th</sup> out of 2,310 participants hosted by the 
@@ -64,7 +64,7 @@ feature_row_6:
     btn_class: "btn--primary"                     
 ---
 <style type="text/css">
-.archive__item-teaser img {margin-top: 1em; margin-left: 1em; margin-right: 1em;}
+.archive__item-teaser img {margin-top: 1em; margin-left: 1em; margin-right: 1em; width: 75%}
 .btn--primary {margin-left: 1em;}
 </style>
 {% include feature_row id="feature_row_1" type="left" %}
