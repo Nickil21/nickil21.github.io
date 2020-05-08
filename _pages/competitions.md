@@ -6,7 +6,7 @@ feature_row_1:
   - image_path: /assets/images/competitions/quality_cement_2019.jpg
     alt: "Quality Forecasting in Cement Manufacturing"
     title: "Quality Forecasting in Cement Manufacturing<sup><i class='fas fa-medal' style='color:gold;'></i></sup>"
-    excerpt: '<span style="color:grey">Nov 2019 | CrowdAnalytix</span><br><br>Finished 2<sup>nd</sup> out of 479 participants and awarded a prize money of 2500 USD.
+    excerpt: '<span style="color:#717171">Nov 2019 | CrowdAnalytix</span><br><br>Finished 2<sup>nd</sup> out of 479 participants and awarded a prize money of 2500 USD.
     <br>
     <br>
     [<i class="fas fa-file-pdf"></i> Report](https://drive.google.com/file/d/1SsOXa2pG5A-OYzLL7CqedNiVqHzGTEVR/view?usp=sharing){:target="_blank"}'
@@ -17,7 +17,7 @@ feature_row_2:
   - image_path: /assets/images/competitions/quora_question_2018.png
     alt: "Quora Insincere Questions Classification Challenge"
     title: "Quora Insincere Questions Classification Challenge<sup><i class='fas fa-medal' style='color:silver;'></i></sup>"
-    excerpt: '<span style="color:grey">Feb 2019 | Kaggle</span><br><br>Finished in the top 3%. Won a silver medal.'
+    excerpt: '<span style="color:#717171">Feb 2019 | Kaggle</span><br><br>Finished in the top 3%. Won a silver medal.'
     url: "https://www.kaggle.com/c/quora-insincere-questions-classification/"
     btn_label: "Read More"
     btn_class: "btn--primary"    
@@ -25,7 +25,7 @@ feature_row_3:
   - image_path: /assets/images/competitions/cold_start_2018.png
     alt: "Cold Start Energy Forecasting"
     title: "Cold Start Energy Forecasting"
-    excerpt: '<span style="color:grey">Oct 2018 | DrivenData</span><br><br>Finished 11<sup>th</sup> out of 1291 participants.
+    excerpt: '<span style="color:#717171">Oct 2018 | DrivenData</span><br><br>Finished 11<sup>th</sup> out of 1291 participants.
     My algorithm brought down the median absolute percent 
     error across daily and weekly forecasts to 7% - less than half 
     that of the LSTM benchmark.'
@@ -37,7 +37,7 @@ feature_row_4:
     # image_caption: "Image courtesy of [DrivenData](https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/97/)"
     alt: "Pover-T Tests: Predicting Poverty"
     title: "Pover-T Tests: Predicting Poverty"
-    excerpt: '<span style="color:grey">Feb 2018 | DrivenData</span><br><br>Finished 6<sup>th</sup> out of 2,310 participants hosted by the 
+    excerpt: '<span style="color:#717171">Feb 2018 | DrivenData</span><br><br>Finished 6<sup>th</sup> out of 2,310 participants hosted by the 
     [World Bank](https://www.worldbank.org/).'
     url: "https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/99/"
     btn_label: "Read More"
@@ -46,7 +46,7 @@ feature_row_5:
   - image_path: /assets/images/competitions/tennis_australia_2018.jpg
     alt: "Predicting How Points End in Tennis"
     title: "Predicting How Points End in Tennis<sup><i class='fas fa-medal' style='color:gold;'></i></sup>"
-    excerpt: '<span style="color:grey">Jan 2018 | CrowdAnalytix</span><br><br>Finished 2<sup>nd</sup> out of 750 participants and awarded a prize money of 2500 USD.
+    excerpt: '<span style="color:#717171">Jan 2018 | CrowdAnalytix</span><br><br>Finished 2<sup>nd</sup> out of 750 participants and awarded a prize money of 2500 USD.
     Featured in Tennis Australia official press release. See [here](https://ausopen.com/articles/news/tennis-hackathon-draws-record-participation){:target="_blank"}.
     <br>
     <br>
@@ -58,7 +58,7 @@ feature_row_6:
   - image_path: /assets/images/competitions/click_prediction.png
     alt: "Click Prediction Hackathon"
     title: "Click Prediction Hackathon"
-    excerpt: '<span style="color:grey">Oct 2017 | AnalyticsVidhya</span><br><br>Finished 3<sup>rd</sup> out of 2975 participants and awarded a prize money of ₹25000.'
+    excerpt: '<span style="color:#717171">Oct 2017 | AnalyticsVidhya</span><br><br>Finished 3<sup>rd</sup> out of 2975 participants and awarded a prize money of ₹25000.'
     url: "https://datahack.analyticsvidhya.com/contest/click-prediction/"
     btn_label: "Read More"
     btn_class: "btn--primary"                     
