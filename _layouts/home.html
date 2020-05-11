@@ -4,9 +4,7 @@ layout: archive
 <!-- Just some nice to have styles for the pager buttons -->
 <style>
   ul.pager { text-align: center; list-style: none; }
-  ul.pager li {display: inline;border: 1px solid #6f777d; padding: 10px; margin: 5px;}
-  body {line-height: 1.2;}
-  .archive__item-excerpt {padding: 0;}
+  body {line-height: 1.5;}
 </style>
 
 <div class="home">
@@ -19,10 +17,13 @@ layout: archive
         All calls to site.posts should be replaced by paginator.posts
     -->
     {% for post in paginator.posts %}
-        <span class="post-meta" style="font-size: small; color: #6f777d;">{{ post.date | date: "%b %-d, %Y" }}</span><br>
-        <a class="post-link" href="{{ post.url | relative_url }}"><b>{{ post.title | escape }}</b></a><br>
-        <span class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</span>
-        <br><br>
+      <div class="archive__item" onclick="location.href='{{ post.url | relative_url }}'" style="cursor: pointer;">
+        <p class="post-meta" style="font-size: small; color: #6f777d;padding-left:0.5rem;">Posted on: {{ post.date | date: "%b %-d, %Y" }}</p>
+        <img src="{{ post.header.teaser }}" alt="image" style="padding-left:0.5rem;padding-right:0.5rem;">
+        <a class="post-link" href="{{ post.url | relative_url }}"><h5 style="padding-left:0.5rem;padding-right:0.5rem;">{{ post.title | escape }}</h5></a>
+        <p class="archive__item-excerpt" itemprop="description" style="padding-left:0.5rem;padding-right:0.5rem;padding-bottom:0.5rem;">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
+      </div>
+      <br>
     {% endfor %}
   </ul>
 
@@ -33,12 +34,12 @@ layout: archive
   <ul class="pager">
       {% if paginator.previous_page %}
       <li class="previous">
-          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="fas fa-arrow-left"></i> Newer Posts</a>
+          <input class="btn btn--primary" type="button" onclick="location.href='{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}'" value="&#8592; Newer Posts" />
       </li>
       {% endif %}
       {% if paginator.next_page %}
       <li class="next">
-          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts <i class="fas fa-arrow-right"></i></a>
+          <input class="btn btn--primary" type="button"  onclick="location.href='{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}'" value="Older Posts &#8594;" />
       </li>
       {% endif %}
   </ul>
