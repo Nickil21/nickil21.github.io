@@ -16,10 +16,10 @@ layout: archive
         All calls to site.posts should be replaced by paginator.posts
     -->
     {% for post in paginator.posts %}
-      <div class="archive__item" onclick="location.href='{{ post.url | relative_url }}'" style="cursor: pointer;">
+      <div class="archive__item">
         <p class="post-meta" style="font-size: small; color: #6f777d;padding-left:0.5rem;">Posted on: {{ post.date | date: "%b %-d, %Y" }}</p>
         <img src="{{ post.header.teaser }}" alt="image" style="padding-left:0.5rem;padding-right:0.5rem;">
-        <a class="post-link" href="{{ post.url | relative_url }}"><h5 style="padding-left:0.5rem;padding-right:0.5rem;">{{ post.title | escape }}</h5></a>
+        <a class="post-link" href="{{ post.url | relative_url }}"><h4 style="padding-left:0.5rem;padding-right:0.5rem;">{{ post.title | escape }}</h4></a>
         <p class="archive__item-excerpt" itemprop="description" style="padding-left:0.5rem;padding-right:0.5rem;padding-bottom:0.5rem;">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
       </div>
       <br>
