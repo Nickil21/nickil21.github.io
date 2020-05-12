@@ -19,7 +19,7 @@ layout: archive
       <div class="archive__item">
         <span class="post-meta" style="font-size: small; color: #6f777d;padding-left:0.5rem;">Posted on: {{ post.date | date: "%b %-d, %Y" }}</span>
         <a class="archive__item-teaser" href="{{ post.url | relative_url }}"><img src="{{ post.header.teaser }}" alt="image"></a>
-        <a class="post-link" href="{{ post.url | relative_url }}"><h4 style="padding-left:0.5rem;padding-right:0.5rem;">{{ post.title | escape }}</h4></a>
+        <a class="post-link" href="{{ post.url | relative_url }}"><h4 style="margin-top:0;padding-left:0.5rem;padding-right:0.5rem;">{{ post.title | escape }}</h4></a>
         <p class="archive__item-excerpt" itemprop="description" style="padding-left:0.5rem;padding-right:0.5rem;padding-bottom:0.5rem;">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
       </div>
       <br>
