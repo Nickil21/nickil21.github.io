@@ -256,7 +256,7 @@ $content-padding: 0.5rem;
 .feature__wrapper {
   @include clearfix();
   margin-bottom: 2em;
-  border-bottom: 1px solid $border-color;
+  border-bottom: none; //1px solid $border-color;
 
   .archive__item-title {
     margin-bottom: 0;
@@ -311,9 +311,9 @@ $content-padding: 0.5rem;
   &--left {
     position: relative;
     float: left;
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
     clear: both;
     font-size: 1.125em;
 
@@ -395,9 +395,9 @@ $content-padding: 0.5rem;
   &--center {
     position: relative;
     float: left;
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
     clear: both;
     font-size: 1.125em;
 

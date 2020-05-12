@@ -17,7 +17,10 @@ feature_row_2:
   - image_path: /assets/images/competitions/quora_question_2018.png
     alt: "Quora Insincere Questions Classification Challenge"
     title: "Quora Insincere Questions Classification Challenge<sup><i class='fas fa-medal' style='color:silver;'></i></sup>"
-    excerpt: '<span style="color:#717171">Feb 2019 | Kaggle</span><br><br>Finished in the top 3%. Won a silver medal.'
+    excerpt: '<span style="color:#717171">Feb 2019 | Kaggle</span><br><br>Finished in the top 3%. Won a silver medal.
+    <br>
+    <br>
+    [<i class="fas fa-code"></i> Code](https://drive.google.com/file/d/1BW5AUhaE8WvExYySlEJMA-n15rHaqClS/view?usp=sharing){:target="_blank"}'
     url: "https://www.kaggle.com/c/quora-insincere-questions-classification/"
     btn_label: "Read More"
     btn_class: "btn--primary"    
@@ -28,7 +31,10 @@ feature_row_3:
     excerpt: '<span style="color:#717171">Oct 2018 | DrivenData</span><br><br>Finished 11<sup>th</sup> out of 1291 participants.
     My algorithm brought down the median absolute percent 
     error across daily and weekly forecasts to 7% - less than half 
-    that of the LSTM benchmark.'
+    that of the LSTM benchmark.
+    <br>
+    <br>
+    [<i class="fas fa-code"></i> Code](https://drive.google.com/open?id=1fTwRUN3UjknnXj8k_WTXGMY5tTmKPdXJ){:target="_blank"}'
     url: "https://www.drivendata.org/competitions/55/schneider-cold-start/"
     btn_label: "Read More"
     btn_class: "btn--primary"
@@ -38,7 +44,10 @@ feature_row_4:
     alt: "Pover-T Tests: Predicting Poverty"
     title: "Pover-T Tests: Predicting Poverty"
     excerpt: '<span style="color:#717171">Feb 2018 | DrivenData</span><br><br>Finished 6<sup>th</sup> out of 2,310 participants hosted by the 
-    [World Bank](https://www.worldbank.org/).'
+    [World Bank](https://www.worldbank.org/).
+    <br>
+    <br>
+    [<i class="far fa-sticky-note"></i> Writeup](https://community.drivendata.org/t/share-the-knowledge/2096/14){:target="_blank"}'
     url: "https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/99/"
     btn_label: "Read More"
     btn_class: "btn--primary"           
