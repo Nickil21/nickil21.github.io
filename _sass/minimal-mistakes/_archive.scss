@@ -109,6 +109,7 @@ $content-padding: 0.5rem;
   overflow: hidden;
 
   img {
+    padding: $content-padding;
     width: 100%;
   }
 }

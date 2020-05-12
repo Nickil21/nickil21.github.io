@@ -17,8 +17,8 @@ layout: archive
     -->
     {% for post in paginator.posts %}
       <div class="archive__item">
-        <p class="post-meta" style="font-size: small; color: #6f777d;padding-left:0.5rem;">Posted on: {{ post.date | date: "%b %-d, %Y" }}</p>
-        <a href="{{ post.url | relative_url }}"><img src="{{ post.header.teaser }}" alt="image" style="padding-left:0.5rem;padding-right:0.5rem;"></a>
+        <span class="post-meta" style="font-size: small; color: #6f777d;padding-left:0.5rem;">Posted on: {{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="archive__item-teaser" href="{{ post.url | relative_url }}"><img src="{{ post.header.teaser }}" alt="image"></a>
         <a class="post-link" href="{{ post.url | relative_url }}"><h4 style="padding-left:0.5rem;padding-right:0.5rem;">{{ post.title | escape }}</h4></a>
         <p class="archive__item-excerpt" itemprop="description" style="padding-left:0.5rem;padding-right:0.5rem;padding-bottom:0.5rem;">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
       </div>
@@ -29,18 +29,12 @@ layout: archive
     Showing buttons to move to the next and to the previous list of posts (pager buttons).
   -->
   {% if paginator.total_pages > 1 %}
-  <ul class="pager">
       {% if paginator.previous_page %}
-      <li class="previous">
           <input class="btn btn--primary" type="button" onclick="location.href='{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}'" value="&#8592; Newer Posts" />
-      </li>
       {% endif %}
       {% if paginator.next_page %}
-      <li class="next">
           <input class="btn btn--primary" type="button"  onclick="location.href='{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}'" value="Older Posts &#8594;" />
-      </li>
       {% endif %}
-  </ul>
   {% endif %}
 
 </div>
