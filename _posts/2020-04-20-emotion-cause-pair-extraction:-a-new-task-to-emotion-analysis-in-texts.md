@@ -7,7 +7,7 @@ date: 2020-04-20
 last_modified_at: 2020-04-20
 permalink: "/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/"
 header:
-  overlay_filter: 0.5
+  overlay_filter: 0.25
   overlay_image: /assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg
   teaser: "/assets/images/nlp_papers_summary/pic_21.png"
   actions:
@@ -58,13 +58,16 @@ without providing the emotion annotation <span style="color:red">happy</span>.
 
 ## Approach
 The authors propose a two-step approach to address this new ECPE task.
-## 1. Individual Emotion and Cause Extraction
+
+**1. Individual Emotion and Cause Extraction**
+
 Convert the emotion-cause pair extraction task into emotion extraction and cause extraction respectively.
 Two kinds of multi-task learning networks are proposed to model the two sub-tasks in a unified framework, with
 the goal to extract a set of emotion clauses $$E = \{c_1^e, ... , c_m^e\}$$
 and a set of cause clauses $$C = \{c_1^c, ... , c_n^c\}$$ for each document.
 
-### 1.a) Independent Multi-task Learning
+**a) Independent Multi-task Learning**<br>
+<br>
 A document contains multiple clauses: $$d = [c_1, c_2, ..., c_{|d|}]$$, 
 and each $c_i$ also contains multiple words $c_i = [w_{i,1}, w_{i,2}, ..., w_{i,|ci|}]$. 
 
@@ -80,7 +83,8 @@ layer as inputs.
  alt="this is a placeholder image" 
  caption="The Model for Independent Multi-task Learning (Indep)." %}
  
-### 1.b) Interactive Multi-task Learning 
+**b) Interactive Multi-task Learning**
+
 To capture the correlation between emotion and cause, Interactive Multi-Task Learning network was proposed.
 Compared with Independent Multi-task Learning, the lower layer of Inter-EC is unchanged, and
 the upper layer consists of two components, which
@@ -91,7 +95,8 @@ Each component is a clause-level BiLSTM followed by a softmax layer.
  caption="Two Models for Interactive Multi-task Learning: (a) Inter-EC, which uses emotion extraction to improve
 cause extraction (b) Inter-CE, which uses cause extraction to enhance emotion extraction." %} 
  
-## 2. Emotion-Cause Pairing and Filtering
+**2. Emotion-Cause Pairing and Filtering**
+
 Pair the emotion set $E$ and the cause set $C$ by applying a [Cartesian product](https://en.wikipedia.org/wiki/Cartesian_product)
 to them. This yields a set of candidate
 emotion-cause pairs. The authors finally trained a filter to eliminate the pairs that do not contain

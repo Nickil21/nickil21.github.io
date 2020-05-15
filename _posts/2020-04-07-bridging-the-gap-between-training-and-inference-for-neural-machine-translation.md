@@ -8,7 +8,7 @@ date: 2020-04-07
 last_modified_at: 2020-04-13
 permalink: "/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/"
 header:
-  overlay_filter: 0.5
+  overlay_filter: 0.25
   overlay_image: /assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg
   teaser: "/assets/images/nlp_papers_summary/pic_15.png"
   actions:
@@ -54,9 +54,13 @@ or the previous predicted words, i.e. oracle words, with a certain probability. 
 can reduce the gap between training and inference by training the model to handle the situation which
 will appear during test time.
 
-## Oracle Translation Generation
+## Approach
+**Oracle Translation Generation**
+
 Select an oracle word $y_{j−1}^{oracle}$ at word level or sentence level at the $$\{j−1\}^{-th}$$ step.
-### 1) Word Level Oracle (SO)
+
+**1. Word Level Oracle (SO)**
+
 Generally, at the $j$-th step, the NMT model needs the ground truth word $y_{j−1}^*$ 
 as the context word to predict $y_j$ , thus, we could select an oracle word 
 $y_{j−1}^{oracle}$ to simulate the context word. The oracle word should be a word similar 
@@ -82,7 +86,7 @@ where $\eta$ is the Gumbel noise calculated from a uniform random variable $\{u}
 As $\tau$ approaches 0, the $\{softmax}$ function is similar to the $\{argmax}$ operation, and it becomes uniform distribution 
 gradually when $\tau$ $\rightarrow$ $\infty$.
 
-### 2) Sentence Level Oracle (SO)
+**2. Sentence Level Oracle (SO)**
   * Generate $top(k)$ translation by beam search.
   * Re-rank $top(k)$ translation with BLEU.
   * Select $top(i)$.
@@ -91,7 +95,8 @@ As the model samples from ground truth word and the sentence-level oracle word a
 two sequences should have the same number of words. Force decoding is used 
 to make sure the two sequences have the same length. 
 
-## Context Sampling with Decay  
+**Context Sampling with Decay**
+
 Employ a sampling mechanism to randomly select the ground truth word $y_{j-1}^*$ 
 or the oracle word $y_{j−1}^{oracle}$ as $y_{j−1}$. At the beginning of training, 
 as the model is not well trained, using $y_{j−1}^{oracle}$ as $y_{j−1}$ too often

@@ -4,7 +4,7 @@ title: "Do You Know That Florence Is Packed with Visitors?
 Evaluating State-of-the-art Models of Speaker Commitment"
 excerpt: "Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering."
 header:
-  overlay_filter: 0.5
+  overlay_filter: 0.25
   overlay_image: /assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg
   teaser: "/assets/images/nlp_papers_summary/pic_20.png"
   actions:
@@ -64,14 +64,15 @@ it is true or false, <span style='color:red;'>**-3**</span>/speaker is certain t
 They took the mean annotations of each item as gold score of speaker commitment.
 
 ## Models
-### 1. Rule-based TruthTeller ([Stanovsky et al., 2017](https://www.aclweb.org/anthology/P17-2056.pdf))
+
+**1. Rule-based TruthTeller ([Stanovsky et al., 2017](https://www.aclweb.org/anthology/P17-2056.pdf))**
 
 It uses a top-down approach on a dependency tree and predicts speaker commitment score in [−3, 3] 
 according to the implicative signatures of the predicates, and whether the predicates are under the 
 scope of negation and uncertainty modifiers. For example, **refuse $\mathcal{p}$** entails **$\neg{\mathcal{p}}$**, 
 so the factuality of its complement $\mathcal{p}$ gets flipped if encountered.
 
-### 2. BiLSTM-based models ([Rudinger et al., 2018](https://www.aclweb.org/anthology/N18-1067.pdf))
+**2. BiLSTM-based models ([Rudinger et al., 2018](https://www.aclweb.org/anthology/N18-1067.pdf))**
 
 * Linear: encodes the sentence left-to-right and right-to-left.
 * Tree: encodes the dependency tree of the sentence top-down and bottom-up.
@@ -92,23 +93,27 @@ while the hybrid model struggles to recognize negative commitments. The rule-bas
 unless it has clear evidence (e.g., negation) for negative commitment. This behavior is reflected in the 
 high precision for $-$. Both models perform well on $+$ and $-$, but neither is able to identify no commitment ($o$).
 
-## Embedding environment
+* **Embedding environment**
+
 The rule-based model can only capture inferences involving negation ($r$ = 0.45), while the hybrid model
 performs more consistently across negation, modal, and question ($r$ ∼ 0.25). Both models
 cannot handle inferences with conditionals.
 
-## Genre
+* **Genre**
+
 Both models achieve the best correlation on dialog (Switchboard), and the worst on
 newswire (WSJ). The good performance of the rule-based model on dialog could be due to the
 fact that 70% of the items in dialog are in a negation environment with a nonfactive verb.
 
-## Factive embedding verb
+* **Factive embedding verb**
+
 Both models get better MAE on factives, but better correlation on nonfactives. The improved MAE of
 the rule-based model might be due to its use of factive/implicative signatures. However, the poor
 correlations suggest that neither model can robustly capture the variability in inference which
 exists in sentences involving factive/nonfactive verbs.
 
-## Neg-raising
+* **Neg-raising**
+
 There is almost no correlation between both models' predictions and gold judgments
 suggesting that the models are not able to capture neg-raising inferences. 
 

@@ -6,7 +6,7 @@ date: 2020-04-06
 last_modified_at: 2020-04-08
 permalink: "/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/"
 header:
-  overlay_filter: 0.5
+  overlay_filter: 0.25
   overlay_image: /assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg
   teaser: "/assets/images/nlp_papers_summary/pic_3.png"
   actions:
@@ -81,7 +81,7 @@ To estimate noise, a sample of gender predictions were shown to native speakers 
 Quality estimated >85% vs. 90% IAA (Inter Annotator Agreement)
 {: .notice--success} 
 
-> ### To test if gendered adjectives affect translation?
+>**To test if gendered adjectives affect translation?**<br><br>
 For the sentence:<br>
 "The doctor asked the nurse to help her in the operation."<br><br>
 Black-box injection of gendered adjectives were done:<br>

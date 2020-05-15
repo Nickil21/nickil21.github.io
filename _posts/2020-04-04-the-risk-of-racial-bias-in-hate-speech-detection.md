@@ -6,7 +6,7 @@ date: 2020-04-04
 last_modified_at: 2020-04-15
 permalink: "/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/"
 header:
-  overlay_filter: 0.5
+  overlay_filter: 0.25
   overlay_image: /assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg
   teaser: "/assets/images/nlp_papers_summary/pic_1.png"
   actions:
@@ -70,16 +70,14 @@ Predictions by both the classifiers were biased against AAE tweets as shown by t
 AAE tweets and tweets by Black folks were more often flagged as toxic. This racial bias generalizes to 
 other Twitter corpora.
 
-> ## How to reduce the bias?
-Answer is by changing the task of annotation. 
-
+>**How to reduce the bias?**<br><br>
+Answer is by changing the task of annotation.<br><br>
 To test this hypothesis, 350 AAE tweets stratified by dataset labels were 
-given to Amazon Mechanical Turkers. 
-The annotation was done in a three-fold manner:
-
-1. only text. (**55%** were labelled as offensive)
-2. text + dialect information. (**44%** were labelled as offensive)
-3. text + dialect + race information. (**44%** were labelled as offensive)
+given to Amazon Mechanical Turkers.<br><br>
+The annotation was done in a three-fold manner:<br><br>
+    1. only text. (**55%** were labelled as offensive)<br>
+    2. text + dialect information. (**44%** were labelled as offensive)<br>
+    3. text + dialect + race information. (**44%** were labelled as offensive)
 
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_2.png"
  alt="this is a placeholder image" 

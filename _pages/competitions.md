@@ -12,7 +12,7 @@ feature_row_1:
     [<i class="fas fa-file-pdf"></i> Report](https://drive.google.com/file/d/1SsOXa2pG5A-OYzLL7CqedNiVqHzGTEVR/view?usp=sharing){:target="_blank"}'
     url: "https://www.crowdanalytix.com/contests/quality-forecasting-in-cement-manufacturing/"
     btn_label: "Read More"
-    btn_class: "btn--primary"
+    btn_class: "btn--info"
 feature_row_2:
   - image_path: /assets/images/competitions/quora_question_2018.png
     alt: "Quora Insincere Questions Classification Challenge"
@@ -23,7 +23,7 @@ feature_row_2:
     [<i class="fas fa-code"></i> Code](https://drive.google.com/file/d/1BW5AUhaE8WvExYySlEJMA-n15rHaqClS/view?usp=sharing){:target="_blank"}'
     url: "https://www.kaggle.com/c/quora-insincere-questions-classification/"
     btn_label: "Read More"
-    btn_class: "btn--primary"    
+    btn_class: "btn--info"    
 feature_row_3:
   - image_path: /assets/images/competitions/cold_start_2018.png
     alt: "Cold Start Energy Forecasting"
@@ -37,7 +37,7 @@ feature_row_3:
     [<i class="fas fa-code"></i> Code](https://drive.google.com/open?id=1fTwRUN3UjknnXj8k_WTXGMY5tTmKPdXJ){:target="_blank"}'
     url: "https://www.drivendata.org/competitions/55/schneider-cold-start/"
     btn_label: "Read More"
-    btn_class: "btn--primary"
+    btn_class: "btn--info"
 feature_row_4:
   - image_path: /assets/images/competitions/poverty_2018.png
     # image_caption: "Image courtesy of [DrivenData](https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/97/)"
@@ -50,7 +50,7 @@ feature_row_4:
     [<i class="far fa-sticky-note"></i> Writeup](https://community.drivendata.org/t/share-the-knowledge/2096/14){:target="_blank"}'
     url: "https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/99/"
     btn_label: "Read More"
-    btn_class: "btn--primary"           
+    btn_class: "btn--info"           
 feature_row_5:
   - image_path: /assets/images/competitions/tennis_australia_2018.jpg
     alt: "Predicting How Points End in Tennis"
@@ -62,7 +62,7 @@ feature_row_5:
     [<i class="fas fa-file-pdf"></i> Report](https://docs.google.com/document/d/1Ovsp5ilksIJZ46085DGbApHpddv2yhpUCXVvGAYFTLg/edit?usp=sharing){:target="_blank"}'
     url: "https://www.crowdanalytix.com/contests/from-ao-to-ai--predicting-how-points-end-in-tennis/"
     btn_label: "Read More"
-    btn_class: "btn--primary" 
+    btn_class: "btn--info" 
 feature_row_6:
   - image_path: /assets/images/competitions/click_prediction.png
     alt: "Click Prediction Hackathon"
@@ -70,7 +70,7 @@ feature_row_6:
     excerpt: '<span style="color:#717171">Oct 2017 | AnalyticsVidhya</span><br><br>Finished 3<sup>rd</sup> out of 2975 participants and awarded a prize money of ₹25000.'
     url: "https://datahack.analyticsvidhya.com/contest/click-prediction/"
     btn_label: "Read More"
-    btn_class: "btn--primary"                     
+    btn_class: "btn--info"                     
 ---
 <style type="text/css">
 .archive__item-teaser img {margin-top: 1em; margin-left: 1em; margin-right: 1em; width: 75%}
