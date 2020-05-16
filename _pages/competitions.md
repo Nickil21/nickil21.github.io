@@ -73,7 +73,7 @@ feature_row_6:
     btn_class: "btn--info"                     
 ---
 <style type="text/css">
-.archive__item-teaser img {margin-top: 1em; margin-left: 1em; margin-right: 1em; width: 75%}
+.archive__item-teaser img {margin-top: 1em; margin-left: 1em;}
 </style>
 {% include feature_row id="feature_row_1" type="left" %}
 

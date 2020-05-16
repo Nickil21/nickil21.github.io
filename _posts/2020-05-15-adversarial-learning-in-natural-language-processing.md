@@ -1,0 +1,86 @@
+---
+toc: true
+toc_sticky: true
+title: "Adversarial Learning in Natural Language Processing"
+excerpt: ""
+date: 2020-05-15
+last_modified_at: 2020-05-16
+permalink: "/blog/primer/adversarial-learning-in-natural-language-processing/"
+header:
+  overlay_filter: 0.25
+  overlay_image: /assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg
+  teaser: "/assets/images/primer/pic_2.png"
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+category:
+  - Primer
+tags:
+  - Adversarial Learning
+---
+
+# Adversarial Attacks
+
+
+# Evaluation
+
+A procedure for evaluating adversarial attacks on *seq2seq* models ([Michel et al., 2019](https://www.aclweb.org/anthology/N19-1314.pdf)).
+Let us denote $x$ and $y$ refer to the source and target sentence respectively.
+Let $x$'s translation by model $M$ be $y_M$. Finally, $\hat{x}$ and $\hat{y_{M}}$ represent an
+adversarially perturbed version of $x$ and its translation by $M$, respectively. The goal of adversarial
+perturbation is to have a worse score with the adversarial output than the original output. Evaluating the
+similarity between original input and adversarial input is also a major focus.
+
+**On the Source side:**
+
+Assume there exists a semantic similarity between the two sources (original sentence, adversarial sentence), denoted
+by $s_{src}({x,\hat{x}})$, such that:
+
+$s_{src}$(<span style="font-size:14px">He's very friendly, He's pretty friendly</span>) > 
+$s_{src}$(<span style="font-size:14px">He's very friendly, He's very annoying</span>)
+
+**On the Target side:**
+
+Assume there exists some measure of similarity between the two targets (original output, adversarial output), denoted
+by $s_{tgt}({y_{M},\hat{y_{M}}})$
+
+Relative meaning destruction on the target side is a normalized score between 0 and 1 for robust comparison across
+different models.
+
+$$
+\begin{align*}
+d_{tgt}(y, y_{M}, \hat{y_{M}}) = 
+\begin{cases}
+  0 \hspace{50pt} \textrm{ if } s_{tgt}({y, \hat{y_{M}}}) \geq s_{tgt}({y, y_{M}}) \\
+  \frac{s_{tgt}({y, y_{M}}) - s_{tgt}({y, \hat{y_{M}}})}{s_{tgt}({y, y_{M}})} \hspace{10pt} \textrm{ otherwise }
+\end{cases}
+\end{align*}
+$$
+
+For successful adversarial attacks, we want to make sure that the extent to which the meaning is 
+destroyed in the source side is lower than the extent destroyed in the target side.
+
+{% include figure image_path="/assets/images/primer/pic_1.png"
+ alt="this is a placeholder image"
+ caption="A Framework for Evaluating Adversarial Attacks." %}
+ 
+ ---
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup" class="archive__item">
+<form action="https://github.us19.list-manage.com/subscribe/post?u=011e5e92fe856b3d318b414ad&amp;id=f8ae890e5c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Liked this article and want to hear more?</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_92fe86c389878585bc87837e8_50543deff9" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+<br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><i style="font-size:12px">This work is licensed under a </i><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i style="font-size:12px">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</i></a>.
