@@ -10,7 +10,7 @@ header:
       url: "/blog/year-archive/"
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: '"The true alchemists do not change lead into gold; they change the world into words." ― William H. Gass'  
-feature_row:
+feature_row_1:
   - image_path: /assets/images/blog/main-folder/bert-distilbert-sentence-classification.png
     image_caption: "Photo credit: [Jay Alammar](https://jalammar.github.io/)"
     alt: "Bert Distilbert Sentence Classification"
@@ -19,7 +19,7 @@ feature_row:
     url: "/blog/nlp-papers-summary"
     btn_label: "Read More"
     btn_class: "btn--info"
-    
+feature_row_2:    
   - image_path: /assets/images/blog/main-folder/jared-brashier-duNHkmSkW6M-unsplash.jpg
     image_caption: "Photo credit: [Unsplash](https://unsplash.com/)"
     alt: "Placeholder for Image"
@@ -30,4 +30,5 @@ feature_row:
     btn_class: "btn--info"    
 ---
 
-{% include feature_row %}
+{% include feature_row id="feature_row_1" type="left" %}
+{% include feature_row id="feature_row_2" type="left" %}
