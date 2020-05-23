@@ -19,6 +19,8 @@ tags:
 
 # Adversarial Attacks
 
+$$\mathcal{L}_{\mathrm{adv}}(\hat{x}, y)=\sum_{t=1}^{|y|} \log \left(1-p\left(y_{t} | \hat{x}, y_{1}, \ldots, y_{t-1}\right)\right)$$
+
 <span style="font-size:24px;font-weight:bold">Sentence-level Attack</span>
 
 A new approach for learning to do syntactically controlled paraphrase generation ([Iyyer et al., 2018](https://www.aclweb.org/anthology/N18-1170.pdf)).

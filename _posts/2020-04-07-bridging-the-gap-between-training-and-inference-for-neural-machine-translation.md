@@ -74,13 +74,11 @@ oracle word of each step, which is called Word-level Oracle (called WO).
  
 Gumbel noise, treated as a form of regularization, is added to $o_{j−1}$.
 
-$$
-\begin{align*}
-\eta&= -\log(-\log u)\\
-\tilde{o}_{j-1}&= (o_{j-1} + \eta) / \tau\\
-\tilde{P}_{j-1}&= {softmax}(\tilde{o}_{j-1})
-\end{align*}
-$$
+$$\begin{align*}
+\eta&= -\log (-\log u) \\
+\tilde{o}_{j-1}&= \left(o_{j-1}+\eta\right) / \tau \\
+\tilde{P}_{j-1}&= \operatorname{softmax}\left(\tilde{o}_{j-1}\right)
+\end{align*}$$
 
 where $\eta$ is the Gumbel noise calculated from a uniform random variable $\{u} ∼ \{U(0, 1)}$; $\tau$ is temperature.
 As $\tau$ approaches 0, the $\{softmax}$ function is similar to the $\{argmax}$ operation, and it becomes uniform distribution 
@@ -124,11 +122,7 @@ words decreases gradually.
 The objective is to maximize the probability of the ground truth sequence based on maximum likelihood estimation (MLE).
 Thus, following loss function is minimized:
 
-$$
-\begin{align*}
-    \mathcal{L}(\theta) = -\sum_{n=1}^{N}\sum_{j=1}^{|y^n|}\log P_j^n[y_j^{*n}]
-\end{align*}
-$$
+$$\begin{align*}\mathcal{L}(\theta)=-\sum_{n=1}^{N} \sum_{j=1}^{\left|\mathbf{y}^{n}\right|} \log P_{j}^{n}\left[y_{j}^{n}\right]\end{align*}$$
 
 where ${N}$ is the number of sentence pairs in the training data, $|y^n|$ indicates the length 
 of the ${n}$-th ground truth sentence, $P_j^n$ refers to the predicted probability distribution at the ${j}$-th 

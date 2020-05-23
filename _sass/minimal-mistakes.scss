@@ -97,6 +97,7 @@ html[data-theme="dark"] {
   .masthead__inner-wrap{background-color: #252a3};
   .masthead__inner-wrap nav {background-color: #252a34};
   .page__footer {background-color: #1a1d24};
+  .page__footer {color: #fff};
   .page__footer-follow ul {background-color: #1a1d24};
   .archive__item {background: #252a34};
   .toc__menu {background-color: #252a34};
@@ -104,6 +105,11 @@ html[data-theme="dark"] {
   .archive__item {background: #1a1d24};
   .author__urls {background: #252a34};
   .toc .active a {background: lightslategray};
+  .search-content .search-input {color: #fff};
+  .search__toggle {color: #fff};
+  .greedy-nav a {color: #fff};
+  #mc_embed_signup form {background: #252a34};
+  #mc_embed_signup label {color: #fff;}
 }
 
 

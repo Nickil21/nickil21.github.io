@@ -111,7 +111,13 @@ $content-padding: 0.5rem;
   img {
     padding: $content-padding;
     width: 100%;
+    transition: all 1s;
+    transform: scale(1);
   }
+
+  &:hover img {
+        transform: scale(1.02);
+    }
 }
 
 .archive__item-caption {
