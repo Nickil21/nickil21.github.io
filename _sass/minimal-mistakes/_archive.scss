@@ -25,7 +25,7 @@ $content-padding: 0.5rem;
   margin-top: 1em;
   position: relative;
   background: #fff;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.36);
   transition: box-shadow 0.2s ease-in-out;
   border-radius: $border-radius;
   &:hover {
@@ -321,7 +321,7 @@ $content-padding: 0.5rem;
     margin-right: 10%;
     width: 80%;
     clear: both;
-    font-size: 1.125em;
+    font-size: 1em; //1.125em;
 
     .archive__item {
       float: left;
