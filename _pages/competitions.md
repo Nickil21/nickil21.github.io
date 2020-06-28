@@ -2,6 +2,11 @@
 title: "Competitions"
 layout: splash
 permalink: /competitions/
+header:
+  overlay_filter: "0.5"
+  overlay_image: /assets/images/competitions/musicfox-fx-ANpeikC7Up4-unsplash.jpg
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+excerpt: "My Performance in data science competitions arranged in reverse chronological order"
 feature_row_7:
   - image_path: /assets/images/competitions/jigsaw_multilingual_toxic_comment_2020.png
     alt: "Jigsaw Multilingual Toxic Comment Classification"
@@ -84,15 +89,9 @@ feature_row_1:
     btn_class: "btn--info"                     
 ---
 {% include feature_row id="feature_row_7" type="left" %}
-
 {% include feature_row id="feature_row_6" type="left" %}
-
 {% include feature_row id="feature_row_5" type="left" %}
-
 {% include feature_row id="feature_row_4" type="left" %}
-
 {% include feature_row id="feature_row_3" type="left" %}
-
 {% include feature_row id="feature_row_2" type="left" %}
-
 {% include feature_row id="feature_row_1" type="left" %}
