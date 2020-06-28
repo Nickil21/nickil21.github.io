@@ -6,7 +6,7 @@ $content-padding: 0.5rem;
 
 .archive {
   margin-top: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 0em; //2em;
 
   @include breakpoint($large) {
     float: right;
@@ -25,11 +25,11 @@ $content-padding: 0.5rem;
   margin-top: 1em;
   position: relative;
   background: #fff;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.36);
+  box-shadow: null; //0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.36);
   transition: box-shadow 0.2s ease-in-out;
   border-radius: $border-radius;
   &:hover {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.13), 0 6px 6px rgba(0, 0, 0, 0.15);
+    box-shadow: null; // 0 10px 20px rgba(0, 0, 0, 0.13), 0 6px 6px rgba(0, 0, 0, 0.15);
   }
   a {
     text-decoration: none;
@@ -111,12 +111,12 @@ $content-padding: 0.5rem;
   img {
     padding: $content-padding;
     width: 100%;
-    transition: all 1s;
+    transition: all 2s;
     transform: scale(1);
   }
 
   &:hover img {
-        transform: scale(1.02);
+        transform: scale(1.1);
     }
 }
 

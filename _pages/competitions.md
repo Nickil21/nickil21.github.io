@@ -2,7 +2,18 @@
 title: "Competitions"
 layout: splash
 permalink: /competitions/
-feature_row_1:
+feature_row_7:
+  - image_path: /assets/images/competitions/jigsaw_multilingual_toxic_comment_2020.png
+    alt: "Jigsaw Multilingual Toxic Comment Classification"
+    title: "Jigsaw Multilingual Toxic Comment Classification<sup><i class='fas fa-medal' style='color:silver;'></i></sup>"
+    excerpt: '<span style="color:#717171">June 2020 | Kaggle</span><br><br>Finished in the top 2%. Won a silver medal.
+    <br>
+    <br>
+    [<i class="far fa-sticky-note"></i> Writeup](https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/discussion/160927){:target="_blank"}'
+    url: "https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/overview"
+    btn_label: "Read More"
+    btn_class: "btn--info"
+feature_row_6:
   - image_path: /assets/images/competitions/quality_cement_2019.jpg
     alt: "Quality Forecasting in Cement Manufacturing"
     title: "Quality Forecasting in Cement Manufacturing<sup><i class='fas fa-medal' style='color:gold;'></i></sup>"
@@ -13,7 +24,7 @@ feature_row_1:
     url: "https://www.crowdanalytix.com/contests/quality-forecasting-in-cement-manufacturing/"
     btn_label: "Read More"
     btn_class: "btn--info"
-feature_row_2:
+feature_row_5:  
   - image_path: /assets/images/competitions/quora_question_2018.png
     alt: "Quora Insincere Questions Classification Challenge"
     title: "Quora Insincere Questions Classification Challenge<sup><i class='fas fa-medal' style='color:silver;'></i></sup>"
@@ -24,7 +35,7 @@ feature_row_2:
     url: "https://www.kaggle.com/c/quora-insincere-questions-classification/"
     btn_label: "Read More"
     btn_class: "btn--info"    
-feature_row_3:
+feature_row_4:
   - image_path: /assets/images/competitions/cold_start_2018.png
     alt: "Cold Start Energy Forecasting"
     title: "Cold Start Energy Forecasting"
@@ -38,7 +49,7 @@ feature_row_3:
     url: "https://www.drivendata.org/competitions/55/schneider-cold-start/"
     btn_label: "Read More"
     btn_class: "btn--info"
-feature_row_4:
+feature_row_3:
   - image_path: /assets/images/competitions/poverty_2018.png
     # image_caption: "Image courtesy of [DrivenData](https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/97/)"
     alt: "Pover-T Tests: Predicting Poverty"
@@ -51,7 +62,7 @@ feature_row_4:
     url: "https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/99/"
     btn_label: "Read More"
     btn_class: "btn--info"           
-feature_row_5:
+feature_row_2:
   - image_path: /assets/images/competitions/tennis_australia_2018.jpg
     alt: "Predicting How Points End in Tennis"
     title: "Predicting How Points End in Tennis<sup><i class='fas fa-medal' style='color:gold;'></i></sup>"
@@ -63,7 +74,7 @@ feature_row_5:
     url: "https://www.crowdanalytix.com/contests/from-ao-to-ai--predicting-how-points-end-in-tennis/"
     btn_label: "Read More"
     btn_class: "btn--info" 
-feature_row_6:
+feature_row_1:
   - image_path: /assets/images/competitions/click_prediction.png
     alt: "Click Prediction Hackathon"
     title: "Click Prediction Hackathon"
@@ -72,17 +83,16 @@ feature_row_6:
     btn_label: "Read More"
     btn_class: "btn--info"                     
 ---
-<style type="text/css">
-.archive__item-teaser img {margin-top: 1em; margin-left: 1em; width: 80%;}
-</style>
-{% include feature_row id="feature_row_1" type="left" %}
+{% include feature_row id="feature_row_7" type="left" %}
 
-{% include feature_row id="feature_row_2" type="left" %}
-
-{% include feature_row id="feature_row_3" type="left" %}
-
-{% include feature_row id="feature_row_4" type="left" %}
+{% include feature_row id="feature_row_6" type="left" %}
 
 {% include feature_row id="feature_row_5" type="left" %}
 
-{% include feature_row id="feature_row_6" type="left" %}
+{% include feature_row id="feature_row_4" type="left" %}
+
+{% include feature_row id="feature_row_3" type="left" %}
+
+{% include feature_row id="feature_row_2" type="left" %}
+
+{% include feature_row id="feature_row_1" type="left" %}
