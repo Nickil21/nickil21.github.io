@@ -7,7 +7,6 @@ excerpt: "About me"
 author_profile: true
 show_tweet: false
 ---
-
 # About Me
 My broad interests are in the intersection of Machine Learning, Natural Language Processing, and Information Retrieval.
 
