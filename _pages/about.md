@@ -1,10 +1,11 @@
 ---
-layout: archive
+layout: single
 classes: wide
 permalink: /
 title: ""
 excerpt: "About me"
 author_profile: true
+show_tweet: false
 ---
 
 # About Me
