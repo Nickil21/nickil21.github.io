@@ -9,11 +9,11 @@ show_tweet: false
 ---
 # About Me
 I am a MSc (Research) student at the [ILCC](http://web.inf.ed.ac.uk/ilcc) ([School of Informatics](https://en.wikipedia.org/wiki/School_of_Informatics,_University_of_Edinburgh))
-academic unit of [The University of Edinburgh](https://www.ed.ac.uk/). I am supervised my [Prof. Shay Cohen](http://homepages.inf.ed.ac.uk/scohen/).
+academic unit of [The University of Edinburgh](https://www.ed.ac.uk/). I am supervised by [Prof. Shay Cohen](http://homepages.inf.ed.ac.uk/scohen/).
 My broad interests are in the intersection of Machine Learning, Natural Language Processing, and Information Retrieval. 
-Previously, I worked at [niki.ai](http://niki.ai/) on building NLP capabilities for a conversational AI system.  
 
-
+Previously, I worked at [niki.ai](http://niki.ai/) on building NLP capabilities for a conversational AI system. 
+For several years, I actively participated in crowd sourced machine learning contests, placing in the money on multiple occasions.
 
 # News
 <table>
