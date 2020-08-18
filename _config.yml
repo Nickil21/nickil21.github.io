@@ -17,7 +17,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 # Site Settings
 locale                   : "en-US"
 title                    : "Nickil Maveli"
-title_separator          : "-"
+title_separator          : "|"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Nickil Maveli"
 description              : "Personal Website of Nickil Maveli"
@@ -93,9 +93,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Nickil Maveli"
+  name             : "NICKIL MAVELI"
   avatar           : "/assets/images/profile-picture/nickil21_pic.jpg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Software Developer - NLP at Niki"
+  bio              : "MSc (Research) student, ILCC, University of Edinburgh"
   location         : "Bangalore, India"
   email            :
   links:
