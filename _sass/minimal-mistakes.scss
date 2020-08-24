@@ -46,7 +46,7 @@ text-decoration: none;
 }
 
 /* Hack for changing colour of Masthead links */
-.greedy-nav .visible-links a:before {background-color: red};
+.greedy-nav .visible-links a:before {background-color: #ff0000};
 
 /* Hack to make font size smaller */
 html {
@@ -111,6 +111,9 @@ html[data-theme="dark"] {
   #mc_embed_signup form {background: #252a34};
   #mc_embed_signup label {color: #fff};
   .greedy-nav .hidden-links {background: #252a34};
+  a {color: #ff1493};
+  a {&:visited {color: none}};
+  //a {&:hover {color: #ff8000}};
 }
 
 
