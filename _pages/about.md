@@ -1,9 +1,12 @@
 ---
 layout: single
 classes: wide
+header: 
+  overlay_image: https://edinburgh.org/media/1162/Edinburgh-First-Old-College-Quad.jpg
+  overlay_color: "#000"
+  overlay_filter: "0.4"
 permalink: /
-title: ""
-excerpt: "About me"
+title: <span style='font-family:"monospace"'>NICKIL MAVELI</span>
 author_profile: true
 show_tweet: false
 ---
