@@ -2,15 +2,14 @@
 layout: single
 classes: wide
 header: 
-  overlay_image: https://edinburgh.org/media/1162/Edinburgh-First-Old-College-Quad.jpg
-  overlay_color: "#000"
-  overlay_filter: "0.4"
+  overlay_image: /assets/images/Edinburgh-First-Old-College-Quad.jpg
+  overlay_filter: "0.5" 
 permalink: /
-title: <span style='font-family:"monospace"'>NICKIL MAVELI</span>
+excerpt: "Welcome to my personal website!"
+title: "Nickil Maveli"
 author_profile: true
 show_tweet: false
 ---
-
 # About Me
 I am a MSc (Research) student at the [Institute for Language, Cognition and Computation](http://web.inf.ed.ac.uk/ilcc) (School of Informatics)
 academic unit of the [University of Edinburgh](https://www.ed.ac.uk/). I am grateful to be supervised by [Prof. Shay Cohen](http://homepages.inf.ed.ac.uk/scohen/).
