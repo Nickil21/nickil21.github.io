@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Nickil's
+   ========================================================================== */
+
+.center-image
+{
+    margin: 0 auto;
+    display: block;
+}
+
+.btnId{
+	display: inline-block;
+}
+
+.dropDownAbstract{
+	font-size: $type-size-6;
+	display: none;
+	position: relative;
+	border-left: 3px solid #6f777d;
+	padding-left: 3px
+}
+
+.dropDownBibtex{
+	font-size: $type-size-6;
+	display:none;
+	position:relative;
+}

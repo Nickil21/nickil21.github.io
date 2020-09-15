@@ -2,19 +2,31 @@
 ---
 
 <div class="text-justify">
-    {{reference}}
+    {{reference | replace_first: 'Maveli, N.', '<b>Maveli, N.</b>' }}
 
     {% assign simpleKey = entry.key | split: "_" | slice:0, 4 %}
     {% assign simpleKey = simpleKey | join: "_" %}
 
-    <!--{% if entry.abstract %}
-    #<p id="{{key}}-abstract" class="collapse">{{entry.abstract}}</p>
-    #{% endif %}-->
+    {% if entry.bibtex %}
+        <button class="btn btnId btn--warning" id="b_{{key}}-bibtex">BibTeX</button>
+    {% endif %}
+
+    {% if entry.abstract %}
+        <button class="btn btnId btn--success" id="b_{{key}}-abstract">Abstract</button>
+    {% endif %}
 
     {% if entry.eprint %}
-        <a href="https://arxiv.org/abs/{{ entry.eprint }}" target="_blank"><input type="button" class="btn btn--info" value="PDF"/></a>
+        <a href="https://arxiv.org/abs/{{ entry.eprint }}" target="_blank"><input type="button" class="btn btn--danger" value="PDF"/></a>
     {% else if entry.url %}
-        <a href="{{ entry.url }}" target="_blank"><input type="button" class="btn btn--info" value="PDF"/></a>
+        <a href="{{ entry.url }}" target="_blank"><input type="button" class="btn btn--danger" value="PDF"/></a>
+    {% endif %}
+
+    {% if entry.bibtex %}
+        <div class="dropDownBibtex" id="{{key}}-bibtex">{{entry.bibtex}}</div>
+    {% endif %}
+
+    {% if entry.abstract %}
+        <div class="dropDownAbstract" id="{{key}}-abstract">{{entry.abstract}}</div>
     {% endif %}
 
 </div>
