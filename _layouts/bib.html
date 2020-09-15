@@ -7,6 +7,10 @@
     {% assign simpleKey = entry.key | split: "_" | slice:0, 4 %}
     {% assign simpleKey = simpleKey | join: "_" %}
 
+    {% if entry.abstract %}
+    <p id="{{key}}-abstract" class="collapse">{{entry.abstract}}</p>
+    {% endif %}
+
     {% if entry.url %}
     <button class="btn btn--primary" onclick="location.href='{{ entry.url }}'" type="button">Paper</button>
     {% endif %}
