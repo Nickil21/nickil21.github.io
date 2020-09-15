@@ -304,11 +304,20 @@ defaults:
 
 # Jekyll Scholar
 scholar:
-  # more options: https://pages.lip6.fr/Pascal.Poizat/blog/posts/2016/02/01/jekyll-and-bibtex/
+  style: assets/bibliography/apa_modified.csl
+  locale: en
+
+  sort_by: year
+  order: descending
+  #bibliography_list_tag: ul
+
   source: _bibliography
-  style: _bibliography/apa_modified.csl
-  bibliography_template: bib
-  # use_raw_bibtex_entry: true # to enable {{...}} inside bibtex
+  repository: pdf
+  bibliography: references
+  bibliography_template: bibliography
+
+  replace_strings: true
+
 
 permalink: /:year/:month/:title.html
 #permalink: pretty

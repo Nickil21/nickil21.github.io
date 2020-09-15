@@ -5,5 +5,5 @@ permalink: /publications/
 ---
 
 ## 2020
+{% bibliography --query @*[author ^= Maveli && year=2020] %}
 
-{% bibliography --query @*[year=2020 && author ^= Maveli] %}

@@ -1,0 +1,32 @@
+---
+---
+
+<div class="text-justify">
+    {{reference}}
+
+    {% assign simpleKey = entry.key | split: "_" | slice:0, 4 %}
+    {% assign simpleKey = simpleKey | join: "_" %}
+
+    <!--{% if entry.abstract %}
+    #<p id="{{key}}-abstract" class="collapse">{{entry.abstract}}</p>
+    #{% endif %}-->
+
+    {% if entry.eprint %}
+        <a href="https://arxiv.org/abs/{{ entry.eprint }}" target="_blank"><input type="button" class="btn btn--info" value="PDF"/></a>
+    {% else if entry.url %}
+        <a href="{{ entry.url }}" target="_blank"><input type="button" class="btn btn--info" value="PDF"/></a>
+    {% endif %}
+
+</div>
+
+{% if entry.note %}
+<!--div>
+    <em>{{ entry.note }}</em>
+</div-->
+{% endif %}
+
+<div>
+    {% if entry.pdf %}
+    <span><a href="{{ entry.pdf }}" class="button">pdf</a></span>
+    {% endif %}
+</div>
