@@ -17,11 +17,16 @@
 	display: none;
 	position: relative;
 	border-left: 3px solid #6f777d;
-	padding-left: 3px
+	border-radius: 5px;
+	background-color: #eeeeee;
+	padding-left: 3px;
 }
 
 .dropDownBibtex{
-	font-size: $type-size-6;
+	font-size: $type-size-8;
+	font-family: monospace;
+	background-color: #eeeeee;
+	border-radius: 5px;
 	display:none;
 	position:relative;
 }
