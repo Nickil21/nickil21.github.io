@@ -16,9 +16,9 @@
     {% endif %}
 
     {% if entry.eprint %}
-        <a href="https://arxiv.org/abs/{{ entry.eprint }}" target="_blank"><input type="button" class="btn btn--danger" value="PDF"/></a>
+        <a href="https://arxiv.org/abs/{{ entry.eprint }}" target="_blank"><input type="button" class="btn btn--info" value="PDF"/></a>
     {% else if entry.url %}
-        <a href="{{ entry.url }}" target="_blank"><input type="button" class="btn btn--danger" value="PDF"/></a>
+        <a href="{{ entry.url }}" target="_blank"><input type="button" class="btn btn--info" value="PDF"/></a>
     {% endif %}
 
     {% if entry.bibtex %}
