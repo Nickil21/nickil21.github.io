@@ -4,6 +4,11 @@ classes: wide
 header: 
   overlay_image: /assets/images/Edinburgh-First-Old-College-Quad.jpg
   overlay_filter: "0.5" 
+  actions:
+    - label: "CV"
+      url: "/files/nickil21_cv.pdf"
+    - label: "CONTACT"
+      url: "/contact/"
 permalink: /
 excerpt: "Welcome to my personal website!"
 title: "Nickil Maveli"
@@ -18,6 +23,10 @@ My broad interests are in the intersection of Machine Learning, Natural Language
 Previously, I worked at [niki.ai](http://niki.ai/) on building NLP capabilities for a conversational AI system. 
 For several years, I actively participated in crowd-sourced machine learning contests, placing in the money on multiple occasions.
 
+{% capture notice %}
+<b>NOTE: </b>I am currently open for Research Internships in the area of NLP. Please [contact me](/contact/) if there are relevant openings.
+{% endcapture %}
+<div class="notice--warning">{{ notice | markdownify }}</div>
 
 # News
 <table>

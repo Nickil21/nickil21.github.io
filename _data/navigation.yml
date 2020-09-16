@@ -10,8 +10,6 @@ main:
   - title: "PUBLICATIONS"
     url: /publications/
 
-  - title: "CV"
-    url: /files/nickil21_cv.pdf
 
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/

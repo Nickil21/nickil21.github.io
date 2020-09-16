@@ -2,12 +2,6 @@
    Nickil's
    ========================================================================== */
 
-.center-image
-{
-    margin: 0 auto;
-    display: block;
-}
-
 .btnId{
 	display: inline-block;
 }
@@ -17,16 +11,11 @@
 	display: none;
 	position: relative;
 	border-left: 3px solid #6f777d;
-	border-radius: 5px;
-	background-color: #eeeeee;
 	padding-left: 3px;
 }
 
 .dropDownBibtex{
-	font-size: $type-size-8;
-	font-family: monospace;
-	background-color: #eeeeee;
-	border-radius: 5px;
+	font-size: $type-size-6;
 	display:none;
 	position:relative;
 }

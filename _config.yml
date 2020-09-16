@@ -99,9 +99,9 @@ author:
   location         : "Bangalore, India"
   email            :
   links:
-    - label: "Email"
-      icon: "fas fa-envelope"
-      url: mailto:nickilmaveli+website@gmail.com
+    #- label: "Email"
+    #  icon: "fas fa-envelope"
+    #  url: mailto:nickilmaveli+website@gmail.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -315,6 +315,7 @@ scholar:
   repository: pdf
   bibliography: references
   bibliography_template: bibliography
+  use_raw_bibtex_entry: true
 
   replace_strings: true
 

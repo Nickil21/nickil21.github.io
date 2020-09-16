@@ -22,12 +22,11 @@
     {% endif %}
 
     {% if entry.bibtex %}
-        <div class="dropDownBibtex" id="{{key}}-bibtex">{{entry.bibtex}}</div>
+    <div class="dropDownBibtex" id="{{key}}-bibtex"><pre>{{ entry.bibtex }}</pre></div>
     {% endif %}
 
     {% if entry.abstract %}
-        <br>
-        <div class="dropDownAbstract" id="{{key}}-abstract">{{entry.abstract}}</div>
+        <div class="dropDownAbstract" id="{{key}}-abstract">{{ entry.abstract }}</div>
     {% endif %}
 
 </div>
