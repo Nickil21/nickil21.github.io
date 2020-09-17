@@ -24,7 +24,8 @@ Previously, I worked at [niki.ai](http://niki.ai/) on building NLP capabilities 
 For several years, I actively participated in crowd-sourced machine learning contests, placing in the money on multiple occasions.
 
 {% capture notice %}
-<b>NOTE: </b>I am currently open for research internship roles in the area of NLP. Please [contact me](/contact/) if there are relevant openings.
+<span style="font-size:1.25em"><b>NOTE: </b>I am currently open for research internship roles in the area of NLP. 
+Please [contact me](/contact/) if there are relevant openings.</span>
 {% endcapture %}
 <div class="notice--warning">{{ notice | markdownify }}</div>
 
