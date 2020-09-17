@@ -11,11 +11,14 @@
 	display: none;
 	position: relative;
 	border-left: 3px solid #6f777d;
-	padding-left: 3px;
+	padding-left: 5px;
 }
 
 .dropDownBibtex{
 	font-size: $type-size-6;
 	display:none;
 	position:relative;
+	border: 1px solid #6f777d;
+	background-color: #E0FFFF;
+	padding-left: 10px;
 }
