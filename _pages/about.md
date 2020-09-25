@@ -38,3 +38,5 @@ Please [contact me](/contact/) if there are relevant openings.</span>
 {% endfor %}
 </table>
 
+[![EdinburghNLP](https://edinburghnlp.inf.ed.ac.uk/wp-content/uploads/2017/06/edinburghnlp_logo_smallish-1.png)](https://edinburghnlp.inf.ed.ac.uk/index.php/people/){:target="_blank"}
+<a href="https://stackexchange.com/users/8254210/nickil-maveli"><img src="https://stackexchange.com/users/flair/8254210.png" width="208" height="58" alt="profile for Nickil Maveli on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for Nickil Maveli on Stack Exchange, a network of free, community-driven Q&amp;A sites" /></a>
