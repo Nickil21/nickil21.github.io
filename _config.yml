@@ -125,7 +125,7 @@ author:
       url: "https://www.linkedin.com/in/nickil21/"
     - label: "StackOverflow"
       icon: "fab fa-stack-overflow"
-      #url: "https://stackoverflow.com/users/6207849/nickil-maveli"
+      url: "https://stackoverflow.com/users/6207849/nickil-maveli"
     - label: "Kaggle"
       icon: "fab fa-kaggle"
       url: "http://kaggle.com/nickil21"
