@@ -4,11 +4,11 @@ classes: wide
 header: 
   overlay_image: /assets/images/Edinburgh-First-Old-College-Quad.jpg
   overlay_filter: "0.5" 
-  actions:
-    - label: "CV"
-      url: "/files/nickil21_cv.pdf"
-    - label: "CONTACT"
-      url: "/contact/"
+  #actions:
+  #  - label: "CV"
+  #    url: "/files/nickil21_cv.pdf"
+  #  - label: "CONTACT"
+  #    url: "/contact/"
 permalink: /
 excerpt: "Welcome to my personal website!"
 title: "Nickil Maveli"
@@ -24,6 +24,8 @@ interpretability and robustness of machine learning algorithms, and understandin
 
 Previously, I worked at [niki.ai](http://niki.ai/) on building NLP capabilities for a conversational AI system. 
 For several years, I actively participated in crowd-sourced machine learning contests, placing in the money on multiple occasions.
+
+Have a look at my [CV](/files/nickil21_cv.pdf){:target="_blank"} for more information.
 
 {% capture notice %}
 <span style="font-size:1.25em"><b>NOTE: </b>I am currently open for research internship roles in the area of NLP. 
