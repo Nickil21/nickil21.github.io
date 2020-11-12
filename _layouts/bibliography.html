@@ -8,7 +8,7 @@
     {% assign simpleKey = simpleKey | join: "_" %}
 
     {% if entry.bibtex %}
-        <button class="btn btnId btn--warning" id="b_{{key}}-bibtex">BibTeX</button>
+        <a href="{{ entry.url }}.bib" target="_blank"><input type="button" class="btn btnId btn--warning" value="BibTeX"/></a>
     {% endif %}
 
     {% if entry.abstract %}
@@ -19,10 +19,6 @@
         <a href="https://arxiv.org/abs/{{ entry.eprint }}" target="_blank"><input type="button" class="btn btn--info" value="PDF"/></a>
     {% else if entry.url %}
         <a href="{{ entry.url }}" target="_blank"><input type="button" class="btn btn--info" value="PDF"/></a>
-    {% endif %}
-
-    {% if entry.bibtex %}
-    <div class="dropDownBibtex" id="{{key}}-bibtex"><pre>{{ entry.bibtex }}</pre></div>
     {% endif %}
 
     {% if entry.abstract %}

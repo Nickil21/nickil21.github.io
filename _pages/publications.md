@@ -9,6 +9,5 @@ header:
 excerpt: "My Publications arranged in reverse chronological order"
 ---
 
-## Under Review
 {% bibliography --query @*[author ^= Maveli && year=2020] %}
 
