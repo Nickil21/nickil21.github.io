@@ -31,7 +31,7 @@ Have a look at my [CV](/files/nickil21_cv.pdf){:target="_blank"} for more inform
 <span style="font-size:1.25em"><b>NOTE: </b>I am currently open for research internship roles in the area of NLP. 
 Please [contact me](/contact/) if there are relevant openings.</span>
 {% endcapture %}
-<div class="notice--danger">{{ notice | markdownify }}</div>
+<div class="notice--success">{{ notice | markdownify }}</div>
 
 # News
 <table>
@@ -42,4 +42,6 @@ Please [contact me](/contact/) if there are relevant openings.</span>
 {% endfor %}
 </table>
 
+<!---
 [![EdinburghNLP](https://edinburghnlp.inf.ed.ac.uk/wp-content/uploads/2017/06/edinburghnlp_logo_smallish-1.png)](https://edinburghnlp.inf.ed.ac.uk/index.php/people/){:target="_blank"}
+-->
