@@ -131,11 +131,11 @@ a {
   }
 
   &:visited {
-    color: forestgreen;
+    color: #F012BE;
   }
 
   &:hover {
-    color: darkgreen;
+    color: #B10DC9;
     outline: 1;
   }
 }
@@ -276,7 +276,7 @@ figcaption {
     transition: $global-transition;
 
     &:hover {
-      color: darkgreen;
+      color: #B10DC9;
     }
   }
 }
