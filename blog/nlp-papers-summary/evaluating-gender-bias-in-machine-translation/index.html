@@ -1,0 +1,830 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Evaluating Gender Bias in Machine Translation | Nickil’s Website</title>
+<meta name="description" content="Devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis. ">
+
+
+  <meta name="author" content="Nickil Maveli">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Nickil's Website">
+<meta property="og:title" content="Evaluating Gender Bias in Machine Translation">
+<meta property="og:url" content="https://nickil21.github.io/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/">
+
+
+  <meta property="og:description" content="Devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis. ">
+
+
+
+  <meta property="og:image" content="https://nickil21.github.io/assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-04-06T00:00:00+05:30">
+
+
+
+  <meta property="article:modified_time" content="2020-04-08T00:00:00+05:30">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://nickil21.github.io/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Nickil Maveli",
+      "url": "https://nickil21.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Nickil's Website Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <html>
+
+
+
+<!-- start custom head snippets -->
+<link rel="apple-touch-icon" sizes="57x57" href="https://nickil21.github.io/assets/images/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://nickil21.github.io/assets/images/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://nickil21.github.io/assets/images/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://nickil21.github.io/assets/images/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://nickil21.github.io/assets/images/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://nickil21.github.io/assets/images/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://nickil21.github.io/assets/images/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://nickil21.github.io/assets/images/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nickil21.github.io/assets/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://nickil21.github.io/assets/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nickil21.github.io/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://nickil21.github.io/assets/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nickil21.github.io/assets/images/favicon-16x16.png">
+<link rel="manifest" href="https://nickil21.github.io/assets/images/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://nickil21.github.io/assets/images/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://nickil21.github.io/assets/css/academicons.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" >
+
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon-96x96.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          HOME
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href=""></a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">BLOG</a>
+            </li><li class="masthead__menu-item">
+              <a href="/competitions/">COMPETITIONS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">PUBLICATIONS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contact/">CONTACT</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        <a style="color: orange" id="theme-toggle" onclick="modeSwitcher()" role="button"></a>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('/assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Evaluating Gender Bias in Machine Translation
+
+        
+      </h1>
+      
+        <p class="page__lead">Devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis.
+</p>
+      
+      
+        <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+      
+      
+      
+        <p>
+        
+          <a href="/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/#references" class="btn btn--light-outline btn--large"><i class='fas fa-file-pdf'></i> Read Paper</a>
+        
+          <a href="https://github.com/gabrielStanovsky/mt_gender" class="btn btn--light-outline btn--large"><i class='fas fa-code'></i> View Code</a>
+        
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Photo credit: <a href="https://unsplash.com"><strong>Unsplash</strong></a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Evaluating Gender Bias in Machine Translation">
+    <meta itemprop="description" content="Devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis.">
+    <meta itemprop="datePublished" content="2020-04-06T00:00:00+05:30">
+    <meta itemprop="dateModified" content="2020-04-08T00:00:00+05:30">
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#problem">Problem</a></li>
+  <li><a href="#how-it-solves">How it Solves</a>
+    <ul>
+      <li><a href="#implementation">Implementation</a></li>
+    </ul>
+  </li>
+  <li><a href="#results">Results</a></li>
+  <li><a href="#limitations-and-future-work">Limitations and Future Work</a></li>
+  <li><a href="#takeaways">Takeaways</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        
+        <figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_3.png" alt="this is a placeholder image" />
+  
+</figure>
+
+<h1 id="introduction">Introduction</h1>
+<ul>
+  <li>Some languages encode grammatical gender - Spanish, Italian, Russian, etc. One word for male, other word for female.</li>
+  <li>Other languages are gender neutral - English, Turkish, Finnish. One word for both male and female.</li>
+  <li>When translating between genderless to gender-ed languages, translator needs to take gender into account, and make decisions.</li>
+</ul>
+<figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_4.png" alt="this is a placeholder image" />
+  
+    <figcaption>
+      An example of gender bias in machine translation from English (top) to Spanish (bottom).
+
+    </figcaption>
+  
+</figure>
+
+<ul>
+  <li>Examples include gender biases in visual Semantic Role Labeling (SRL) - Cooking is stereotypically done by women, construction workers are stereotypically men.</li>
+</ul>
+
+<h1 id="problem">Problem</h1>
+<ul>
+  <li>Can we quantitatively evaluate gender translation in MT?</li>
+  <li>How much does MT rely on gender stereotypes vs. meaningful context?</li>
+  <li>Can we reduce gender bias by rephrasing source texts?</li>
+</ul>
+
+<h1 id="how-it-solves">How it Solves</h1>
+<p>Winogender (<a href="https://www.aclweb.org/anthology/N18-2002.pdf]">Rudinger et al., 2018</a>) and 
+WinoBias (<a href="https://www.aclweb.org/anthology/N18-2003.pdf]">Zhao et al., 2018</a>) datasets were used 
+following the <a href="https://www.aaai.org/ocs/index.php/SSS/SSS11/paper/viewFile/2502/2964" target="_blank">Winograd schema</a>. 
+Collectively, they compose of 3888 English sentences designed to test gender bias in coreference resolution.</p>
+
+<figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_5.png" alt="this is a placeholder image" />
+  
+    <figcaption>
+      For every female doctor in the example, there will be a male doctor as a counter example.
+
+    </figcaption>
+  
+</figure>
+
+<p>These are very useful for evaluating gender bias in MT!</p>
+<ul>
+  <li>Equally split between stereotypical and non-stereotypical role assignments. (For every female doctor, we’ll have a 
+ female nurse)</li>
+  <li>Gold annotations for gender.</li>
+</ul>
+
+<p>Six widely used MT models, representing the state of the art in both commercial and academic research
+were used:</p>
+<ol>
+  <li>Google Translate</li>
+  <li>Microsoft Translator</li>
+  <li>Amazon Translate</li>
+  <li>SYSTRAN</li>
+  <li>the model of (<a href="https://www.aclweb.org/anthology/W18-6301.pdf">Ott et al., 2018</a>), which recently achieved the best performance on English-to-French
+translation on the WMT’14 test set.</li>
+  <li>the model of (<a href="https://www.aclweb.org/anthology/D18-1045.pdf">Edunov et al., 2018</a>), the WMT’18 winner on English-to-German translation.</li>
+</ol>
+
+<h2 id="implementation">Implementation</h2>
+<p><strong>Input :</strong> MT model + target language<br />
+<strong>Output :</strong> Accuracy score for gender translation</p>
+
+<ol>
+  <li>Translate the coreference bias datasets.
+    <ul>
+      <li>To target languages with grammatical gender.</li>
+    </ul>
+  </li>
+  <li>Align between source and target.
+    <ul>
+      <li>Using fast align. (<a href="https://www.aclweb.org/anthology/N13-1073.pdf">Dyer et al., 2013</a>)</li>
+    </ul>
+  </li>
+  <li>Identify gender in target language.
+    <ul>
+      <li>Using off-the-shelf morphological analyzers or simple heuristics in the target languages.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>To estimate noise, a sample of gender predictions were shown to native speakers of target languages.</p>
+
+<p class="notice--success">Quality estimated &gt;85% vs. 90% IAA (Inter Annotator Agreement)</p>
+
+<blockquote>
+  <p><strong>To test if gendered adjectives affect translation?</strong><br /><br />
+For the sentence:<br />
+“The doctor asked the nurse to help her in the operation.”<br /><br />
+Black-box injection of gendered adjectives were done:<br />
+“The <strong>pretty</strong> doctor asked the nurse to help <strong><u>her</u></strong> in the operation.”
+<span style="color:teal">[Since doctor is female]</span><br />
+“The <strong>handsome</strong> nurse asked the doctor to help <strong><u>him</u></strong> in the operation.”
+<span style="color:teal">[Since nurse is male]</span><br /><br />
+Here, “<strong>pretty</strong>” and “<strong>handsome</strong>” are stereotypical adjectives for feminine and masculine genders respectively.</p>
+</blockquote>
+
+<p class="notice--success">This approach improved performance for most tested languages and models. [mean +8.6%]</p>
+
+<h1 id="results">Results</h1>
+<p>This metric shows that all tested systems have a significant and consistently better performance when presented with pro-stereotypical
+assignments (e.g., a female nurse), while their
+performance deteriorates when translating anti-stereotypical roles (e.g., a male receptionist).</p>
+
+<figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_18.png" alt="this is a placeholder image" />
+  
+    <figcaption>
+      Google Translate’s performance on gender translation on our tested languages. The performance on the
+stereotypical portion of WinoMT is consistently better than that on the non-stereotypical portion. The other MT
+systems we tested display similar trends.
+
+    </figcaption>
+  
+</figure>
+
+<h1 id="limitations-and-future-work">Limitations and Future Work</h1>
+<ul>
+  <li>Artificially created dataset.
+    <ul>
+      <li>Allows for controlled experiment.</li>
+      <li>Yet, might introduce it’s own annotation biases.</li>
+    </ul>
+  </li>
+  <li>Medium Size
+    <ul>
+      <li>Easy to overfit.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="takeaways">Takeaways</h1>
+<ul>
+  <li>First quantitative automatic evaluation of gender bias in MT.
+    <ul>
+      <li>6 SOTA MT models on 8 diverse target languages.</li>
+      <li>Doesn’t require reference translations.</li>
+    </ul>
+  </li>
+  <li>Significant gender bias found in all models in all tested languages.</li>
+  <li>Easily extensible with more languages and MT models.</li>
+</ul>
+
+<h1 id="references">References</h1>
+<ol class="bibliography"><li><div class="text-justify">
+    <span id="stanovsky-etal-2019-evaluating">Stanovsky, G., Smith, N. A., &amp; Zettlemoyer, L. (2019). Evaluating Gender Bias in Machine Translation. <i>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</i>, 1679–1684. https://doi.org/10.18653/v1/P19-1164</span>
+
+    
+    
+
+    
+
+
+    
+        <a href="https://www.aclweb.org/anthology/P19-1164.bib" target="_blank"><input type="button" class="btn btnId btn--warning" value="BibTeX" /></a>
+    
+
+    
+        <button class="btn btnId btn--success" id="b_stanovsky-etal-2019-evaluating-abstract">Abstract</button>
+    
+
+    
+        <a href="https://www.aclweb.org/anthology/P19-1164" target="_blank"><input type="button" class="btn btn--info" value="PDF" /></a>
+    
+
+    
+        <br />
+        <div class="dropDownAbstract" id="stanovsky-etal-2019-evaluating-abstract">We present the first challenge set and evaluation protocol for the analysis of gender bias in machine translation (MT). Our approach uses two recent coreference resolution datasets composed of English sentences which cast participants into non-stereotypical gender roles (e.g., “The doctor asked the nurse to help her in the operation”). We devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis (e.g., the use of female inflection for the word “doctor”). Our analyses show that four popular industrial MT systems and two recent state-of-the-art academic MT models are significantly prone to gender-biased translation errors for all tested target languages. Our data and code are publicly available at https://github.com/gabrielStanovsky/mt_gender.</div>
+    
+
+</div>
+
+
+
+<div>
+    
+</div></li></ol>
+
+<hr />
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+
+<div id="mc_embed_signup" class="archive__item">
+<form action="https://github.us19.list-manage.com/subscribe/post?u=011e5e92fe856b3d318b414ad&amp;id=f8ae890e5c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Liked this article and want to hear more?</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="" />
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_92fe86c389878585bc87837e8_50543deff9" tabindex="-1" value="" /></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" /></div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+<p><br />
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><i style="font-size:12px">This work is licensed under a </i><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i style="font-size:12px">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</i></a>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/blog/tags/#acl" class="page__taxonomy-item" rel="tag">ACL</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/blog/tags/#machine-translation" class="page__taxonomy-item" rel="tag">Machine Translation</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/blog/categories/#nlp-papers-summary" class="page__taxonomy-item" rel="tag">NLP Papers Summary</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-08">April 8, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Evaluating+Gender+Bias+in+Machine+Translation%20https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fevaluating-gender-bias-in-machine-translation%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fevaluating-gender-bias-in-machine-translation%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fevaluating-gender-bias-in-machine-translation%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+
+  <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fevaluating-gender-bias-in-machine-translation%2F&title=Evaluating Gender Bias in Machine Translation" class="btn btn--reddit" title="Share on Reddit"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i><span> Reddit</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/" class="pagination--pager" title="The Risk of Racial Bias in Hate Speech Detection
+">Previous</a>
+    
+    
+      <a href="/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/" class="pagination--pager" title="Bridging the Gap between Training and Inference for Neural Machine Translation
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_21.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/" rel="permalink">Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Aims to extract the potential pairs of emotions and corresponding causes in a document.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_20.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/" rel="permalink">Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_15.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/" rel="permalink">Bridging the Gap between Training and Inference for Neural Machine Translation
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">In Neural Machine Translation, at training time, it predicts with the ground truth words as context while at inference it has to generate the entire sequence...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/nickilmaveli" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/nickil21" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Nickil Maveli. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+
+<!-- AJax for DropDown Effect of Abstract and BibTex -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var str =$(this).attr('id');
+
+    $(".btnId").click(function(){
+        var str = $(this).attr('id');
+		var ret = str.split("_");
+		var id = ret[1];
+		$('#' + id).toggle();
+    });
+});
+</script>
+      </footer>
+    </div>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+    </aside>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://nickil21.github.io/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://nickil21-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+    <!--<script src="/assets/js/mode-switcher.js"></script>-->
+
+  </body>
+</html>

@@ -1,0 +1,781 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>The Risk of Racial Bias in Hate Speech Detection | Nickil’s Website</title>
+<meta name="description" content="Investigate how annotators’ insensitivity to differences in dialect can lead to racial bias in automatic hate speech detection models, potentially amplifying harm against minority populations. ">
+
+
+  <meta name="author" content="Nickil Maveli">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Nickil's Website">
+<meta property="og:title" content="The Risk of Racial Bias in Hate Speech Detection">
+<meta property="og:url" content="https://nickil21.github.io/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/">
+
+
+  <meta property="og:description" content="Investigate how annotators’ insensitivity to differences in dialect can lead to racial bias in automatic hate speech detection models, potentially amplifying harm against minority populations. ">
+
+
+
+  <meta property="og:image" content="https://nickil21.github.io/assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-04-04T00:00:00+05:30">
+
+
+
+  <meta property="article:modified_time" content="2020-04-15T00:00:00+05:30">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://nickil21.github.io/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Nickil Maveli",
+      "url": "https://nickil21.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Nickil's Website Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <html>
+
+
+
+<!-- start custom head snippets -->
+<link rel="apple-touch-icon" sizes="57x57" href="https://nickil21.github.io/assets/images/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://nickil21.github.io/assets/images/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://nickil21.github.io/assets/images/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://nickil21.github.io/assets/images/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://nickil21.github.io/assets/images/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://nickil21.github.io/assets/images/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://nickil21.github.io/assets/images/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://nickil21.github.io/assets/images/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nickil21.github.io/assets/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://nickil21.github.io/assets/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nickil21.github.io/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://nickil21.github.io/assets/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nickil21.github.io/assets/images/favicon-16x16.png">
+<link rel="manifest" href="https://nickil21.github.io/assets/images/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://nickil21.github.io/assets/images/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://nickil21.github.io/assets/css/academicons.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" >
+
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon-96x96.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          HOME
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href=""></a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">BLOG</a>
+            </li><li class="masthead__menu-item">
+              <a href="/competitions/">COMPETITIONS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">PUBLICATIONS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contact/">CONTACT</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        <a style="color: orange" id="theme-toggle" onclick="modeSwitcher()" role="button"></a>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('/assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          The Risk of Racial Bias in Hate Speech Detection
+
+        
+      </h1>
+      
+        <p class="page__lead">Investigate how annotators’ insensitivity to differences in dialect can lead to racial bias in automatic hate speech detection models, potentially amplifying harm against minority populations.
+</p>
+      
+      
+        <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+      
+      
+      
+        <p>
+        
+          <a href="/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/#references" class="btn btn--light-outline btn--large"><i class='fas fa-file-pdf'></i> Read Paper</a>
+        
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Photo credit: <a href="https://unsplash.com"><strong>Unsplash</strong></a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="The Risk of Racial Bias in Hate Speech Detection">
+    <meta itemprop="description" content="Investigate how annotators’ insensitivity to differences in dialect can lead to racial bias in automatic hate speech detection models, potentially amplifying harm against minority populations.">
+    <meta itemprop="datePublished" content="2020-04-04T00:00:00+05:30">
+    <meta itemprop="dateModified" content="2020-04-15T00:00:00+05:30">
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#problem">Problem</a></li>
+  <li><a href="#how-it-solves">How it Solves</a></li>
+  <li><a href="#results">Results</a></li>
+  <li><a href="#takeaways">Takeaways</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        
+        <figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_1.png" alt="this is a placeholder image" />
+  
+    <figcaption>
+      Phrases in African American English (AAE),
+          their non-AAE equivalents, and
+          toxicity scores from <a href="http://perspectiveapi.com" target="_blank">PerspectiveAPI</a>.
+
+    </figcaption>
+  
+</figure>
+
+<h1 id="introduction">Introduction</h1>
+<ul>
+  <li>Goal of Hate Detection: <em>Try and make the internet less toxic</em>.</li>
+  <li>Toxicity ML models are generally trained on text-only annotations and don’t have information about the speaker.</li>
+  <li>Current datasets ignore social context of speech, like - identity of speaker, dialect of English.</li>
+  <li>Ignoring these nuances risks harming minority populations by suppressing inoffensive speech.</li>
+</ul>
+
+<h1 id="problem">Problem</h1>
+<ul>
+  <li>Severe Racial bias in hate speech detection.</li>
+  <li>Do ML models acquire this racial bias from datasets?</li>
+  <li>Can annotation task design affect these racial biases?</li>
+</ul>
+
+<h1 id="how-it-solves">How it Solves</h1>
+<p>Empirically characterize the racial bias present in several widely used Twitter corpora
+annotated for toxic content, and quantify the propagation of this bias through models trained on them. 
+They established strong associations between AAE markers (e.g., <strong>“n*ggas”</strong>, <strong>“ass”</strong>) 
+and toxicity annotations, and show that models acquire and replicate this bias: in other corpora, 
+tweets inferred to be in AAE and tweets from self-identifying African American users are more likely 
+to be classified as offensive.</p>
+
+<p>It uses Dialect as a proxy for racial identity. African American English (AAE) dialect is used in the paper. 
+Lexical detector by (<a href="https://www.aclweb.org/anthology/D16-1120.pdf">Blodgett et al., 2016</a>) was used to infer the presence of AAE.
+To find out whether ML models are affected by racial bias in datasets, train/test classifiers on 2
+corpora (<span style="color:teal;">TWT-HATEBASE, TWT-BOOTSTRAP</span>) used in hate detection systems were performed to 
+predict the toxicity label of a tweet. A held-out set broken down by dialect group was used to 
+assess the performance of these classifiers by counting the number of mistakes made. Minimization of the 
+cross-entropy of the annotated class conditional on text, $x$:</p>
+
+\[\begin{align*}
+p(class{|}{x}) \propto \exp(\textbf{W}_o\textbf{h} + \textbf{b}_o)
+\end{align*}\]
+
+<p>with $h = f(x)$, where $f$ is a BiLSTM with attention, followed by a projection layer to encode the
+tweets into an $H$-dimensional vector.</p>
+
+<p>Predictions by both the classifiers were biased against AAE tweets as shown by the following results:</p>
+
+<p class="notice"><strong>46%</strong> of non-offensive AAE tweets were mistaken for offensive compared to <strong>9%</strong> of White.<br /><br />
+<strong>26%</strong> of non-abusive AAE tweets were mistaken for abusive compared to <strong>5%</strong> of White.</p>
+
+<p>AAE tweets and tweets by Black folks were more often flagged as toxic. This racial bias generalizes to 
+other Twitter corpora.</p>
+
+<blockquote>
+  <p><strong>How to reduce the bias?</strong><br /><br />
+Answer is by changing the task of annotation.<br /><br />
+To test this hypothesis, 350 AAE tweets stratified by dataset labels were 
+given to Amazon Mechanical Turkers.<br /><br />
+The annotation was done in a three-fold manner:<br /><br />
+    1. only text. (<strong>55%</strong> were labelled as offensive)<br />
+    2. text + dialect information. (<strong>44%</strong> were labelled as offensive)<br />
+    3. text + dialect + race information. (<strong>44%</strong> were labelled as offensive)</p>
+</blockquote>
+
+<figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_2.png" alt="this is a placeholder image" />
+  
+    <figcaption>
+      Proportion (in %) of offensiveness annotations of AAE tweets in control, dialect, and race priming conditions.
+
+    </figcaption>
+  
+</figure>
+
+<p>Annotators are substantially more likely to rate a tweet as being offensive to someone, 
+than to rate it as offensive to themselves, suggesting that people recognize the subjectivity 
+of offensive language.</p>
+
+<h1 id="results">Results</h1>
+<p>While both models achieve high accuracy, the false positive rates (FPR) differ across groups for several 
+toxicity labels. The <span style="color:teal">DWMW17</span> classifier predicts almost <strong>50%</strong> of non-offensive AAE tweets as being offensive, 
+and <span style="color:teal">FDCL18</span> classifier shows higher FPR for the “Abusive” and “Hateful” categories for AAE tweets. Additionally, 
+both classifiers show strong tendencies to label White tweets as “none”. These discrepancies in FPR across 
+groups violate the equality of opportunity criterion, indicating discriminatory impact.</p>
+
+<figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_19.png" alt="this is a placeholder image" />
+  
+    <figcaption>
+      Classification accuracy and per-class rates of false positives (FP) on test data for models trained on
+DWMW17 and FDCL18, where the group with highest rate of FP is bolded.
+
+    </figcaption>
+  
+</figure>
+
+<h1 id="takeaways">Takeaways</h1>
+<ul>
+  <li>Evidence of racial bias in existing hate detection corpora.</li>
+  <li>Bias will propagate downstream through ML models.</li>
+  <li>Priming annotators influences label of offensiveness.</li>
+  <li>In general, hate speech language is highly subjective and contextual. Factors like slang,
+dialects, slurs, etc must be taken into consideration.</li>
+</ul>
+
+<h1 id="references">References</h1>
+<ol class="bibliography"><li><div class="text-justify">
+    <span id="sap-etal-2019-risk">Sap, M., Card, D., Gabriel, S., Choi, Y., &amp; Smith, N. A. (2019). The Risk of Racial Bias in Hate Speech Detection. <i>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</i>, 1668–1678. https://doi.org/10.18653/v1/P19-1163</span>
+
+    
+    
+
+    
+
+
+    
+        <a href="https://www.aclweb.org/anthology/P19-1163.bib" target="_blank"><input type="button" class="btn btnId btn--warning" value="BibTeX" /></a>
+    
+
+    
+        <button class="btn btnId btn--success" id="b_sap-etal-2019-risk-abstract">Abstract</button>
+    
+
+    
+        <a href="https://www.aclweb.org/anthology/P19-1163" target="_blank"><input type="button" class="btn btn--info" value="PDF" /></a>
+    
+
+    
+        <br />
+        <div class="dropDownAbstract" id="sap-etal-2019-risk-abstract">We investigate how annotators’ insensitivity to differences in dialect can lead to racial bias in automatic hate speech detection models, potentially amplifying harm against minority populations. We first uncover unexpected correlations between surface markers of African American English (AAE) and ratings of toxicity in several widely-used hate speech datasets. Then, we show that models trained on these corpora acquire and propagate these biases, such that AAE tweets and tweets by self-identified African Americans are up to two times more likely to be labelled as offensive compared to others. Finally, we propose *dialect* and *race priming* as ways to reduce the racial bias in annotation, showing that when annotators are made explicitly aware of an AAE tweet’s dialect they are significantly less likely to label the tweet as offensive.</div>
+    
+
+</div>
+
+
+
+<div>
+    
+</div></li></ol>
+
+<hr />
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+
+<div id="mc_embed_signup" class="archive__item">
+<form action="https://github.us19.list-manage.com/subscribe/post?u=011e5e92fe856b3d318b414ad&amp;id=f8ae890e5c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Liked this article and want to hear more?</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="" />
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_92fe86c389878585bc87837e8_50543deff9" tabindex="-1" value="" /></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" /></div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+<p><br />
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><i style="font-size:12px">This work is licensed under a </i><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i style="font-size:12px">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</i></a>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/blog/tags/#acl" class="page__taxonomy-item" rel="tag">ACL</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/blog/tags/#hate-speech-detection" class="page__taxonomy-item" rel="tag">Hate Speech Detection</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/blog/categories/#nlp-papers-summary" class="page__taxonomy-item" rel="tag">NLP Papers Summary</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-15">April 15, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=The+Risk+of+Racial+Bias+in+Hate+Speech+Detection%20https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fthe-risk-of-racial-bias-in-hate-speech-detection%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fthe-risk-of-racial-bias-in-hate-speech-detection%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fthe-risk-of-racial-bias-in-hate-speech-detection%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+
+  <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fthe-risk-of-racial-bias-in-hate-speech-detection%2F&title=The Risk of Racial Bias in Hate Speech Detection" class="btn btn--reddit" title="Share on Reddit"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i><span> Reddit</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="#" class="pagination--pager disabled">Previous</a>
+    
+    
+      <a href="/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/" class="pagination--pager" title="Evaluating Gender Bias in Machine Translation
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_21.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/" rel="permalink">Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Aims to extract the potential pairs of emotions and corresponding causes in a document.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_20.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/" rel="permalink">Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_15.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/" rel="permalink">Bridging the Gap between Training and Inference for Neural Machine Translation
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">In Neural Machine Translation, at training time, it predicts with the ground truth words as context while at inference it has to generate the entire sequence...</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/nickilmaveli" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/nickil21" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Nickil Maveli. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+
+<!-- AJax for DropDown Effect of Abstract and BibTex -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var str =$(this).attr('id');
+
+    $(".btnId").click(function(){
+        var str = $(this).attr('id');
+		var ret = str.split("_");
+		var id = ret[1];
+		$('#' + id).toggle();
+    });
+});
+</script>
+      </footer>
+    </div>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+    </aside>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://nickil21.github.io/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://nickil21-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+    <!--<script src="/assets/js/mode-switcher.js"></script>-->
+
+  </body>
+</html>

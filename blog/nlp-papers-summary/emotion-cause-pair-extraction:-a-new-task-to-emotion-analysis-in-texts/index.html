@@ -1,0 +1,825 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts | Nickil’s Website</title>
+<meta name="description" content="Aims to extract the potential pairs of emotions and corresponding causes in a document. ">
+
+
+  <meta name="author" content="Nickil Maveli">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Nickil's Website">
+<meta property="og:title" content="Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts">
+<meta property="og:url" content="https://nickil21.github.io/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/">
+
+
+  <meta property="og:description" content="Aims to extract the potential pairs of emotions and corresponding causes in a document. ">
+
+
+
+  <meta property="og:image" content="https://nickil21.github.io/assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-04-20T00:00:00+05:30">
+
+
+
+  <meta property="article:modified_time" content="2020-04-20T00:00:00+05:30">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://nickil21.github.io/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Nickil Maveli",
+      "url": "https://nickil21.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Nickil's Website Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <html>
+
+
+
+<!-- start custom head snippets -->
+<link rel="apple-touch-icon" sizes="57x57" href="https://nickil21.github.io/assets/images/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://nickil21.github.io/assets/images/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://nickil21.github.io/assets/images/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://nickil21.github.io/assets/images/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://nickil21.github.io/assets/images/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://nickil21.github.io/assets/images/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://nickil21.github.io/assets/images/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://nickil21.github.io/assets/images/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nickil21.github.io/assets/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://nickil21.github.io/assets/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nickil21.github.io/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://nickil21.github.io/assets/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nickil21.github.io/assets/images/favicon-16x16.png">
+<link rel="manifest" href="https://nickil21.github.io/assets/images/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://nickil21.github.io/assets/images/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://nickil21.github.io/assets/css/academicons.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" >
+
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon-96x96.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          HOME
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href=""></a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">BLOG</a>
+            </li><li class="masthead__menu-item">
+              <a href="/competitions/">COMPETITIONS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">PUBLICATIONS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contact/">CONTACT</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        <a style="color: orange" id="theme-toggle" onclick="modeSwitcher()" role="button"></a>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('/assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts
+
+        
+      </h1>
+      
+        <p class="page__lead">Aims to extract the potential pairs of emotions and corresponding causes in a document.
+</p>
+      
+      
+        <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+      
+      
+      
+        <p>
+        
+          <a href="/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/#references" class="btn btn--light-outline btn--large"><i class='fas fa-file-pdf'></i> Read Paper</a>
+        
+          <a href="https://github.com/NUSTM/ECPE" class="btn btn--light-outline btn--large"><i class='fas fa-code'></i> View Code</a>
+        
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Photo credit: <a href="https://unsplash.com"><strong>Unsplash</strong></a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts">
+    <meta itemprop="description" content="Aims to extract the potential pairs of emotions and corresponding causes in a document.">
+    <meta itemprop="datePublished" content="2020-04-20T00:00:00+05:30">
+    <meta itemprop="dateModified" content="2020-04-20T00:00:00+05:30">
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#problem">Problem</a></li>
+  <li><a href="#how-it-solves">How it Solves</a>
+    <ul>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#metrics">Metrics</a></li>
+    </ul>
+  </li>
+  <li><a href="#results">Results</a></li>
+  <li><a href="#limitations-and-future-work">Limitations and Future Work</a></li>
+  <li><a href="#takeaways">Takeaways</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        
+        <figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_21.png" alt="this is a placeholder image" />
+  
+    <figcaption>
+      An example showing the difference between the ECE task and the ECPE task.
+
+    </figcaption>
+  
+</figure>
+
+<h1 id="introduction">Introduction</h1>
+<p>Emotion cause extraction (ECE) aims at extracting potential causes that lead to emotion expressions in text.</p>
+
+<p>In the above figure, taken from the corpus by (<a href="https://www.aclweb.org/anthology/D16-1170.pdf">Gui et al., 2016</a>),
+there are five clauses in a document. The emotion <span style="color:red">happy</span> is contained in the fourth clause.
+The authors denote this clause as emotion clause, which refers to
+a clause that contains emotions. It has two corresponding causes: 
+<span style="color:blue">a policeman visited the old man with the lost money</span> 
+in the second clause,
+<span style="color:limegreen">and told him that the thief was caught</span> in the third clause.
+The authors denote them as cause clause, which refers to a clause that contains causes.</p>
+
+<h1 id="problem">Problem</h1>
+<ul>
+  <li>Emotion must be annotated before cause extraction in ECE, which greatly limits its applications in 
+real-world scenarios.</li>
+  <li>The way to first annotate emotion and then extract the cause ignores the fact that they are 
+mutually indicative.</li>
+</ul>
+
+<h1 id="how-it-solves">How it Solves</h1>
+<p>The authors propose a new task: <u>E</u>motion <u>C</u>ause <u>P</u>air <u>E</u>xtraction (ECPE), 
+which aims to extract all potential pairs of emotions and corresponding causes in a document.</p>
+
+<p>For example, given the annotation of emotion: <span style="color:red">happy</span>, the goal of ECE
+is to track the two corresponding cause clauses: <span style="color:blue">a policeman visited the old man with the lost money</span>
+and <span style="color:limegreen">and told him that the thief was caught</span>.
+While in the ECPE task, the goal is to directly extract all pairs of emotion clause and cause clause,
+including (<strong>The old man was very</strong> <span style="color:red">happy</span>, <span style="color:blue">a policeman visited the old man with the lost money</span>)
+and (<strong>The old man was very</strong> <span style="color:red">happy</span>, <span style="color:limegreen">and told him that the thief was caught</span>), 
+without providing the emotion annotation <span style="color:red">happy</span>.</p>
+
+<h2 id="approach">Approach</h2>
+<p>The authors propose a two-step approach to address this new ECPE task.</p>
+
+<p><strong>1. Individual Emotion and Cause Extraction</strong></p>
+
+<p>Convert the emotion-cause pair extraction task into emotion extraction and cause extraction respectively.
+Two kinds of multi-task learning networks are proposed to model the two sub-tasks in a unified framework, with
+the goal to extract a set of emotion clauses \(E = \{c_1^e, ... , c_m^e\}\)
+and a set of cause clauses \(C = \{c_1^c, ... , c_n^c\}\) for each document.</p>
+
+<p><strong>a) Independent Multi-task Learning</strong><br />
+<br />
+A document contains multiple clauses: \(d = [c_1, c_2, ..., c_{|d|}]\), 
+and each $c_i$ also contains multiple words $c_i = [w_{i,1}, w_{i,2}, …, w_{i,|ci|}]$.</p>
+
+<p>To capture such a “word-clause-document” structure, the authors employ a Hierarchical Bi-LSTM network which
+contains two layers. The lower layer consists of a set of word-level Bi-LSTM modules, each of which 
+corresponds to one clause, and accumulate the context information for each word of the clause.
+The upper layer consists of two components: one for emotion extraction and another for cause
+extraction. Each component is a clause-level BiLSTM which receives the 
+independent clause representations $[s_1, s_2, …, s_{|d|}]$ obtained at the lower
+layer as inputs.</p>
+
+<figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_22.png" alt="this is a placeholder image" />
+  
+    <figcaption>
+      The Model for Independent Multi-task Learning (Indep).
+
+    </figcaption>
+  
+</figure>
+
+<p><strong>b) Interactive Multi-task Learning</strong></p>
+
+<p>To capture the correlation between emotion and cause, Interactive Multi-Task Learning network was proposed.
+Compared with Independent Multi-task Learning, the lower layer of Inter-EC is unchanged, and
+the upper layer consists of two components, which
+are used to make predictions for emotion extraction task and cause extraction task in an interactive manner. 
+Each component is a clause-level BiLSTM followed by a softmax layer.</p>
+<figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_23.png" alt="this is a placeholder image" />
+  
+    <figcaption>
+      Two Models for Interactive Multi-task Learning: (a) Inter-EC, which uses emotion extraction to improve
+cause extraction (b) Inter-CE, which uses cause extraction to enhance emotion extraction.
+
+    </figcaption>
+  
+</figure>
+
+<p><strong>2. Emotion-Cause Pairing and Filtering</strong></p>
+
+<p>Pair the emotion set $E$ and the cause set $C$ by applying a <a href="https://en.wikipedia.org/wiki/Cartesian_product">Cartesian product</a>
+to them. This yields a set of candidate
+emotion-cause pairs. The authors finally trained a filter to eliminate the pairs that do not contain
+a <a href="https://en.wikipedia.org/wiki/Causality">causal relationship</a> between emotion and cause.</p>
+
+<h2 id="metrics">Metrics</h2>
+<p>The authors stochastically selected $90\%$ of the data for training and the remaining $10\%$ for testing. 
+In order to obtain statistically credible results, they repeated the experiments $20$ times and 
+reported the average result. Precision, recall, and F1
+score were used as the metrics for evaluation.</p>
+
+<h1 id="results">Results</h1>
+<p>F1 scores of all models on the ECPE task are significantly improved by adopting the pair filter. These results demonstrate the effectiveness of the pair filter.
+Specifically, by introducing the pair filter, some of
+the candidate emotion-cause pairs in $P_{all}$ are filtered out, which may result in a decrease in the
+recall rate and an increase in precision.</p>
+
+<p>The precision scores of almost all models are greatly improved
+(more than \(7\%\)), in contrast, the recall rates drop very little (less than
+\(1\%\)), which lead to the significant improvement in F1 score.</p>
+
+<p><i>keep_rate</i> indicates the proportion of emotion-cause pairs in $P_{all}$ that are
+finally retained after pair filtering.</p>
+
+<figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_24.png" alt="this is a placeholder image" />
+  
+    <figcaption>
+      Experimental results of all proposed models and variants using precision, recall, and F1-measure as
+metrics on the ECPE task with or without the pair filter.
+
+    </figcaption>
+  
+</figure>
+
+<h1 id="limitations-and-future-work">Limitations and Future Work</h1>
+<ul>
+  <li>Goal of ECPE is not direct.</li>
+  <li>Mistakes made in the first step will affect the results of the second step.</li>
+</ul>
+
+<p>In the future work, a one-step model that directly extracts the emotion-cause pairs would be more beneficial.</p>
+
+<h1 id="takeaways">Takeaways</h1>
+<ul>
+  <li>ECPE solves the shortcomings of the traditional ECE task that depends on
+the annotation of emotion before extracting cause, and allows emotion cause analysis to be applied to real-world scenarios.</li>
+  <li>Approach achieves comparable cause extraction performance to traditional ECE methods and
+removes the emotion annotation dependence.</li>
+</ul>
+
+<h1 id="references">References</h1>
+<ol class="bibliography"><li><div class="text-justify">
+    <span id="xia-ding-2019-emotion">Xia, R., &amp; Ding, Z. (2019). Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts. <i>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</i>, 1003–1012. https://doi.org/10.18653/v1/P19-1096</span>
+
+    
+    
+
+    
+
+
+    
+        <a href="https://www.aclweb.org/anthology/P19-1096.bib" target="_blank"><input type="button" class="btn btnId btn--warning" value="BibTeX" /></a>
+    
+
+    
+        <button class="btn btnId btn--success" id="b_xia-ding-2019-emotion-abstract">Abstract</button>
+    
+
+    
+        <a href="https://www.aclweb.org/anthology/P19-1096" target="_blank"><input type="button" class="btn btn--info" value="PDF" /></a>
+    
+
+    
+        <br />
+        <div class="dropDownAbstract" id="xia-ding-2019-emotion-abstract">Emotion cause extraction (ECE), the task aimed at extracting the potential causes behind certain emotions in text, has gained much attention in recent years due to its wide applications. However, it suffers from two shortcomings: 1) the emotion must be annotated before cause extraction in ECE, which greatly limits its applications in real-world scenarios; 2) the way to first annotate emotion and then extract the cause ignores the fact that they are mutually indicative. In this work, we propose a new task: emotion-cause pair extraction (ECPE), which aims to extract the potential pairs of emotions and corresponding causes in a document. We propose a 2-step approach to address this new ECPE task, which first performs individual emotion extraction and cause extraction via multi-task learning, and then conduct emotion-cause pairing and filtering. The experimental results on a benchmark emotion cause corpus prove the feasibility of the ECPE task as well as the effectiveness of our approach.</div>
+    
+
+</div>
+
+
+
+<div>
+    
+</div></li></ol>
+
+<hr />
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+
+<div id="mc_embed_signup" class="archive__item">
+<form action="https://github.us19.list-manage.com/subscribe/post?u=011e5e92fe856b3d318b414ad&amp;id=f8ae890e5c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Liked this article and want to hear more?</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="" />
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_92fe86c389878585bc87837e8_50543deff9" tabindex="-1" value="" /></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" /></div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+<p><br />
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><i style="font-size:12px">This work is licensed under a </i><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i style="font-size:12px">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</i></a>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/blog/tags/#acl" class="page__taxonomy-item" rel="tag">ACL</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/blog/tags/#emotion-cause-extraction" class="page__taxonomy-item" rel="tag">Emotion Cause Extraction</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/blog/categories/#nlp-papers-summary" class="page__taxonomy-item" rel="tag">NLP Papers Summary</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-20">April 20, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Emotion-Cause+Pair+Extraction%3A+A+New+Task+to+Emotion+Analysis+in+Texts%20https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Femotion-cause-pair-extraction%3A-a-new-task-to-emotion-analysis-in-texts%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Femotion-cause-pair-extraction%3A-a-new-task-to-emotion-analysis-in-texts%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Femotion-cause-pair-extraction%3A-a-new-task-to-emotion-analysis-in-texts%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+
+  <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Femotion-cause-pair-extraction%3A-a-new-task-to-emotion-analysis-in-texts%2F&title=Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts" class="btn btn--reddit" title="Share on Reddit"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i><span> Reddit</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/" class="pagination--pager" title="Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_20.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/" rel="permalink">Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_15.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/" rel="permalink">Bridging the Gap between Training and Inference for Neural Machine Translation
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">In Neural Machine Translation, at training time, it predicts with the ground truth words as context while at inference it has to generate the entire sequence...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_3.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/" rel="permalink">Evaluating Gender Bias in Machine Translation
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/nickilmaveli" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/nickil21" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Nickil Maveli. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+
+<!-- AJax for DropDown Effect of Abstract and BibTex -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var str =$(this).attr('id');
+
+    $(".btnId").click(function(){
+        var str = $(this).attr('id');
+		var ret = str.split("_");
+		var id = ret[1];
+		$('#' + id).toggle();
+    });
+});
+</script>
+      </footer>
+    </div>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+    </aside>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://nickil21.github.io/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://nickil21-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+    <!--<script src="/assets/js/mode-switcher.js"></script>-->
+
+  </body>
+</html>

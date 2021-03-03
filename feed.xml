@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://nickil21.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://nickil21.github.io/" rel="alternate" type="text/html" /><updated>2021-03-03T11:09:58+05:30</updated><id>https://nickil21.github.io/feed.xml</id><title type="html">Nickil’s Website</title><subtitle>Personal Website of Nickil Maveli</subtitle><author><name>Nickil Maveli</name></author><entry><title type="html">Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts</title><link href="https://nickil21.github.io/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/" rel="alternate" type="text/html" title="Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts" /><published>2020-04-20T00:00:00+05:30</published><updated>2020-04-20T00:00:00+05:30</updated><id>https://nickil21.github.io/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts</id><content type="html" xml:base="https://nickil21.github.io/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/">&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_21.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      An example showing the difference between the ECE task and the ECPE task.
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Emotion cause extraction (ECE) aims at extracting potential causes that lead to emotion expressions in text.&lt;/p&gt;
+
+&lt;p&gt;In the above figure, taken from the corpus by (&lt;a href=&quot;https://www.aclweb.org/anthology/D16-1170.pdf&quot;&gt;Gui et al., 2016&lt;/a&gt;),
+there are five clauses in a document. The emotion &lt;span style=&quot;color:red&quot;&gt;happy&lt;/span&gt; is contained in the fourth clause.
+The authors denote this clause as emotion clause, which refers to
+a clause that contains emotions. It has two corresponding causes: 
+&lt;span style=&quot;color:blue&quot;&gt;a policeman visited the old man with the lost money&lt;/span&gt; 
+in the second clause,
+&lt;span style=&quot;color:limegreen&quot;&gt;and told him that the thief was caught&lt;/span&gt; in the third clause.
+The authors denote them as cause clause, which refers to a clause that contains causes.&lt;/p&gt;
+
+&lt;h1 id=&quot;problem&quot;&gt;Problem&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Emotion must be annotated before cause extraction in ECE, which greatly limits its applications in 
+real-world scenarios.&lt;/li&gt;
+  &lt;li&gt;The way to first annotate emotion and then extract the cause ignores the fact that they are 
+mutually indicative.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;how-it-solves&quot;&gt;How it Solves&lt;/h1&gt;
+&lt;p&gt;The authors propose a new task: &lt;u&gt;E&lt;/u&gt;motion &lt;u&gt;C&lt;/u&gt;ause &lt;u&gt;P&lt;/u&gt;air &lt;u&gt;E&lt;/u&gt;xtraction (ECPE), 
+which aims to extract all potential pairs of emotions and corresponding causes in a document.&lt;/p&gt;
+
+&lt;p&gt;For example, given the annotation of emotion: &lt;span style=&quot;color:red&quot;&gt;happy&lt;/span&gt;, the goal of ECE
+is to track the two corresponding cause clauses: &lt;span style=&quot;color:blue&quot;&gt;a policeman visited the old man with the lost money&lt;/span&gt;
+and &lt;span style=&quot;color:limegreen&quot;&gt;and told him that the thief was caught&lt;/span&gt;.
+While in the ECPE task, the goal is to directly extract all pairs of emotion clause and cause clause,
+including (&lt;strong&gt;The old man was very&lt;/strong&gt; &lt;span style=&quot;color:red&quot;&gt;happy&lt;/span&gt;, &lt;span style=&quot;color:blue&quot;&gt;a policeman visited the old man with the lost money&lt;/span&gt;)
+and (&lt;strong&gt;The old man was very&lt;/strong&gt; &lt;span style=&quot;color:red&quot;&gt;happy&lt;/span&gt;, &lt;span style=&quot;color:limegreen&quot;&gt;and told him that the thief was caught&lt;/span&gt;), 
+without providing the emotion annotation &lt;span style=&quot;color:red&quot;&gt;happy&lt;/span&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;approach&quot;&gt;Approach&lt;/h2&gt;
+&lt;p&gt;The authors propose a two-step approach to address this new ECPE task.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Individual Emotion and Cause Extraction&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Convert the emotion-cause pair extraction task into emotion extraction and cause extraction respectively.
+Two kinds of multi-task learning networks are proposed to model the two sub-tasks in a unified framework, with
+the goal to extract a set of emotion clauses \(E = \{c_1^e, ... , c_m^e\}\)
+and a set of cause clauses \(C = \{c_1^c, ... , c_n^c\}\) for each document.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;a) Independent Multi-task Learning&lt;/strong&gt;&lt;br /&gt;
+&lt;br /&gt;
+A document contains multiple clauses: \(d = [c_1, c_2, ..., c_{|d|}]\), 
+and each $c_i$ also contains multiple words $c_i = [w_{i,1}, w_{i,2}, …, w_{i,|ci|}]$.&lt;/p&gt;
+
+&lt;p&gt;To capture such a “word-clause-document” structure, the authors employ a Hierarchical Bi-LSTM network which
+contains two layers. The lower layer consists of a set of word-level Bi-LSTM modules, each of which 
+corresponds to one clause, and accumulate the context information for each word of the clause.
+The upper layer consists of two components: one for emotion extraction and another for cause
+extraction. Each component is a clause-level BiLSTM which receives the 
+independent clause representations $[s_1, s_2, …, s_{|d|}]$ obtained at the lower
+layer as inputs.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_22.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      The Model for Independent Multi-task Learning (Indep).
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;b) Interactive Multi-task Learning&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To capture the correlation between emotion and cause, Interactive Multi-Task Learning network was proposed.
+Compared with Independent Multi-task Learning, the lower layer of Inter-EC is unchanged, and
+the upper layer consists of two components, which
+are used to make predictions for emotion extraction task and cause extraction task in an interactive manner. 
+Each component is a clause-level BiLSTM followed by a softmax layer.&lt;/p&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_23.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      Two Models for Interactive Multi-task Learning: (a) Inter-EC, which uses emotion extraction to improve
+cause extraction (b) Inter-CE, which uses cause extraction to enhance emotion extraction.
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Emotion-Cause Pairing and Filtering&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Pair the emotion set $E$ and the cause set $C$ by applying a &lt;a href=&quot;https://en.wikipedia.org/wiki/Cartesian_product&quot;&gt;Cartesian product&lt;/a&gt;
+to them. This yields a set of candidate
+emotion-cause pairs. The authors finally trained a filter to eliminate the pairs that do not contain
+a &lt;a href=&quot;https://en.wikipedia.org/wiki/Causality&quot;&gt;causal relationship&lt;/a&gt; between emotion and cause.&lt;/p&gt;
+
+&lt;h2 id=&quot;metrics&quot;&gt;Metrics&lt;/h2&gt;
+&lt;p&gt;The authors stochastically selected $90\%$ of the data for training and the remaining $10\%$ for testing. 
+In order to obtain statistically credible results, they repeated the experiments $20$ times and 
+reported the average result. Precision, recall, and F1
+score were used as the metrics for evaluation.&lt;/p&gt;
+
+&lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
+&lt;p&gt;F1 scores of all models on the ECPE task are significantly improved by adopting the pair filter. These results demonstrate the effectiveness of the pair filter.
+Specifically, by introducing the pair filter, some of
+the candidate emotion-cause pairs in $P_{all}$ are filtered out, which may result in a decrease in the
+recall rate and an increase in precision.&lt;/p&gt;
+
+&lt;p&gt;The precision scores of almost all models are greatly improved
+(more than \(7\%\)), in contrast, the recall rates drop very little (less than
+\(1\%\)), which lead to the significant improvement in F1 score.&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;keep_rate&lt;/i&gt; indicates the proportion of emotion-cause pairs in $P_{all}$ that are
+finally retained after pair filtering.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_24.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      Experimental results of all proposed models and variants using precision, recall, and F1-measure as
+metrics on the ECPE task with or without the pair filter.
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;limitations-and-future-work&quot;&gt;Limitations and Future Work&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Goal of ECPE is not direct.&lt;/li&gt;
+  &lt;li&gt;Mistakes made in the first step will affect the results of the second step.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the future work, a one-step model that directly extracts the emotion-cause pairs would be more beneficial.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;ECPE solves the shortcomings of the traditional ECE task that depends on
+the annotation of emotion before extracting cause, and allows emotion cause analysis to be applied to real-world scenarios.&lt;/li&gt;
+  &lt;li&gt;Approach achieves comparable cause extraction performance to traditional ECE methods and
+removes the emotion annotation dependence.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;text-justify&quot;&gt;
+    &lt;span id=&quot;xia-ding-2019-emotion&quot;&gt;Xia, R., &amp;amp; Ding, Z. (2019). Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts. &lt;i&gt;Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics&lt;/i&gt;, 1003–1012. https://doi.org/10.18653/v1/P19-1096&lt;/span&gt;
+
+    
+    
+
+    
+
+
+    
+        &lt;a href=&quot;https://www.aclweb.org/anthology/P19-1096.bib&quot; target=&quot;_blank&quot;&gt;&lt;input type=&quot;button&quot; class=&quot;btn btnId btn--warning&quot; value=&quot;BibTeX&quot; /&gt;&lt;/a&gt;
+    
+
+    
+        &lt;button class=&quot;btn btnId btn--success&quot; id=&quot;b_xia-ding-2019-emotion-abstract&quot;&gt;Abstract&lt;/button&gt;
+    
+
+    
+        &lt;a href=&quot;https://www.aclweb.org/anthology/P19-1096&quot; target=&quot;_blank&quot;&gt;&lt;input type=&quot;button&quot; class=&quot;btn btn--info&quot; value=&quot;PDF&quot; /&gt;&lt;/a&gt;
+    
+
+    
+        &lt;br /&gt;
+        &lt;div class=&quot;dropDownAbstract&quot; id=&quot;xia-ding-2019-emotion-abstract&quot;&gt;Emotion cause extraction (ECE), the task aimed at extracting the potential causes behind certain emotions in text, has gained much attention in recent years due to its wide applications. However, it suffers from two shortcomings: 1) the emotion must be annotated before cause extraction in ECE, which greatly limits its applications in real-world scenarios; 2) the way to first annotate emotion and then extract the cause ignores the fact that they are mutually indicative. In this work, we propose a new task: emotion-cause pair extraction (ECPE), which aims to extract the potential pairs of emotions and corresponding causes in a document. We propose a 2-step approach to address this new ECPE task, which first performs individual emotion extraction and cause extraction via multi-task learning, and then conduct emotion-cause pairing and filtering. The experimental results on a benchmark emotion cause corpus prove the feasibility of the ECPE task as well as the effectiveness of our approach.&lt;/div&gt;
+    
+
+&lt;/div&gt;
+
+
+
+&lt;div&gt;
+    
+&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;!-- Begin Mailchimp Signup Form --&gt;
+&lt;link href=&quot;//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+&lt;/style&gt;
+
+&lt;div id=&quot;mc_embed_signup&quot; class=&quot;archive__item&quot;&gt;
+&lt;form action=&quot;https://github.us19.list-manage.com/subscribe/post?u=011e5e92fe856b3d318b414ad&amp;amp;id=f8ae890e5c&quot; method=&quot;post&quot; id=&quot;mc-embedded-subscribe-form&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+    &lt;div id=&quot;mc_embed_signup_scroll&quot;&gt;
+	&lt;label for=&quot;mce-EMAIL&quot;&gt;Liked this article and want to hear more?&lt;/label&gt;
+	&lt;input type=&quot;email&quot; value=&quot;&quot; name=&quot;EMAIL&quot; class=&quot;email&quot; id=&quot;mce-EMAIL&quot; placeholder=&quot;email address&quot; required=&quot;&quot; /&gt;
+    &lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;
+    &lt;div style=&quot;position: absolute; left: -5000px;&quot; aria-hidden=&quot;true&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;b_92fe86c389878585bc87837e8_50543deff9&quot; tabindex=&quot;-1&quot; value=&quot;&quot; /&gt;&lt;/div&gt;
+    &lt;div class=&quot;clear&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; id=&quot;mc-embedded-subscribe&quot; class=&quot;button&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;!--End mc_embed_signup--&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;i style=&quot;font-size:12px&quot;&gt;This work is licensed under a &lt;/i&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;&lt;i style=&quot;font-size:12px&quot;&gt;Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;</content><author><name>Nickil Maveli</name></author><category term="[&quot;NLP Papers Summary&quot;]" /><category term="Emotion Cause Extraction" /><category term="ACL" /><summary type="html">Aims to extract the potential pairs of emotions and corresponding causes in a document.</summary></entry><entry><title type="html">Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment</title><link href="https://nickil21.github.io/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/" rel="alternate" type="text/html" title="Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment" /><published>2020-04-16T00:00:00+05:30</published><updated>2020-04-17T00:00:00+05:30</updated><id>https://nickil21.github.io/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors?-evaluating-state-of-the-art-models-of-speaker-commitment</id><content type="html" xml:base="https://nickil21.github.io/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/">&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_20.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Prediction of speaker commitment is the task of determining to what extent the speaker is 
+committed to an event in a sentence as actual, non-actual, or uncertain. This matters for downstream
+NLP applications, such as information extraction or question answering.&lt;/p&gt;
+
+&lt;p&gt;For eg: &lt;span style=&quot;color:teal&quot;&gt;Florence is the most beautiful city I’ve ever seen.”&lt;/span&gt; (Speaker &lt;strong&gt;is committed&lt;/strong&gt; to the fact)&lt;br /&gt;Compared to:
+&lt;span style=&quot;color:teal&quot;&gt;“Florence might be the most beautiful city I’ve ever seen.”&lt;/span&gt; (Speaker &lt;strong&gt;is not as committed&lt;/strong&gt; to the fact)&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_12.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Speaker is committed - &lt;span style=&quot;color:teal&quot;&gt;“Do you &lt;strong&gt;know&lt;/strong&gt; that Florence is packed with visitors?”&lt;/span&gt;.&lt;br /&gt; 
+Mainly, due to “know” being a Factive verb has a tendency to suggest that the embedding clause is true.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Speaker is not so committed - &lt;span style=&quot;color:teal&quot;&gt;“Do you &lt;strong&gt;think&lt;/strong&gt; that Florence is packed with visitors?”&lt;/span&gt;.&lt;br /&gt;
+Mainly, due to “think” being a Non-Factive verb has a tendency to suggest that the embedding clause is neither true nor false.&lt;/p&gt;
+
+&lt;p&gt;Speaker is not committed -  &lt;span style=&quot;color:teal&quot;&gt;“I &lt;strong&gt;don’t know&lt;/strong&gt; that Florence is packed with visitors.”&lt;/span&gt;&lt;br /&gt;
+Mainly, due to “don’t know” being a Neg-raising (negation) has a tendency to suggest that the embedding clause is false.&lt;/p&gt;
+
+&lt;h1 id=&quot;problem&quot;&gt;Problem&lt;/h1&gt;
+&lt;p&gt;Evaluating SOTA models of Speaker Commitment.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-it-solves&quot;&gt;How it Solves&lt;/h1&gt;
+&lt;p&gt;They explore the hypothesis that linguistic deficits drive the error patterns of speaker commitment 
+models by analyzing the linguistic correlations of model errors on a challenging naturalistic dataset.&lt;/p&gt;
+
+&lt;h2 id=&quot;dataset&quot;&gt;Dataset&lt;/h2&gt;
+&lt;p&gt;The CommitmentBank corpus is used which consists of 1,200 naturally occurring items involving clause-embedding
+verbs under four entailment-canceling environments (negations, modals, questions, conditionals).&lt;/p&gt;
+
+&lt;p&gt;For each item, speaker commitment judgments were gathered on Mechanical Turk from at least eight 
+native English speakers. Participants judged whether or not the speaker is certain that the 
+content of the complement in the target sentence is true, using a &lt;a href=&quot;https://en.wikipedia.org/wiki/Likert_scale&quot;&gt;Likert scale&lt;/a&gt;
+labeled at 3 points 
+(&lt;span style=&quot;color:green;&quot;&gt;&lt;strong&gt;+3&lt;/strong&gt;&lt;/span&gt;/speaker is certain that the complement is true, 
+&lt;span style=&quot;color:orange;&quot;&gt;&lt;strong&gt;0&lt;/strong&gt;&lt;/span&gt;/speaker is not certain whether 
+it is true or false, &lt;span style=&quot;color:red;&quot;&gt;&lt;strong&gt;-3&lt;/strong&gt;&lt;/span&gt;/speaker is certain that it is false). 
+They took the mean annotations of each item as gold score of speaker commitment.&lt;/p&gt;
+
+&lt;h2 id=&quot;models&quot;&gt;Models&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Rule-based TruthTeller (&lt;a href=&quot;https://www.aclweb.org/anthology/P17-2056.pdf&quot;&gt;Stanovsky et al., 2017&lt;/a&gt;)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It uses a top-down approach on a dependency tree and predicts speaker commitment score in [−3, 3] 
+according to the implicative signatures of the predicates, and whether the predicates are under the 
+scope of negation and uncertainty modifiers. For example, &lt;strong&gt;refuse $\mathcal{p}$&lt;/strong&gt; entails &lt;strong&gt;$\neg{\mathcal{p}}$&lt;/strong&gt;, 
+so the factuality of its complement $\mathcal{p}$ gets flipped if encountered.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. BiLSTM-based models (&lt;a href=&quot;https://www.aclweb.org/anthology/N18-1067.pdf&quot;&gt;Rudinger et al., 2018&lt;/a&gt;)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Linear: encodes the sentence left-to-right and right-to-left.&lt;/li&gt;
+  &lt;li&gt;Tree: encodes the dependency tree of the sentence top-down and bottom-up.&lt;/li&gt;
+  &lt;li&gt;Hybrid: combination of the two.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;metrics&quot;&gt;Metrics&lt;/h2&gt;
+&lt;p&gt;Task is to predict a gradience of commitment  $\in [-3, 3]$&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Pearson R Correlation: Capture the variability of the model. (Higher Better)&lt;/li&gt;
+  &lt;li&gt;Mean Absolute Error: Measures the absolute fit of the model. (Lower Better)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_13.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Hybrid model predictions are mostly positive, whereas the rule-based model predictions are clustered at −3
+and +3. This suggests that the rule-based model cannot capture the gradience present in commitment judgments, 
+while the hybrid model struggles to recognize negative commitments. The rule-based model predicts $+$ by default 
+unless it has clear evidence (e.g., negation) for negative commitment. This behavior is reflected in the 
+high precision for $-$. Both models perform well on $+$ and $-$, but neither is able to identify no commitment ($o$).&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Embedding environment&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The rule-based model can only capture inferences involving negation ($r$ = 0.45), while the hybrid model
+performs more consistently across negation, modal, and question ($r$ ∼ 0.25). Both models
+cannot handle inferences with conditionals.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Genre&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Both models achieve the best correlation on dialog (Switchboard), and the worst on
+newswire (WSJ). The good performance of the rule-based model on dialog could be due to the
+fact that 70% of the items in dialog are in a negation environment with a nonfactive verb.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Factive embedding verb&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Both models get better MAE on factives, but better correlation on nonfactives. The improved MAE of
+the rule-based model might be due to its use of factive/implicative signatures. However, the poor
+correlations suggest that neither model can robustly capture the variability in inference which
+exists in sentences involving factive/nonfactive verbs.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Neg-raising&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There is almost no correlation between both models’ predictions and gold judgments
+suggesting that the models are not able to capture neg-raising inferences.&lt;/p&gt;
+
+&lt;h1 id=&quot;limitations-and-future-work&quot;&gt;Limitations and Future Work&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Models are not able to generalize to other linguistic environments such as conditional, modal,
+and neg-raising, which display inference patterns that are important for information extraction.&lt;/li&gt;
+  &lt;li&gt;Both models are able to identify the polarity of commitment, but cannot capture its gradience.&lt;/li&gt;
+  &lt;li&gt;To perform robust  language understanding, models will need to incorporate more linguistic foreknowledge and be able to generalize
+to a wider range of linguistic constructions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Conditionals, factive verbs, neg-raisings are hard for models.&lt;/li&gt;
+  &lt;li&gt;Models can identify polarity, but not gradience.&lt;/li&gt;
+  &lt;li&gt;Linguistically motivated models scale more successfully.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;text-justify&quot;&gt;
+    &lt;span id=&quot;jiang-de-marneffe-2019-know&quot;&gt;Jiang, N., &amp;amp; de Marneffe, M.-C. (2019). Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment. &lt;i&gt;Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics&lt;/i&gt;, 4208–4213. https://doi.org/10.18653/v1/P19-1412&lt;/span&gt;
+
+    
+    
+
+    
+
+
+    
+        &lt;a href=&quot;https://www.aclweb.org/anthology/P19-1412.bib&quot; target=&quot;_blank&quot;&gt;&lt;input type=&quot;button&quot; class=&quot;btn btnId btn--warning&quot; value=&quot;BibTeX&quot; /&gt;&lt;/a&gt;
+    
+
+    
+        &lt;button class=&quot;btn btnId btn--success&quot; id=&quot;b_jiang-de-marneffe-2019-know-abstract&quot;&gt;Abstract&lt;/button&gt;
+    
+
+    
+        &lt;a href=&quot;https://www.aclweb.org/anthology/P19-1412&quot; target=&quot;_blank&quot;&gt;&lt;input type=&quot;button&quot; class=&quot;btn btn--info&quot; value=&quot;PDF&quot; /&gt;&lt;/a&gt;
+    
+
+    
+        &lt;br /&gt;
+        &lt;div class=&quot;dropDownAbstract&quot; id=&quot;jiang-de-marneffe-2019-know-abstract&quot;&gt;When a speaker, Mary, asks “Do you know that Florence is packed with visitors?”, we take her to believe that Florence is packed with visitors, but not if she asks “Do you think that Florence is packed with visitors?”. Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering. Here, we explore the hypothesis that linguistic deficits drive the error patterns of existing speaker commitment models by analyzing the linguistic correlates of model error on a challenging naturalistic dataset. We evaluate two state-of-the-art speaker commitment models on the CommitmentBank, an English dataset of naturally occurring discourses. The CommitmentBank is annotated with speaker commitment towards the content of the complement (“Florence is packed with visitors” in our example) of clause-embedding verbs (“know”, “think”) under four entailment-canceling environments (negation, modal, question, conditional). A breakdown of items by linguistic features reveals asymmetrical error patterns: while the models achieve good performance on some classes (e.g., negation), they fail to generalize to the diverse linguistic constructions (e.g., conditionals) in natural language, highlighting directions for improvement.&lt;/div&gt;
+    
+
+&lt;/div&gt;
+
+
+
+&lt;div&gt;
+    
+&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;!-- Begin Mailchimp Signup Form --&gt;
+&lt;link href=&quot;//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+&lt;/style&gt;
+
+&lt;div id=&quot;mc_embed_signup&quot; class=&quot;archive__item&quot;&gt;
+&lt;form action=&quot;https://github.us19.list-manage.com/subscribe/post?u=011e5e92fe856b3d318b414ad&amp;amp;id=f8ae890e5c&quot; method=&quot;post&quot; id=&quot;mc-embedded-subscribe-form&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+    &lt;div id=&quot;mc_embed_signup_scroll&quot;&gt;
+	&lt;label for=&quot;mce-EMAIL&quot;&gt;Liked this article and want to hear more?&lt;/label&gt;
+	&lt;input type=&quot;email&quot; value=&quot;&quot; name=&quot;EMAIL&quot; class=&quot;email&quot; id=&quot;mce-EMAIL&quot; placeholder=&quot;email address&quot; required=&quot;&quot; /&gt;
+    &lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;
+    &lt;div style=&quot;position: absolute; left: -5000px;&quot; aria-hidden=&quot;true&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;b_92fe86c389878585bc87837e8_50543deff9&quot; tabindex=&quot;-1&quot; value=&quot;&quot; /&gt;&lt;/div&gt;
+    &lt;div class=&quot;clear&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; id=&quot;mc-embedded-subscribe&quot; class=&quot;button&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;!--End mc_embed_signup--&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;i style=&quot;font-size:12px&quot;&gt;This work is licensed under a &lt;/i&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;&lt;i style=&quot;font-size:12px&quot;&gt;Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;</content><author><name>Nickil Maveli</name></author><category term="[&quot;NLP Papers Summary&quot;]" /><category term="Speaker Commitment" /><category term="ACL" /><summary type="html">Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering.</summary></entry><entry><title type="html">Bridging the Gap between Training and Inference for Neural Machine Translation</title><link href="https://nickil21.github.io/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/" rel="alternate" type="text/html" title="Bridging the Gap between Training and Inference for Neural Machine Translation" /><published>2020-04-07T00:00:00+05:30</published><updated>2020-04-13T00:00:00+05:30</updated><id>https://nickil21.github.io/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation</id><content type="html" xml:base="https://nickil21.github.io/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/">&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_15.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;During Training, ground truth words as context. At inference, self-generated words as context.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This discrepancy, called exposure bias, leads to a gap between training and inference. As
+the target sequence grows, the errors accumulate among the sequence and the model has to predict
+under the condition it has never met at training time.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Over-correction, if we only use self-generated words as context.&lt;/li&gt;
+  &lt;li&gt;A sentence usually has multiple reasonable translations and it cannot be said that the model makes a
+mistake even if it generates a word different from the ground truth word.
+For example:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p class=&quot;notice&quot;&gt;&lt;strong&gt;reference&lt;/strong&gt;: We should comply with the rule.&lt;br /&gt;&lt;br /&gt;
+&lt;strong&gt;cand1&lt;/strong&gt;: We should abide with the rule.&lt;br /&gt;
+&lt;strong&gt;cand2&lt;/strong&gt;: We should abide by the law.&lt;br /&gt;
+&lt;strong&gt;cand3&lt;/strong&gt;: We should abide by the rule.&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;problem&quot;&gt;Problem&lt;/h1&gt;
+&lt;p&gt;At training time, &lt;a href=&quot;https://arxiv.org/abs/1409.0473&quot;&gt;Neural Machine Translation&lt;/a&gt; predicts with the ground truth words as context while at inference 
+it has to generate the entire sequence from scratch. This discrepancy of the fed context 
+leads to error accumulation among the way. Furthermore, word-level training requires strict matching 
+between the generated sequence and the ground truth sequence which leads to overcorrection over 
+different but reasonable translations.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-it-solves&quot;&gt;How it Solves&lt;/h1&gt;
+&lt;p&gt;The main framework is to feed as context either the ground truth words 
+or the previous predicted words, i.e. oracle words, with a certain probability. This potentially
+can reduce the gap between training and inference by training the model to handle the situation which
+will appear during test time.&lt;/p&gt;
+
+&lt;h2 id=&quot;approach&quot;&gt;Approach&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Oracle Translation Generation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Select an oracle word $y_{j−1}^{oracle}$ at word level or sentence level at the \(\{j−1\}^{-th}\) step.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Word Level Oracle (SO)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Generally, at the $j$-th step, the NMT model needs the ground truth word $y_{j−1}^*$ 
+as the context word to predict $y_j$ , thus, we could select an oracle word 
+$y_{j−1}^{oracle}$ to simulate the context word. The oracle word should be a word similar 
+to the ground truth or a synonym. Using different strategies will produce a different oracle word 
+$y_{j−1}^{oracle}$. One option is that word-level greedy search could be employed to output the 
+oracle word of each step, which is called Word-level Oracle (called WO).&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_16.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      Word-level oracle without noise.
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Gumbel noise, treated as a form of regularization, is added to $o_{j−1}$.&lt;/p&gt;
+
+\[\begin{align*}
+\eta&amp;amp;= -\log (-\log u) \\
+\tilde{o}_{j-1}&amp;amp;= \left(o_{j-1}+\eta\right) / \tau \\
+\tilde{P}_{j-1}&amp;amp;= \operatorname{softmax}\left(\tilde{o}_{j-1}\right)
+\end{align*}\]
+
+&lt;p&gt;where $\eta$ is the Gumbel noise calculated from a uniform random variable ${u} ∼ {U(0, 1)}$; $\tau$ is temperature.
+As $\tau$ approaches 0, the ${softmax}$ function is similar to the ${argmax}$ operation, and it becomes uniform distribution 
+gradually when $\tau$ $\rightarrow$ $\infty$.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Sentence Level Oracle (SO)&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Generate $top(k)$ translation by beam search.&lt;/li&gt;
+  &lt;li&gt;Re-rank $top(k)$ translation with BLEU.&lt;/li&gt;
+  &lt;li&gt;Select $top(i)$.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As the model samples from ground truth word and the sentence-level oracle word at each step, the
+two sequences should have the same number of words. Force decoding is used 
+to make sure the two sequences have the same length.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Context Sampling with Decay&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Employ a sampling mechanism to randomly select the ground truth word $y_{j-1}^*$ 
+or the oracle word $y_{j−1}^{oracle}$ as $y_{j−1}$. At the beginning of training, 
+as the model is not well trained, using $y_{j−1}^{oracle}$ as $y_{j−1}$ too often
+would lead to very slow convergence, even being trapped into local optimum.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, at the end of training, if the context $y_{j−1}$ is still selected 
+from the ground truth word $y_{j-1}^{*}$ at a large probability, the model is not fully exposed 
+to the circumstance which it has to confront at inference and hence can not know how to 
+act in the situation at inference. In this sense, the probability $p$ of selecting from the 
+ground truth word can not be fixed, but has to decrease progressively as the training advances. 
+At the beginning, $p=1$, which means the model is trained entirely based on the ground truth words. 
+As the model converges gradually, the model selects from the oracle words more often.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_17.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      The architecture of their method.
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;where \(\begin{align*}{p} = \frac{\mu}{\mu + \exp(\mathcal{e}/\mu)}\end{align*}\)&lt;/p&gt;
+
+&lt;p&gt;Here, $\mathcal{e}$ corresponds to the epoch number and $\mu$ is a hyper-parameter. The function is
+strictly monotone decreasing. As the training proceeds, the probability $p$ of feeding ground truth
+words decreases gradually.&lt;/p&gt;
+
+&lt;h2 id=&quot;training&quot;&gt;Training&lt;/h2&gt;
+&lt;p&gt;The objective is to maximize the probability of the ground truth sequence based on maximum likelihood estimation (MLE).
+Thus, following loss function is minimized:&lt;/p&gt;
+
+\[\begin{align*}\mathcal{L}(\theta)=-\sum_{n=1}^{N} \sum_{j=1}^{\left|\mathbf{y}^{n}\right|} \log P_{j}^{n}\left[y_{j}^{n}\right]\end{align*}\]
+
+&lt;p&gt;where ${N}$ is the number of sentence pairs in the training data, $|y^n|$ indicates the length 
+of the ${n}$-th ground truth sentence, $P_j^n$ refers to the predicted probability distribution at the ${j}$-th 
+step for the ${n}$-th sentence, hence $P_j^n[y_j^n]$ is the probability of generating the 
+ground truth word $y_j^n$ at the ${j}$-th step.&lt;/p&gt;
+
+&lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
+&lt;p&gt;Based on the &lt;a href=&quot;https://arxiv.org/pdf/1409.0473.pdf&quot;&gt;RNNSearch&lt;/a&gt;, the authors introduced the word-level oracles, sentence-level oracles and the 
+Gumbel noises to enhance the overcorrection recovery capacity. They split the translations for the MT03 test
+set into different bins according to the length of source sentences, then test the BLEU scores for
+translations in each bin separately. Their approach can achieve big improvements over the baseline system in all
+bins, especially in the bins (10,20], (40,50] and (70,80] of the super-long sentences.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_14.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      Performance comparison on the MT03 test set with respect to the different lengths of 
+ source sentences on the Zh→En translation task.
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;future-scope&quot;&gt;Future Scope&lt;/h1&gt;
+&lt;p&gt;Reporting of &lt;a href=&quot;http://www.mt-archive.info/HLT-2002-Doddington.pdf&quot;&gt;NIST&lt;/a&gt; or &lt;a href=&quot;http://www.aclweb.org/anthology/N03-1020&quot;&gt;ROUGE&lt;/a&gt; 
+scores would be helpful for comparison purposes as BLEU doesn’t consider sentence structure.&lt;/p&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Sampling as context from the ground truth and the generated oracle can mitigate exposure bias.&lt;/li&gt;
+  &lt;li&gt;Sentence-level oracle is better than word-level oracle.&lt;/li&gt;
+  &lt;li&gt;Gumbel noise can help improve translation quality.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;text-justify&quot;&gt;
+    &lt;span id=&quot;zhang-etal-2019-bridging&quot;&gt;Zhang, W., Feng, Y., Meng, F., You, D., &amp;amp; Liu, Q. (2019). Bridging the Gap between Training and Inference for Neural Machine Translation. &lt;i&gt;Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics&lt;/i&gt;, 4334–4343. https://doi.org/10.18653/v1/P19-1426&lt;/span&gt;
+
+    
+    
+
+    
+
+
+    
+        &lt;a href=&quot;https://www.aclweb.org/anthology/P19-1426.bib&quot; target=&quot;_blank&quot;&gt;&lt;input type=&quot;button&quot; class=&quot;btn btnId btn--warning&quot; value=&quot;BibTeX&quot; /&gt;&lt;/a&gt;
+    
+
+    
+        &lt;button class=&quot;btn btnId btn--success&quot; id=&quot;b_zhang-etal-2019-bridging-abstract&quot;&gt;Abstract&lt;/button&gt;
+    
+
+    
+        &lt;a href=&quot;https://www.aclweb.org/anthology/P19-1426&quot; target=&quot;_blank&quot;&gt;&lt;input type=&quot;button&quot; class=&quot;btn btn--info&quot; value=&quot;PDF&quot; /&gt;&lt;/a&gt;
+    
+
+    
+        &lt;br /&gt;
+        &lt;div class=&quot;dropDownAbstract&quot; id=&quot;zhang-etal-2019-bridging-abstract&quot;&gt;Neural Machine Translation (NMT) generates target words sequentially in the way of predicting the next word conditioned on the context words. At training time, it predicts with the ground truth words as context while at inference it has to generate the entire sequence from scratch. This discrepancy of the fed context leads to error accumulation among the way. Furthermore, word-level training requires strict matching between the generated sequence and the ground truth sequence which leads to overcorrection over different but reasonable translations. In this paper, we address these issues by sampling context words not only from the ground truth sequence but also from the predicted sequence by the model during training, where the predicted sequence is selected with a sentence-level optimum. Experiment results on Chinese-\textgreaterEnglish and WMT’14 English-\textgreaterGerman translation tasks demonstrate that our approach can achieve significant improvements on multiple datasets.&lt;/div&gt;
+    
+
+&lt;/div&gt;
+
+
+
+&lt;div&gt;
+    
+&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;!-- Begin Mailchimp Signup Form --&gt;
+&lt;link href=&quot;//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+&lt;/style&gt;
+
+&lt;div id=&quot;mc_embed_signup&quot; class=&quot;archive__item&quot;&gt;
+&lt;form action=&quot;https://github.us19.list-manage.com/subscribe/post?u=011e5e92fe856b3d318b414ad&amp;amp;id=f8ae890e5c&quot; method=&quot;post&quot; id=&quot;mc-embedded-subscribe-form&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+    &lt;div id=&quot;mc_embed_signup_scroll&quot;&gt;
+	&lt;label for=&quot;mce-EMAIL&quot;&gt;Liked this article and want to hear more?&lt;/label&gt;
+	&lt;input type=&quot;email&quot; value=&quot;&quot; name=&quot;EMAIL&quot; class=&quot;email&quot; id=&quot;mce-EMAIL&quot; placeholder=&quot;email address&quot; required=&quot;&quot; /&gt;
+    &lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;
+    &lt;div style=&quot;position: absolute; left: -5000px;&quot; aria-hidden=&quot;true&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;b_92fe86c389878585bc87837e8_50543deff9&quot; tabindex=&quot;-1&quot; value=&quot;&quot; /&gt;&lt;/div&gt;
+    &lt;div class=&quot;clear&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; id=&quot;mc-embedded-subscribe&quot; class=&quot;button&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;!--End mc_embed_signup--&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;i style=&quot;font-size:12px&quot;&gt;This work is licensed under a &lt;/i&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;&lt;i style=&quot;font-size:12px&quot;&gt;Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;</content><author><name>Nickil Maveli</name></author><category term="[&quot;NLP Papers Summary&quot;]" /><category term="Machine Translation" /><category term="ACL" /><summary type="html">In Neural Machine Translation, at training time, it predicts with the ground truth words as context while at inference it has to generate the entire sequence from scratch. This discrepancy of the fed context leads to error accumulation among the way. This paper addresses this and many other issues.</summary></entry><entry><title type="html">Evaluating Gender Bias in Machine Translation</title><link href="https://nickil21.github.io/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/" rel="alternate" type="text/html" title="Evaluating Gender Bias in Machine Translation" /><published>2020-04-06T00:00:00+05:30</published><updated>2020-04-08T00:00:00+05:30</updated><id>https://nickil21.github.io/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation</id><content type="html" xml:base="https://nickil21.github.io/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/">&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_3.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Some languages encode grammatical gender - Spanish, Italian, Russian, etc. One word for male, other word for female.&lt;/li&gt;
+  &lt;li&gt;Other languages are gender neutral - English, Turkish, Finnish. One word for both male and female.&lt;/li&gt;
+  &lt;li&gt;When translating between genderless to gender-ed languages, translator needs to take gender into account, and make decisions.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_4.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      An example of gender bias in machine translation from English (top) to Spanish (bottom).
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Examples include gender biases in visual Semantic Role Labeling (SRL) - Cooking is stereotypically done by women, construction workers are stereotypically men.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;problem&quot;&gt;Problem&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Can we quantitatively evaluate gender translation in MT?&lt;/li&gt;
+  &lt;li&gt;How much does MT rely on gender stereotypes vs. meaningful context?&lt;/li&gt;
+  &lt;li&gt;Can we reduce gender bias by rephrasing source texts?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;how-it-solves&quot;&gt;How it Solves&lt;/h1&gt;
+&lt;p&gt;Winogender (&lt;a href=&quot;https://www.aclweb.org/anthology/N18-2002.pdf]&quot;&gt;Rudinger et al., 2018&lt;/a&gt;) and 
+WinoBias (&lt;a href=&quot;https://www.aclweb.org/anthology/N18-2003.pdf]&quot;&gt;Zhao et al., 2018&lt;/a&gt;) datasets were used 
+following the &lt;a href=&quot;https://www.aaai.org/ocs/index.php/SSS/SSS11/paper/viewFile/2502/2964&quot; target=&quot;_blank&quot;&gt;Winograd schema&lt;/a&gt;. 
+Collectively, they compose of 3888 English sentences designed to test gender bias in coreference resolution.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_5.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      For every female doctor in the example, there will be a male doctor as a counter example.
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;These are very useful for evaluating gender bias in MT!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Equally split between stereotypical and non-stereotypical role assignments. (For every female doctor, we’ll have a 
+ female nurse)&lt;/li&gt;
+  &lt;li&gt;Gold annotations for gender.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Six widely used MT models, representing the state of the art in both commercial and academic research
+were used:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Google Translate&lt;/li&gt;
+  &lt;li&gt;Microsoft Translator&lt;/li&gt;
+  &lt;li&gt;Amazon Translate&lt;/li&gt;
+  &lt;li&gt;SYSTRAN&lt;/li&gt;
+  &lt;li&gt;the model of (&lt;a href=&quot;https://www.aclweb.org/anthology/W18-6301.pdf&quot;&gt;Ott et al., 2018&lt;/a&gt;), which recently achieved the best performance on English-to-French
+translation on the WMT’14 test set.&lt;/li&gt;
+  &lt;li&gt;the model of (&lt;a href=&quot;https://www.aclweb.org/anthology/D18-1045.pdf&quot;&gt;Edunov et al., 2018&lt;/a&gt;), the WMT’18 winner on English-to-German translation.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;implementation&quot;&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Input :&lt;/strong&gt; MT model + target language&lt;br /&gt;
+&lt;strong&gt;Output :&lt;/strong&gt; Accuracy score for gender translation&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Translate the coreference bias datasets.
+    &lt;ul&gt;
+      &lt;li&gt;To target languages with grammatical gender.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Align between source and target.
+    &lt;ul&gt;
+      &lt;li&gt;Using fast align. (&lt;a href=&quot;https://www.aclweb.org/anthology/N13-1073.pdf&quot;&gt;Dyer et al., 2013&lt;/a&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Identify gender in target language.
+    &lt;ul&gt;
+      &lt;li&gt;Using off-the-shelf morphological analyzers or simple heuristics in the target languages.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;To estimate noise, a sample of gender predictions were shown to native speakers of target languages.&lt;/p&gt;
+
+&lt;p class=&quot;notice--success&quot;&gt;Quality estimated &amp;gt;85% vs. 90% IAA (Inter Annotator Agreement)&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;To test if gendered adjectives affect translation?&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;
+For the sentence:&lt;br /&gt;
+“The doctor asked the nurse to help her in the operation.”&lt;br /&gt;&lt;br /&gt;
+Black-box injection of gendered adjectives were done:&lt;br /&gt;
+“The &lt;strong&gt;pretty&lt;/strong&gt; doctor asked the nurse to help &lt;strong&gt;&lt;u&gt;her&lt;/u&gt;&lt;/strong&gt; in the operation.”
+&lt;span style=&quot;color:teal&quot;&gt;[Since doctor is female]&lt;/span&gt;&lt;br /&gt;
+“The &lt;strong&gt;handsome&lt;/strong&gt; nurse asked the doctor to help &lt;strong&gt;&lt;u&gt;him&lt;/u&gt;&lt;/strong&gt; in the operation.”
+&lt;span style=&quot;color:teal&quot;&gt;[Since nurse is male]&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;
+Here, “&lt;strong&gt;pretty&lt;/strong&gt;” and “&lt;strong&gt;handsome&lt;/strong&gt;” are stereotypical adjectives for feminine and masculine genders respectively.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p class=&quot;notice--success&quot;&gt;This approach improved performance for most tested languages and models. [mean +8.6%]&lt;/p&gt;
+
+&lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
+&lt;p&gt;This metric shows that all tested systems have a significant and consistently better performance when presented with pro-stereotypical
+assignments (e.g., a female nurse), while their
+performance deteriorates when translating anti-stereotypical roles (e.g., a male receptionist).&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_18.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      Google Translate’s performance on gender translation on our tested languages. The performance on the
+stereotypical portion of WinoMT is consistently better than that on the non-stereotypical portion. The other MT
+systems we tested display similar trends.
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;limitations-and-future-work&quot;&gt;Limitations and Future Work&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Artificially created dataset.
+    &lt;ul&gt;
+      &lt;li&gt;Allows for controlled experiment.&lt;/li&gt;
+      &lt;li&gt;Yet, might introduce it’s own annotation biases.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Medium Size
+    &lt;ul&gt;
+      &lt;li&gt;Easy to overfit.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;First quantitative automatic evaluation of gender bias in MT.
+    &lt;ul&gt;
+      &lt;li&gt;6 SOTA MT models on 8 diverse target languages.&lt;/li&gt;
+      &lt;li&gt;Doesn’t require reference translations.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Significant gender bias found in all models in all tested languages.&lt;/li&gt;
+  &lt;li&gt;Easily extensible with more languages and MT models.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;text-justify&quot;&gt;
+    &lt;span id=&quot;stanovsky-etal-2019-evaluating&quot;&gt;Stanovsky, G., Smith, N. A., &amp;amp; Zettlemoyer, L. (2019). Evaluating Gender Bias in Machine Translation. &lt;i&gt;Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics&lt;/i&gt;, 1679–1684. https://doi.org/10.18653/v1/P19-1164&lt;/span&gt;
+
+    
+    
+
+    
+
+
+    
+        &lt;a href=&quot;https://www.aclweb.org/anthology/P19-1164.bib&quot; target=&quot;_blank&quot;&gt;&lt;input type=&quot;button&quot; class=&quot;btn btnId btn--warning&quot; value=&quot;BibTeX&quot; /&gt;&lt;/a&gt;
+    
+
+    
+        &lt;button class=&quot;btn btnId btn--success&quot; id=&quot;b_stanovsky-etal-2019-evaluating-abstract&quot;&gt;Abstract&lt;/button&gt;
+    
+
+    
+        &lt;a href=&quot;https://www.aclweb.org/anthology/P19-1164&quot; target=&quot;_blank&quot;&gt;&lt;input type=&quot;button&quot; class=&quot;btn btn--info&quot; value=&quot;PDF&quot; /&gt;&lt;/a&gt;
+    
+
+    
+        &lt;br /&gt;
+        &lt;div class=&quot;dropDownAbstract&quot; id=&quot;stanovsky-etal-2019-evaluating-abstract&quot;&gt;We present the first challenge set and evaluation protocol for the analysis of gender bias in machine translation (MT). Our approach uses two recent coreference resolution datasets composed of English sentences which cast participants into non-stereotypical gender roles (e.g., “The doctor asked the nurse to help her in the operation”). We devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis (e.g., the use of female inflection for the word “doctor”). Our analyses show that four popular industrial MT systems and two recent state-of-the-art academic MT models are significantly prone to gender-biased translation errors for all tested target languages. Our data and code are publicly available at https://github.com/gabrielStanovsky/mt_gender.&lt;/div&gt;
+    
+
+&lt;/div&gt;
+
+
+
+&lt;div&gt;
+    
+&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;!-- Begin Mailchimp Signup Form --&gt;
+&lt;link href=&quot;//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+&lt;/style&gt;
+
+&lt;div id=&quot;mc_embed_signup&quot; class=&quot;archive__item&quot;&gt;
+&lt;form action=&quot;https://github.us19.list-manage.com/subscribe/post?u=011e5e92fe856b3d318b414ad&amp;amp;id=f8ae890e5c&quot; method=&quot;post&quot; id=&quot;mc-embedded-subscribe-form&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+    &lt;div id=&quot;mc_embed_signup_scroll&quot;&gt;
+	&lt;label for=&quot;mce-EMAIL&quot;&gt;Liked this article and want to hear more?&lt;/label&gt;
+	&lt;input type=&quot;email&quot; value=&quot;&quot; name=&quot;EMAIL&quot; class=&quot;email&quot; id=&quot;mce-EMAIL&quot; placeholder=&quot;email address&quot; required=&quot;&quot; /&gt;
+    &lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;
+    &lt;div style=&quot;position: absolute; left: -5000px;&quot; aria-hidden=&quot;true&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;b_92fe86c389878585bc87837e8_50543deff9&quot; tabindex=&quot;-1&quot; value=&quot;&quot; /&gt;&lt;/div&gt;
+    &lt;div class=&quot;clear&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; id=&quot;mc-embedded-subscribe&quot; class=&quot;button&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;!--End mc_embed_signup--&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;i style=&quot;font-size:12px&quot;&gt;This work is licensed under a &lt;/i&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;&lt;i style=&quot;font-size:12px&quot;&gt;Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;</content><author><name>Nickil Maveli</name></author><category term="[&quot;NLP Papers Summary&quot;]" /><category term="Machine Translation" /><category term="ACL" /><summary type="html">Devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis.</summary></entry><entry><title type="html">The Risk of Racial Bias in Hate Speech Detection</title><link href="https://nickil21.github.io/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/" rel="alternate" type="text/html" title="The Risk of Racial Bias in Hate Speech Detection" /><published>2020-04-04T00:00:00+05:30</published><updated>2020-04-15T00:00:00+05:30</updated><id>https://nickil21.github.io/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection</id><content type="html" xml:base="https://nickil21.github.io/blog/nlp-papers-summary/the-risk-of-racial-bias-in-hate-speech-detection/">&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_1.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      Phrases in African American English (AAE),
+          their non-AAE equivalents, and
+          toxicity scores from &lt;a href=&quot;http://perspectiveapi.com&quot; target=&quot;_blank&quot;&gt;PerspectiveAPI&lt;/a&gt;.
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;introduction&quot;&gt;Introduction&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Goal of Hate Detection: &lt;em&gt;Try and make the internet less toxic&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;Toxicity ML models are generally trained on text-only annotations and don’t have information about the speaker.&lt;/li&gt;
+  &lt;li&gt;Current datasets ignore social context of speech, like - identity of speaker, dialect of English.&lt;/li&gt;
+  &lt;li&gt;Ignoring these nuances risks harming minority populations by suppressing inoffensive speech.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;problem&quot;&gt;Problem&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Severe Racial bias in hate speech detection.&lt;/li&gt;
+  &lt;li&gt;Do ML models acquire this racial bias from datasets?&lt;/li&gt;
+  &lt;li&gt;Can annotation task design affect these racial biases?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;how-it-solves&quot;&gt;How it Solves&lt;/h1&gt;
+&lt;p&gt;Empirically characterize the racial bias present in several widely used Twitter corpora
+annotated for toxic content, and quantify the propagation of this bias through models trained on them. 
+They established strong associations between AAE markers (e.g., &lt;strong&gt;“n*ggas”&lt;/strong&gt;, &lt;strong&gt;“ass”&lt;/strong&gt;) 
+and toxicity annotations, and show that models acquire and replicate this bias: in other corpora, 
+tweets inferred to be in AAE and tweets from self-identifying African American users are more likely 
+to be classified as offensive.&lt;/p&gt;
+
+&lt;p&gt;It uses Dialect as a proxy for racial identity. African American English (AAE) dialect is used in the paper. 
+Lexical detector by (&lt;a href=&quot;https://www.aclweb.org/anthology/D16-1120.pdf&quot;&gt;Blodgett et al., 2016&lt;/a&gt;) was used to infer the presence of AAE.
+To find out whether ML models are affected by racial bias in datasets, train/test classifiers on 2
+corpora (&lt;span style=&quot;color:teal;&quot;&gt;TWT-HATEBASE, TWT-BOOTSTRAP&lt;/span&gt;) used in hate detection systems were performed to 
+predict the toxicity label of a tweet. A held-out set broken down by dialect group was used to 
+assess the performance of these classifiers by counting the number of mistakes made. Minimization of the 
+cross-entropy of the annotated class conditional on text, $x$:&lt;/p&gt;
+
+\[\begin{align*}
+p(class{|}{x}) \propto \exp(\textbf{W}_o\textbf{h} + \textbf{b}_o)
+\end{align*}\]
+
+&lt;p&gt;with $h = f(x)$, where $f$ is a BiLSTM with attention, followed by a projection layer to encode the
+tweets into an $H$-dimensional vector.&lt;/p&gt;
+
+&lt;p&gt;Predictions by both the classifiers were biased against AAE tweets as shown by the following results:&lt;/p&gt;
+
+&lt;p class=&quot;notice&quot;&gt;&lt;strong&gt;46%&lt;/strong&gt; of non-offensive AAE tweets were mistaken for offensive compared to &lt;strong&gt;9%&lt;/strong&gt; of White.&lt;br /&gt;&lt;br /&gt;
+&lt;strong&gt;26%&lt;/strong&gt; of non-abusive AAE tweets were mistaken for abusive compared to &lt;strong&gt;5%&lt;/strong&gt; of White.&lt;/p&gt;
+
+&lt;p&gt;AAE tweets and tweets by Black folks were more often flagged as toxic. This racial bias generalizes to 
+other Twitter corpora.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;How to reduce the bias?&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;
+Answer is by changing the task of annotation.&lt;br /&gt;&lt;br /&gt;
+To test this hypothesis, 350 AAE tweets stratified by dataset labels were 
+given to Amazon Mechanical Turkers.&lt;br /&gt;&lt;br /&gt;
+The annotation was done in a three-fold manner:&lt;br /&gt;&lt;br /&gt;
+    1. only text. (&lt;strong&gt;55%&lt;/strong&gt; were labelled as offensive)&lt;br /&gt;
+    2. text + dialect information. (&lt;strong&gt;44%&lt;/strong&gt; were labelled as offensive)&lt;br /&gt;
+    3. text + dialect + race information. (&lt;strong&gt;44%&lt;/strong&gt; were labelled as offensive)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_2.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      Proportion (in %) of offensiveness annotations of AAE tweets in control, dialect, and race priming conditions.
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;p&gt;Annotators are substantially more likely to rate a tweet as being offensive to someone, 
+than to rate it as offensive to themselves, suggesting that people recognize the subjectivity 
+of offensive language.&lt;/p&gt;
+
+&lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
+&lt;p&gt;While both models achieve high accuracy, the false positive rates (FPR) differ across groups for several 
+toxicity labels. The &lt;span style=&quot;color:teal&quot;&gt;DWMW17&lt;/span&gt; classifier predicts almost &lt;strong&gt;50%&lt;/strong&gt; of non-offensive AAE tweets as being offensive, 
+and &lt;span style=&quot;color:teal&quot;&gt;FDCL18&lt;/span&gt; classifier shows higher FPR for the “Abusive” and “Hateful” categories for AAE tweets. Additionally, 
+both classifiers show strong tendencies to label White tweets as “none”. These discrepancies in FPR across 
+groups violate the equality of opportunity criterion, indicating discriminatory impact.&lt;/p&gt;
+
+&lt;figure class=&quot;&quot;&gt;
+  &lt;img src=&quot;/assets/images/nlp_papers_summary/pic_19.png&quot; alt=&quot;this is a placeholder image&quot; /&gt;
+  
+    &lt;figcaption&gt;
+      Classification accuracy and per-class rates of false positives (FP) on test data for models trained on
+DWMW17 and FDCL18, where the group with highest rate of FP is bolded.
+
+    &lt;/figcaption&gt;
+  
+&lt;/figure&gt;
+
+&lt;h1 id=&quot;takeaways&quot;&gt;Takeaways&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Evidence of racial bias in existing hate detection corpora.&lt;/li&gt;
+  &lt;li&gt;Bias will propagate downstream through ML models.&lt;/li&gt;
+  &lt;li&gt;Priming annotators influences label of offensiveness.&lt;/li&gt;
+  &lt;li&gt;In general, hate speech language is highly subjective and contextual. Factors like slang,
+dialects, slurs, etc must be taken into consideration.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;div class=&quot;text-justify&quot;&gt;
+    &lt;span id=&quot;sap-etal-2019-risk&quot;&gt;Sap, M., Card, D., Gabriel, S., Choi, Y., &amp;amp; Smith, N. A. (2019). The Risk of Racial Bias in Hate Speech Detection. &lt;i&gt;Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics&lt;/i&gt;, 1668–1678. https://doi.org/10.18653/v1/P19-1163&lt;/span&gt;
+
+    
+    
+
+    
+
+
+    
+        &lt;a href=&quot;https://www.aclweb.org/anthology/P19-1163.bib&quot; target=&quot;_blank&quot;&gt;&lt;input type=&quot;button&quot; class=&quot;btn btnId btn--warning&quot; value=&quot;BibTeX&quot; /&gt;&lt;/a&gt;
+    
+
+    
+        &lt;button class=&quot;btn btnId btn--success&quot; id=&quot;b_sap-etal-2019-risk-abstract&quot;&gt;Abstract&lt;/button&gt;
+    
+
+    
+        &lt;a href=&quot;https://www.aclweb.org/anthology/P19-1163&quot; target=&quot;_blank&quot;&gt;&lt;input type=&quot;button&quot; class=&quot;btn btn--info&quot; value=&quot;PDF&quot; /&gt;&lt;/a&gt;
+    
+
+    
+        &lt;br /&gt;
+        &lt;div class=&quot;dropDownAbstract&quot; id=&quot;sap-etal-2019-risk-abstract&quot;&gt;We investigate how annotators’ insensitivity to differences in dialect can lead to racial bias in automatic hate speech detection models, potentially amplifying harm against minority populations. We first uncover unexpected correlations between surface markers of African American English (AAE) and ratings of toxicity in several widely-used hate speech datasets. Then, we show that models trained on these corpora acquire and propagate these biases, such that AAE tweets and tweets by self-identified African Americans are up to two times more likely to be labelled as offensive compared to others. Finally, we propose *dialect* and *race priming* as ways to reduce the racial bias in annotation, showing that when annotators are made explicitly aware of an AAE tweet’s dialect they are significantly less likely to label the tweet as offensive.&lt;/div&gt;
+    
+
+&lt;/div&gt;
+
+
+
+&lt;div&gt;
+    
+&lt;/div&gt;&lt;/li&gt;&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;!-- Begin Mailchimp Signup Form --&gt;
+&lt;link href=&quot;//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+&lt;/style&gt;
+
+&lt;div id=&quot;mc_embed_signup&quot; class=&quot;archive__item&quot;&gt;
+&lt;form action=&quot;https://github.us19.list-manage.com/subscribe/post?u=011e5e92fe856b3d318b414ad&amp;amp;id=f8ae890e5c&quot; method=&quot;post&quot; id=&quot;mc-embedded-subscribe-form&quot; name=&quot;mc-embedded-subscribe-form&quot; class=&quot;validate&quot; target=&quot;_blank&quot; novalidate=&quot;&quot;&gt;
+    &lt;div id=&quot;mc_embed_signup_scroll&quot;&gt;
+	&lt;label for=&quot;mce-EMAIL&quot;&gt;Liked this article and want to hear more?&lt;/label&gt;
+	&lt;input type=&quot;email&quot; value=&quot;&quot; name=&quot;EMAIL&quot; class=&quot;email&quot; id=&quot;mce-EMAIL&quot; placeholder=&quot;email address&quot; required=&quot;&quot; /&gt;
+    &lt;!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--&gt;
+    &lt;div style=&quot;position: absolute; left: -5000px;&quot; aria-hidden=&quot;true&quot;&gt;&lt;input type=&quot;text&quot; name=&quot;b_92fe86c389878585bc87837e8_50543deff9&quot; tabindex=&quot;-1&quot; value=&quot;&quot; /&gt;&lt;/div&gt;
+    &lt;div class=&quot;clear&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Subscribe&quot; name=&quot;subscribe&quot; id=&quot;mc-embedded-subscribe&quot; class=&quot;button&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;!--End mc_embed_signup--&gt;
+&lt;p&gt;&lt;br /&gt;
+&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;&lt;img alt=&quot;Creative Commons License&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&quot; /&gt;&lt;/a&gt;&lt;br /&gt;&lt;i style=&quot;font-size:12px&quot;&gt;This work is licensed under a &lt;/i&gt;&lt;a rel=&quot;license&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot;&gt;&lt;i style=&quot;font-size:12px&quot;&gt;Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;</content><author><name>Nickil Maveli</name></author><category term="[&quot;NLP Papers Summary&quot;]" /><category term="Hate Speech Detection" /><category term="ACL" /><summary type="html">Investigate how annotators’ insensitivity to differences in dialect can lead to racial bias in automatic hate speech detection models, potentially amplifying harm against minority populations.</summary></entry></feed>

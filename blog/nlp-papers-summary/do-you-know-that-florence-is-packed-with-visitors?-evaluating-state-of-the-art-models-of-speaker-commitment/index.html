@@ -1,0 +1,810 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment | Nickil’s Website</title>
+<meta name="description" content="Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering. ">
+
+
+  <meta name="author" content="Nickil Maveli">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Nickil's Website">
+<meta property="og:title" content="Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment">
+<meta property="og:url" content="https://nickil21.github.io/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/">
+
+
+  <meta property="og:description" content="Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering. ">
+
+
+
+  <meta property="og:image" content="https://nickil21.github.io/assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg">
+
+
+
+
+
+  <meta property="article:published_time" content="2020-04-16T00:00:00+05:30">
+
+
+
+  <meta property="article:modified_time" content="2020-04-17T00:00:00+05:30">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://nickil21.github.io/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Nickil Maveli",
+      "url": "https://nickil21.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Nickil's Website Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <html>
+
+
+
+<!-- start custom head snippets -->
+<link rel="apple-touch-icon" sizes="57x57" href="https://nickil21.github.io/assets/images/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://nickil21.github.io/assets/images/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://nickil21.github.io/assets/images/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://nickil21.github.io/assets/images/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://nickil21.github.io/assets/images/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://nickil21.github.io/assets/images/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://nickil21.github.io/assets/images/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://nickil21.github.io/assets/images/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nickil21.github.io/assets/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://nickil21.github.io/assets/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nickil21.github.io/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://nickil21.github.io/assets/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nickil21.github.io/assets/images/favicon-16x16.png">
+<link rel="manifest" href="https://nickil21.github.io/assets/images/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://nickil21.github.io/assets/images/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://nickil21.github.io/assets/css/academicons.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" >
+
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon-96x96.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          HOME
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href=""></a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">BLOG</a>
+            </li><li class="masthead__menu-item">
+              <a href="/competitions/">COMPETITIONS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">PUBLICATIONS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contact/">CONTACT</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        <a style="color: orange" id="theme-toggle" onclick="modeSwitcher()" role="button"></a>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url('/assets/images/joao-silas-I_LgQ8JZFGE-unsplash.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment
+
+        
+      </h1>
+      
+        <p class="page__lead">Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering.
+</p>
+      
+      
+        <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+      
+      
+      
+        <p>
+        
+          <a href="/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/#references" class="btn btn--light-outline btn--large"><i class='fas fa-file-pdf'></i> Read Paper</a>
+        
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Photo credit: <a href="https://unsplash.com"><strong>Unsplash</strong></a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment">
+    <meta itemprop="description" content="Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering.">
+    <meta itemprop="datePublished" content="2020-04-16T00:00:00+05:30">
+    <meta itemprop="dateModified" content="2020-04-17T00:00:00+05:30">
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#problem">Problem</a></li>
+  <li><a href="#how-it-solves">How it Solves</a>
+    <ul>
+      <li><a href="#dataset">Dataset</a></li>
+      <li><a href="#models">Models</a></li>
+      <li><a href="#metrics">Metrics</a></li>
+    </ul>
+  </li>
+  <li><a href="#results">Results</a></li>
+  <li><a href="#limitations-and-future-work">Limitations and Future Work</a></li>
+  <li><a href="#takeaways">Takeaways</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        
+        <figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_20.png" alt="this is a placeholder image" />
+  
+</figure>
+
+<h1 id="introduction">Introduction</h1>
+<p>Prediction of speaker commitment is the task of determining to what extent the speaker is 
+committed to an event in a sentence as actual, non-actual, or uncertain. This matters for downstream
+NLP applications, such as information extraction or question answering.</p>
+
+<p>For eg: <span style="color:teal">Florence is the most beautiful city I’ve ever seen.”</span> (Speaker <strong>is committed</strong> to the fact)<br />Compared to:
+<span style="color:teal">“Florence might be the most beautiful city I’ve ever seen.”</span> (Speaker <strong>is not as committed</strong> to the fact)</p>
+
+<figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_12.png" alt="this is a placeholder image" />
+  
+</figure>
+
+<p>Speaker is committed - <span style="color:teal">“Do you <strong>know</strong> that Florence is packed with visitors?”</span>.<br /> 
+Mainly, due to “know” being a Factive verb has a tendency to suggest that the embedding clause is true.<br /></p>
+
+<p>Speaker is not so committed - <span style="color:teal">“Do you <strong>think</strong> that Florence is packed with visitors?”</span>.<br />
+Mainly, due to “think” being a Non-Factive verb has a tendency to suggest that the embedding clause is neither true nor false.</p>
+
+<p>Speaker is not committed -  <span style="color:teal">“I <strong>don’t know</strong> that Florence is packed with visitors.”</span><br />
+Mainly, due to “don’t know” being a Neg-raising (negation) has a tendency to suggest that the embedding clause is false.</p>
+
+<h1 id="problem">Problem</h1>
+<p>Evaluating SOTA models of Speaker Commitment.</p>
+
+<h1 id="how-it-solves">How it Solves</h1>
+<p>They explore the hypothesis that linguistic deficits drive the error patterns of speaker commitment 
+models by analyzing the linguistic correlations of model errors on a challenging naturalistic dataset.</p>
+
+<h2 id="dataset">Dataset</h2>
+<p>The CommitmentBank corpus is used which consists of 1,200 naturally occurring items involving clause-embedding
+verbs under four entailment-canceling environments (negations, modals, questions, conditionals).</p>
+
+<p>For each item, speaker commitment judgments were gathered on Mechanical Turk from at least eight 
+native English speakers. Participants judged whether or not the speaker is certain that the 
+content of the complement in the target sentence is true, using a <a href="https://en.wikipedia.org/wiki/Likert_scale">Likert scale</a>
+labeled at 3 points 
+(<span style="color:green;"><strong>+3</strong></span>/speaker is certain that the complement is true, 
+<span style="color:orange;"><strong>0</strong></span>/speaker is not certain whether 
+it is true or false, <span style="color:red;"><strong>-3</strong></span>/speaker is certain that it is false). 
+They took the mean annotations of each item as gold score of speaker commitment.</p>
+
+<h2 id="models">Models</h2>
+
+<p><strong>1. Rule-based TruthTeller (<a href="https://www.aclweb.org/anthology/P17-2056.pdf">Stanovsky et al., 2017</a>)</strong></p>
+
+<p>It uses a top-down approach on a dependency tree and predicts speaker commitment score in [−3, 3] 
+according to the implicative signatures of the predicates, and whether the predicates are under the 
+scope of negation and uncertainty modifiers. For example, <strong>refuse $\mathcal{p}$</strong> entails <strong>$\neg{\mathcal{p}}$</strong>, 
+so the factuality of its complement $\mathcal{p}$ gets flipped if encountered.</p>
+
+<p><strong>2. BiLSTM-based models (<a href="https://www.aclweb.org/anthology/N18-1067.pdf">Rudinger et al., 2018</a>)</strong></p>
+
+<ul>
+  <li>Linear: encodes the sentence left-to-right and right-to-left.</li>
+  <li>Tree: encodes the dependency tree of the sentence top-down and bottom-up.</li>
+  <li>Hybrid: combination of the two.</li>
+</ul>
+
+<h2 id="metrics">Metrics</h2>
+<p>Task is to predict a gradience of commitment  $\in [-3, 3]$</p>
+<ul>
+  <li>Pearson R Correlation: Capture the variability of the model. (Higher Better)</li>
+  <li>Mean Absolute Error: Measures the absolute fit of the model. (Lower Better)</li>
+</ul>
+
+<h1 id="results">Results</h1>
+<figure class="">
+  <img src="/assets/images/nlp_papers_summary/pic_13.png" alt="this is a placeholder image" />
+  
+</figure>
+
+<p>Hybrid model predictions are mostly positive, whereas the rule-based model predictions are clustered at −3
+and +3. This suggests that the rule-based model cannot capture the gradience present in commitment judgments, 
+while the hybrid model struggles to recognize negative commitments. The rule-based model predicts $+$ by default 
+unless it has clear evidence (e.g., negation) for negative commitment. This behavior is reflected in the 
+high precision for $-$. Both models perform well on $+$ and $-$, but neither is able to identify no commitment ($o$).</p>
+
+<ul>
+  <li><strong>Embedding environment</strong></li>
+</ul>
+
+<p>The rule-based model can only capture inferences involving negation ($r$ = 0.45), while the hybrid model
+performs more consistently across negation, modal, and question ($r$ ∼ 0.25). Both models
+cannot handle inferences with conditionals.</p>
+
+<ul>
+  <li><strong>Genre</strong></li>
+</ul>
+
+<p>Both models achieve the best correlation on dialog (Switchboard), and the worst on
+newswire (WSJ). The good performance of the rule-based model on dialog could be due to the
+fact that 70% of the items in dialog are in a negation environment with a nonfactive verb.</p>
+
+<ul>
+  <li><strong>Factive embedding verb</strong></li>
+</ul>
+
+<p>Both models get better MAE on factives, but better correlation on nonfactives. The improved MAE of
+the rule-based model might be due to its use of factive/implicative signatures. However, the poor
+correlations suggest that neither model can robustly capture the variability in inference which
+exists in sentences involving factive/nonfactive verbs.</p>
+
+<ul>
+  <li><strong>Neg-raising</strong></li>
+</ul>
+
+<p>There is almost no correlation between both models’ predictions and gold judgments
+suggesting that the models are not able to capture neg-raising inferences.</p>
+
+<h1 id="limitations-and-future-work">Limitations and Future Work</h1>
+<ul>
+  <li>Models are not able to generalize to other linguistic environments such as conditional, modal,
+and neg-raising, which display inference patterns that are important for information extraction.</li>
+  <li>Both models are able to identify the polarity of commitment, but cannot capture its gradience.</li>
+  <li>To perform robust  language understanding, models will need to incorporate more linguistic foreknowledge and be able to generalize
+to a wider range of linguistic constructions.</li>
+</ul>
+
+<h1 id="takeaways">Takeaways</h1>
+<ul>
+  <li>Conditionals, factive verbs, neg-raisings are hard for models.</li>
+  <li>Models can identify polarity, but not gradience.</li>
+  <li>Linguistically motivated models scale more successfully.</li>
+</ul>
+
+<h1 id="references">References</h1>
+<ol class="bibliography"><li><div class="text-justify">
+    <span id="jiang-de-marneffe-2019-know">Jiang, N., &amp; de Marneffe, M.-C. (2019). Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment. <i>Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics</i>, 4208–4213. https://doi.org/10.18653/v1/P19-1412</span>
+
+    
+    
+
+    
+
+
+    
+        <a href="https://www.aclweb.org/anthology/P19-1412.bib" target="_blank"><input type="button" class="btn btnId btn--warning" value="BibTeX" /></a>
+    
+
+    
+        <button class="btn btnId btn--success" id="b_jiang-de-marneffe-2019-know-abstract">Abstract</button>
+    
+
+    
+        <a href="https://www.aclweb.org/anthology/P19-1412" target="_blank"><input type="button" class="btn btn--info" value="PDF" /></a>
+    
+
+    
+        <br />
+        <div class="dropDownAbstract" id="jiang-de-marneffe-2019-know-abstract">When a speaker, Mary, asks “Do you know that Florence is packed with visitors?”, we take her to believe that Florence is packed with visitors, but not if she asks “Do you think that Florence is packed with visitors?”. Inferring speaker commitment (aka event factuality) is crucial for information extraction and question answering. Here, we explore the hypothesis that linguistic deficits drive the error patterns of existing speaker commitment models by analyzing the linguistic correlates of model error on a challenging naturalistic dataset. We evaluate two state-of-the-art speaker commitment models on the CommitmentBank, an English dataset of naturally occurring discourses. The CommitmentBank is annotated with speaker commitment towards the content of the complement (“Florence is packed with visitors” in our example) of clause-embedding verbs (“know”, “think”) under four entailment-canceling environments (negation, modal, question, conditional). A breakdown of items by linguistic features reveals asymmetrical error patterns: while the models achieve good performance on some classes (e.g., negation), they fail to generalize to the diverse linguistic constructions (e.g., conditionals) in natural language, highlighting directions for improvement.</div>
+    
+
+</div>
+
+
+
+<div>
+    
+</div></li></ol>
+
+<hr />
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+
+<div id="mc_embed_signup" class="archive__item">
+<form action="https://github.us19.list-manage.com/subscribe/post?u=011e5e92fe856b3d318b414ad&amp;id=f8ae890e5c" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="">
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">Liked this article and want to hear more?</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="" />
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_92fe86c389878585bc87837e8_50543deff9" tabindex="-1" value="" /></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" /></div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+<p><br />
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><i style="font-size:12px">This work is licensed under a </i><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><i style="font-size:12px">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</i></a>.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/blog/tags/#acl" class="page__taxonomy-item" rel="tag">ACL</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/blog/tags/#speaker-commitment" class="page__taxonomy-item" rel="tag">Speaker Commitment</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/blog/categories/#nlp-papers-summary" class="page__taxonomy-item" rel="tag">NLP Papers Summary</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-17">April 17, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Do+You+Know+That+Florence+Is+Packed+with+Visitors%3F+Evaluating+State-of-the-art+Models+of+Speaker+Commitment%20https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fdo-you-know-that-florence-is-packed-with-visitors%253F-evaluating-state-of-the-art-models-of-speaker-commitment%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fdo-you-know-that-florence-is-packed-with-visitors%253F-evaluating-state-of-the-art-models-of-speaker-commitment%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fdo-you-know-that-florence-is-packed-with-visitors%253F-evaluating-state-of-the-art-models-of-speaker-commitment%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+
+  <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fnickil21.github.io%2Fblog%2Fnlp-papers-summary%2Fdo-you-know-that-florence-is-packed-with-visitors%253F-evaluating-state-of-the-art-models-of-speaker-commitment%2F&title=Do You Know That Florence Is Packed with Visitors? Evaluating State-of-the-art Models of Speaker Commitment" class="btn btn--reddit" title="Share on Reddit"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i><span> Reddit</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/" class="pagination--pager" title="Bridging the Gap between Training and Inference for Neural Machine Translation
+">Previous</a>
+    
+    
+      <a href="/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/" class="pagination--pager" title="Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_21.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/" rel="permalink">Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Aims to extract the potential pairs of emotions and corresponding causes in a document.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_15.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/bridging-the-gap-between-training-and-inference-for-neural-machine-translation/" rel="permalink">Bridging the Gap between Training and Inference for Neural Machine Translation
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">In Neural Machine Translation, at training time, it predicts with the ground truth words as context while at inference it has to generate the entire sequence...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/nlp_papers_summary/pic_3.png" alt="">
+      </div>
+    
+    <h4 class="archive__item-title" itemprop="headline">
+      
+        <a href="/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/" rel="permalink">Evaluating Gender Bias in Machine Translation
+</a>
+      
+    </h4>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+<span>| Written by </span><a href="/">Nickil Maveli</a>
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis.
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/nickilmaveli" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/nickil21" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2021 Nickil Maveli. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+
+<!-- AJax for DropDown Effect of Abstract and BibTex -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var str =$(this).attr('id');
+
+    $(".btnId").click(function(){
+        var str = $(this).attr('id');
+		var ret = str.split("_");
+		var id = ret[1];
+		$('#' + id).toggle();
+    });
+});
+</script>
+      </footer>
+    </div>
+
+    <aside class="sidebar__top">
+      <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+    </aside>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://nickil21.github.io/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors?-evaluating-state-of-the-art-models-of-speaker-commitment"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://nickil21-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+    <!--<script src="/assets/js/mode-switcher.js"></script>-->
+
+  </body>
+</html>
