@@ -1,0 +1,24 @@
+<td width="160">
+    <em>{{ article.date }}</em>
+</td>
+
+<td>
+    {{ article.news }}
+
+    {% if article.pdf %}
+    &nbsp;&nbsp;
+
+    {% if article.pdf contains '://' %}
+    [<a href="{{ article.pdf }}" target="_blank">pdf</a>]
+    {% else %}
+    [<a href="{{site.url}}{{site.baseurl}}/docs/{{ article.category }}/{{ article.pdf }}" target="_blank">pdf</a>]
+    {% endif %}
+
+    {% endif %}
+
+    {% if article.url %}
+    [<a href="{{ article.url }}" target="_blank">{% if article.display %}{{ article.display }}{% else %}url{% endif
+        %}</a>]
+    {% endif %}
+
+</td>

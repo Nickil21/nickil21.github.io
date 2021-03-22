@@ -35,12 +35,26 @@ Please [contact me](/contact/) if there are relevant openings.</span>
 
 # News
 <table>
-{% for article in site.data.news %}
+{% for article in site.data.recent-news %}
 <tr>
-{% include news.html %}
+{% include recent-news.html %}
 </tr>
 {% endfor %}
 </table>
+
+<style>
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+
+<div class="center">
+<a href="/news" class="btn btn--primary">See more</a>
+</div>
+
+
 
 <!---
 [![EdinburghNLP](https://edinburghnlp.inf.ed.ac.uk/wp-content/uploads/2017/06/edinburghnlp_logo_smallish-1.png)](https://edinburghnlp.inf.ed.ac.uk/index.php/people/){:target="_blank"}
