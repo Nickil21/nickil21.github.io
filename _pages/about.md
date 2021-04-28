@@ -1,9 +1,9 @@
 ---
 layout: single
 classes: wide
-header: 
+header:
   overlay_image: /assets/images/Edinburgh-First-Old-College-Quad.jpg
-  overlay_filter: "0.5" 
+  overlay_filter: "0.5"
   #actions:
   #  - label: "CV"
   #    url: "/files/nickil21_cv.pdf"
@@ -25,12 +25,15 @@ interpretability and robustness of machine learning algorithms, and understandin
 Previously, I worked at [niki.ai](http://niki.ai/) on building NLP capabilities for a conversational AI system. 
 For several years, I actively participated in crowd-sourced machine learning contests, placing in the money on multiple occasions.
 
-Have a look at my [CV](/files/nickil21_cv.pdf){:target="_blank"} for more information.
+[Academic CV <i class="fas fa-file-pdf"></i>](/files/nickil_cv.pdf){: .btn .btn--success}{:target="_blank"}
+[Industry resume <i class="fas fa-file-pdf"></i>](/files/nickil_resume.pdf){: .btn .btn--success}{:target="_blank"}
+
 
 {% capture notice %}
 <span style="font-size:1.25em"><b>NOTE: </b>I am currently open for research internship roles in the area of NLP. 
 Please [contact me](/contact/) if there are relevant openings.</span>
 {% endcapture %}
+
 <div class="notice--success">{{ notice | markdownify }}</div>
 
 # News
@@ -51,7 +54,7 @@ Please [contact me](/contact/) if there are relevant openings.</span>
 </style>
 
 <div class="center">
-<a href="/news" class="btn btn--primary">See more</a>
+<a href="/news" class="btn btn--primary">See more <i class="fas fa-external-link-alt"></i></a>
 </div>
 
 
