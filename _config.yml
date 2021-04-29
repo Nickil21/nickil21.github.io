@@ -106,7 +106,7 @@ author:
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
     - label: "Google Scholar"
-      icon: "fa fa-graduation-cap"
+      icon: "ai ai-google-scholar-square ai"
       url: "https://scholar.google.com/citations?user=R-9spSoAAAAJ&hl=en"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
