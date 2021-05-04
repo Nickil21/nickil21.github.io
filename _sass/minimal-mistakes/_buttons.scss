@@ -41,7 +41,12 @@
   (facebook, $facebook-color),
   (twitter, $twitter-color),
   (linkedin, $linkedin-color),
-  (reddit, $reddit-color);
+  (reddit, $reddit-color),
+  (button1, $buttoncolor1),
+  (button2, $buttoncolor2),
+  (button3, $buttoncolor3),
+  (button4, $buttoncolor4),
+  (button5, $buttoncolor5);
 
   @each $buttoncolor, $color in $buttoncolors {
     &--#{$buttoncolor} {

@@ -2,7 +2,7 @@
 layout: single
 classes: wide
 permalink: /news/
-title: "News"
+title: News Archive
 author_profile: true
 ---
 

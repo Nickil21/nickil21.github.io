@@ -25,8 +25,8 @@ interpretability and robustness of machine learning algorithms, and understandin
 Previously, I worked at [niki.ai](http://niki.ai/) on building NLP capabilities for a conversational AI system. 
 For several years, I actively participated in crowd-sourced machine learning contests, placing in the money on multiple occasions.
 
-[Academic CV <i class="fas fa-file-pdf"></i>](/files/nickil_cv.pdf){: .btn .btn--success}{:target="_blank"}
-[Industry resume <i class="fas fa-file-pdf"></i>](/files/nickil_resume.pdf){: .btn .btn--success}{:target="_blank"}
+[Academic CV <i class="fas fa-file-pdf"></i>](/files/nickil_cv.pdf){: .btn .btn--info}{:target="_blank"}
+[Industry resume <i class="fas fa-file-pdf"></i>](/files/nickil_resume.pdf){: .btn .btn--info}{:target="_blank"}
 
 
 {% capture notice %}
@@ -54,7 +54,7 @@ Please [contact me](/contact/) if there are relevant openings.</span>
 </style>
 
 <div class="center">
-<a href="/news" class="btn btn--primary">See more <i class="fas fa-external-link-alt"></i></a>
+<a href="/news" class="btn btn--info">See more <i class="fas fa-external-link-alt"></i></a>
 </div>
 
 
