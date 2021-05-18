@@ -12,6 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
+remote_theme             : "mmistakes/minimal-mistakes@4.23.0"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -192,6 +193,13 @@ encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 
+# Collections
+collections:
+  gsoc:
+    output: true
+    permalink: /:collection/:path/
+
+
 # Conversion
 markdown: kramdown
 highlighter: rouge
@@ -304,6 +312,18 @@ defaults:
       share: false
       related: false
       sidebar: false
+  # _gsoc
+  - scope:
+      path: ""
+      type: gsoc
+    values:
+      layout: single
+      read_time: true
+      author_profile: false
+      share: false
+      comments: false
+      sidebar:
+        nav: "gsoc"
 
 # Jekyll Scholar
 scholar:

@@ -12,7 +12,7 @@ header:
       url: "/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/#references"  
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 date: 2020-04-16 
-last_modified_at: 2020-04-17
+modified:
 permalink: "/blog/nlp-papers-summary/do-you-know-that-florence-is-packed-with-visitors%3F-evaluating-state-of-the-art-models-of-speaker-commitment/"
 category: 
   - NLP Papers Summary

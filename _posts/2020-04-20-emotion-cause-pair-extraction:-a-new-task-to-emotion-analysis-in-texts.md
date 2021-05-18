@@ -4,7 +4,7 @@ title: "Emotion-Cause Pair Extraction: A New Task to Emotion Analysis in Texts"
 excerpt: "Aims to extract the potential pairs of emotions and 
 corresponding causes in a document."
 date: 2020-04-20
-last_modified_at: 2020-04-20
+modified:
 permalink: "/blog/nlp-papers-summary/emotion-cause-pair-extraction:-a-new-task-to-emotion-analysis-in-texts/"
 header:
   overlay_filter: 0.25

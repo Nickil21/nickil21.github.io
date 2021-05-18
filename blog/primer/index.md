@@ -1,7 +1,7 @@
 ---
 layout: home
 title: Primer
-pagination: 
+pagination:
   enabled: true
   category: Primer
 ---

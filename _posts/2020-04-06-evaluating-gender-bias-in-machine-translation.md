@@ -3,7 +3,7 @@ toc: true
 title: "Evaluating Gender Bias in Machine Translation"
 excerpt: "Devise an automatic gender bias evaluation method for eight target languages with grammatical gender, based on morphological analysis."
 date: 2020-04-06
-last_modified_at: 2020-04-08
+modified:
 permalink: "/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/"
 header:
   overlay_filter: 0.25
