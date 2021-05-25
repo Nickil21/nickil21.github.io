@@ -8,22 +8,22 @@
     {% assign simpleKey = simpleKey | join: "_" %}
 
     {% if entry.poster %}
-        <a href="{{ entry.poster }}" target="_blank"><input type="button" class="btn btn--button1" value="Poster"/></a>
+        <a href="{{ entry.poster }}" target="_blank"><input type="button" class="btn btn--button1 btn--small" value="Poster"/></a>
     {% endif %}
 
 
     {% if entry.bibtex %}
-        <a href="{{ entry.url }}.bib" target="_blank"><input type="button" class="btn btnId btn--button2" value="BibTeX"/></a>
+        <a href="{{ entry.url }}.bib" target="_blank"><input type="button" class="btn btnId btn--button2 btn--small" value="BibTeX"/></a>
     {% endif %}
 
     {% if entry.abstract %}
-        <button class="btn btnId btn--button3" id="b_{{key}}-abstract">Abstract</button>
+        <button class="btn btnId btn--button3 btn--small" id="b_{{key}}-abstract">Abstract</button>
     {% endif %}
 
     {% if entry.eprint %}
-        <a href="https://arxiv.org/abs/{{ entry.eprint }}" target="_blank"><input type="button" class="btn btn--button4" value="PDF"/></a>
+        <a href="https://arxiv.org/abs/{{ entry.eprint }}" target="_blank"><input type="button" class="btn btn--button4 btn--small" value="PDF"/></a>
     {% else if entry.url %}
-        <a href="{{ entry.url }}" target="_blank"><input type="button" class="btn btn--button5" value="PDF"/></a>
+        <a href="{{ entry.url }}" target="_blank"><input type="button" class="btn btn--button5 btn--small" value="PDF"/></a>
     {% endif %}
 
     {% if entry.abstract %}
@@ -41,6 +41,6 @@
 
 <div>
     {% if entry.pdf %}
-    <span><a href="{{ entry.pdf }}" class="btn btn--block">pdf</a></span>
+    <span><a href="{{ entry.pdf }}" class="btn btn--block btn--small">pdf</a></span>
     {% endif %}
 </div>

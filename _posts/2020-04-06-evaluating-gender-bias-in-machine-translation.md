@@ -11,15 +11,15 @@ header:
   teaser: "/assets/images/nlp_papers_summary/pic_3.png"
   actions:
     - label: "<i class='fas fa-file-pdf'></i> Read Paper"
-      url: "/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/#references"  
+      url: "/blog/nlp-papers-summary/evaluating-gender-bias-in-machine-translation/#references"
     - label: "<i class='fas fa-code'></i> View Code"
-      url: "https://github.com/gabrielStanovsky/mt_gender"  
+      url: "https://github.com/gabrielStanovsky/mt_gender"
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
-category: 
+category:
   - NLP Papers Summary
 tags:
   - Machine Translation
-  - ACL   
+  - ACL
 ---
 {% include figure image_path="/assets/images/nlp_papers_summary/pic_3.png"
  alt="this is a placeholder image" %}

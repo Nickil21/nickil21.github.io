@@ -15,7 +15,7 @@ feature_row:
       # image_caption: "Photo credit: [Jay Alammar](https://jalammar.github.io/)"
       alt: "GSoC with Red Hen Lab"
       title: "Google Summer of Code (GSoC) 2021"
-      excerpt: "Weekly report on the project's progress"
+      excerpt: "Weekly reports documenting my progress with the project."
       url: "/blog/gsoc-2021"
       btn_label: "Read More"
       btn_class: "btn--info"
