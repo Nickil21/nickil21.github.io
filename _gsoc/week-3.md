@@ -1,4 +1,6 @@
 ---
+layout: single
+classes: wide
 title: "Week 3 (June 1 - June 7)"
 permalink: /blog/gsoc-2021/report/week-3/
 excerpt: ""

@@ -1,4 +1,6 @@
 ---
+layout: single
+classes: wide
 title: "Week 2 (May 25 - May 31)"
 permalink: /blog/gsoc-2021/report/week-2/
 excerpt: ""
