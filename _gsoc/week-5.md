@@ -29,8 +29,26 @@ We want to map the Frames into a particular construal dimension. Even though the
 
 ## Resources
 
-1. [FrameLatticeList](https://framenet.icsi.berkeley.edu/fndrupal/FrameLatticeList)
-2. Semantic Role Labeling - [SEMAFOR](http://www.cs.cmu.edu/~ark/SEMAFOR/), [Sling](https://github.com/google/sling), [Open Sesame](https://github.com/swabhs/open-sesame)
-3. [Webtool Repository](https://github.com/FrameNetBrasil/webtool)
-4. [Multilingual FrameNet](https://framenet.icsi.berkeley.edu/fndrupal/node/5561)
-5. [NLTK FrameNet](https://www.aclweb.org/anthology/D17-2001/)
+* [FrameLatticeList](https://framenet.icsi.berkeley.edu/fndrupal/FrameLatticeList)
+* Semantic Role Labeling - [SEMAFOR](http://www.cs.cmu.edu/~ark/SEMAFOR/), [Sling](https://github.com/google/sling), [Open Sesame](https://github.com/swabhs/open-sesame)
+* [Webtool Repository](https://github.com/FrameNetBrasil/webtool)
+* [Multilingual FrameNet](https://framenet.icsi.berkeley.edu/fndrupal/node/5561)
+* [NLTK FrameNet](https://www.aclweb.org/anthology/D17-2001/)
+
+
+## Timeline
+
+For the first evaluation period, we hope to have the following components ready:
+
+* Retrieving Frames corresponding to the chosen gesture types from Red Hen datasets.
+* Establishing relationships among different Frames and creating Frame representations.
+* Clustering Frames into groups based on these representations.
+* Running ablation using only the speech transcription and see if any meaningful linguistic phenomena can be observed. Getting some form of a metric to show as an evaluation.
+
+For the final evaluation period, we hope to complete:
+
+* The Lexical units can be mapped to a representation.
+* Once we have the speech transcription as well as the Lexical representation for each Frame pertaining to the gestures, we can jointly train a model to see if the added gesture component performs better than only using the linguistic component.
+* Optimize and change the type of Neural Network model depending on the reported performance. Decide whether a GAN-based or a Transformer based architecture would be more suitable during the modeling process.
+* Extend to other dimensions one at a time beyond Prominence and Configuration.
+* Create a Singluarity container and integrate with the Red Hen codebase.

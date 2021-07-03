@@ -31,7 +31,7 @@ In addition, I actively participated in crowd-sourced machine learning contests 
 
 {% capture notice %}
 <span style="font-size:1.25em"><b>NOTE: </b>I am currently open for research internship roles in the area of NLP.
-Please [contact me](/contact/) if there are relevant openings. I am also open to collaborate </span>
+Please [contact me](/contact/) if there are relevant openings.</span>
 {% endcapture %}
 
 <div class="notice--success">{{ notice | markdownify }}</div>
