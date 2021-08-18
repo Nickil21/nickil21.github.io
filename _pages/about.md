@@ -26,15 +26,15 @@ Previously, I worked at [niki.ai](http://niki.ai/) on building NLP capabilities 
 In addition, I actively participated in crowd-sourced machine learning contests for several years, placing in the money on multiple occasions.
 
 [Academic CV <i class="fas fa-file-pdf"></i>](/files/nickil_cv.pdf){: .btn .btn--info}{:target="_blank"}
-[Industry resume <i class="fas fa-file-pdf"></i>](/files/nickil_resume.pdf){: .btn .btn--info}{:target="_blank"}
+<!-- [Industry resume <i class="fas fa-file-pdf"></i>](/files/nickil_resume.pdf){: .btn .btn--info}{:target="_blank"} -->
 
 
-{% capture notice %}
+<!-- {% capture notice %}
 <span style="font-size:1.25em"><b>NOTE: </b>I am currently open for research internship roles in the area of NLP.
 Please [contact me](/contact/) if there are relevant openings.</span>
 {% endcapture %}
 
-<div class="notice--success">{{ notice | markdownify }}</div>
+<div class="notice--success">{{ notice | markdownify }}</div> -->
 
 # News
 <table>
