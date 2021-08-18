@@ -2,7 +2,7 @@
 title: "Week 6 (June 22 - June 28)"
 layout: single
 classes: wide
-permalink: /blog/gsoc-2021/report/week-6/
+permalink: /blog/gsoc-2021/report/week-06/
 excerpt: ""
 modified:
 last_modified_at: 2021-06-29

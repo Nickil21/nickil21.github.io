@@ -2,7 +2,7 @@
 layout: single
 classes: wide
 title: "Week 4 (June 8 - June 14)"
-permalink: /blog/gsoc-2021/report/week-4/
+permalink: /blog/gsoc-2021/report/week-04/
 excerpt: ""
 modified:
 last_modified_at: 2021-06-15

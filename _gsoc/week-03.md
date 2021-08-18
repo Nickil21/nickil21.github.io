@@ -2,7 +2,7 @@
 layout: single
 classes: wide
 title: "Week 3 (June 1 - June 7)"
-permalink: /blog/gsoc-2021/report/week-3/
+permalink: /blog/gsoc-2021/report/week-03/
 excerpt: ""
 modified:
 last_modified_at: 2021-06-07

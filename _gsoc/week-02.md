@@ -2,7 +2,7 @@
 layout: single
 classes: wide
 title: "Week 2 (May 25 - May 31)"
-permalink: /blog/gsoc-2021/report/week-2/
+permalink: /blog/gsoc-2021/report/week-02/
 excerpt: ""
 last_modified_at: 2021-06-03
 ---

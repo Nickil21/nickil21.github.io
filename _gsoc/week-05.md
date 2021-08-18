@@ -2,7 +2,7 @@
 title: "Week 5 (June 15 - June 21)"
 layout: single
 classes: wide
-permalink: /blog/gsoc-2021/report/week-5/
+permalink: /blog/gsoc-2021/report/week-05/
 excerpt: ""
 modified:
 last_modified_at: 2021-06-22

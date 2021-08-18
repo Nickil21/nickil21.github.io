@@ -2,7 +2,7 @@
 title: "Week 7 (June 29 - July 5)"
 layout: single
 classes: wide
-permalink: /blog/gsoc-2021/report/week-7/
+permalink: /blog/gsoc-2021/report/week-07/
 excerpt: ""
 modified:
 last_modified_at: 2021-07-06
