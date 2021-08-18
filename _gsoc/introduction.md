@@ -14,6 +14,8 @@ header:
   actions:
     - label: "<i class='fas fa-lightbulb'></i> See Project Page"
       url: "https://sites.google.com/site/distributedlittleredhen/summer-of-code/red-hen-lab-gsoc-2021-ideas?authuser=0#h.p_akVe9vwloeVP"
+    - label: "<i class='fas fa-file'></i> Final Report"
+      url: "/blog/gsoc-2021/report/final"
 ---
 
 I am thrilled to be a part of the awesome Red Hen Lab community! Thank you for selecting me and giving me a chance to contribute to the Red Hen codebase.

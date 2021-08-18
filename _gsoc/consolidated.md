@@ -1,11 +1,12 @@
 ---
 layout: single
 classes: wide
-title: "Week 1 (May 18 - May 24)"
-permalink: /blog/gsoc-2021/report/week-1/
+title: "GSoC Final Report"
+permalink: /blog/gsoc-2021/report/final/
 excerpt: ""
-last_modified_at: 2021-05-30
 ---
+<div><button class="btn btn--info" onClick="window.print()">Print this page
+</button></div>
 
 In this week, Mark creates CWRU (Case Western Reserve University) username accounts for all the students and mentors. Mine is nxm526. To receive all official HPC messages, Mark provides us with a [case.edu](https://www.case.edu){:target="_blank"} account.
 
@@ -20,3 +21,4 @@ To access the HOME directory:
     $ [nxm526@hpc3 home]$ cd /home/nxm526/
     $ [nxm526@hpc3 ~]$ ll
     total 0
+
