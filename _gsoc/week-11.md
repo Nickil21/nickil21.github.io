@@ -5,17 +5,17 @@ classes: wide
 permalink: /blog/gsoc-2021/report/week-11/
 excerpt: ""
 modified:
-last_modified_at: 2021-07-12
+last_modified_at: 2021-08-10
 entries_layout: grid
 ---
 
-Consider a sample video of a talk show host, Jimmy Fallon, taken from the [PATS](https://chahuja.com/pats/) dataset with a pre-defined start and end time:
+We decide to choose "**from-to**" with a proxmity window of 4 word tokens between "**from**" and "**to**" as the initial template of lexical trigger to map it to the construal dimension, Prominence. In addition, we also identify "**first-second**", "**firstly-secondly**" and "**here-then**", but could not find much relevant hand gestures in the PATS dataset.
+
+Consider a sample video of a talk show host, Jimmy Fallon, taken from the PATS  dataset with a pre-defined start and end time:
 
 {% include video id="JY-Nhs__4xk?start=145&end=160" provider="youtube" %}
 
-
 Transcript: "with Mexico that players can either travel **from** the u.s. **to** Mexico by plane or just walked past the wall that still won't be built it's up to you you can choose"
-
 
 
 The video frames corresponding to the "**from**-**to**" lexical trigger are shown below:

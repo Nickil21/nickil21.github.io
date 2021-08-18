@@ -10,7 +10,19 @@ last_modified_at: 2021-08-16
 
 I spend the last week of the GSoC period on packaging the final product into a singularity container (which is a requirement set by Red Hen). To build a container, we first need a definition file:
 
-<script src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2FNickil21%2Fjoint-meaning-construal%2Fblob%2Fmain%2Fsingularity%2Fjoint_meaning_construal.def&style=vs&showFileMeta=on&showCopy=on"></script>
+    Bootstrap: docker
+    From: tensorflow/tensorflow:latest-gpu
+
+    %labels
+    AUTHOR nickilmaveli@gmail.com
+
+    %post
+        apt-get update && apt-get -y install git ffmpeg libsm6 libxext6 -y
+        cd / && git clone https://github.com/Nickil21/joint-meaning-construal.git
+        pip3 install pandas opencv-python numpy tables joblib imageio openpyxl flask jinja2 git+https://github.com/tensorflow/docs
+
+    %runscript
+        cd /joint-meaning-construal/ && python3 detect_gesture.py
 
 We can then build the image using the [Sylabs Cloud Builder](https://cloud.sylabs.io/builder) by uploading the definition file. The build takes about 15-20 mins to complete. Once the image is built, the steps to run inside the singularity container are as follows:
 
