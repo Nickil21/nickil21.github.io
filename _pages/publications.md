@@ -20,8 +20,8 @@ feature_row_2:
               <span style="color:#717171">Under review at ACL 2022 (Long)</span>
               <br>
               <br>          
-              [Paper](https://arxiv.org/abs/2110.02283){:target="_blank"}{: .btn .btn--warning}
-              [BibTex](https://dblp.org/rec/journals/corr/abs-2110-02283.html?view=bibtex){:target="_blank"}{: .btn .btn--facebook}'         
+              [Paper](https://arxiv.org/abs/2110.02283){:target="_blank"}{: .btn .btn--warning .btn--large}
+              [BibTex](https://dblp.org/rec/journals/corr/abs-2110-02283.html?view=bibtex){:target="_blank"}{: .btn .btn--facebook .btn--large}'         
 feature_row_1:
   - image_path: /assets/images/publications/emnlp_wnut_2020.png
     alt: "Click Prediction Hackathon"
@@ -35,9 +35,9 @@ feature_row_1:
               <span style="color:#717171">EMNLP 2020 W-NUT Workshop</span>
               <br>
               <br>
-              [Paper](https://www.aclweb.org/anthology/2020.wnut-1.67){:target="_blank"}{: .btn .btn--warning} 
-              [BibTex](https://www.aclweb.org/anthology/2020.wnut-1.67.bib){:target="_blank"}{: .btn .btn--facebook} 
-              [Poster](https://github.com/noisy-text/noisy-text.github.io/blob/master/2020/posters/WNUT2020_79_poster%20-%20Nickil%20Maveli.pdf){:target="_blank"}{: .btn .btn--danger}'             
+              [Paper](https://www.aclweb.org/anthology/2020.wnut-1.67){:target="_blank"}{: .btn .btn--warning .btn--large} 
+              [BibTex](https://www.aclweb.org/anthology/2020.wnut-1.67.bib){:target="_blank"}{: .btn .btn--facebook .btn--large} 
+              [Poster](https://github.com/noisy-text/noisy-text.github.io/blob/master/2020/posters/WNUT2020_79_poster%20-%20Nickil%20Maveli.pdf){:target="_blank"}{: .btn .btn--danger .btn--large}'             
 ---
 
 
