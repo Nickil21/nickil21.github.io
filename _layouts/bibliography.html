@@ -7,6 +7,8 @@
     {% assign simpleKey = entry.key | split: "_" | slice:0, 4 %}
     {% assign simpleKey = simpleKey | join: "_" %}
 
+    <br>
+
     {% if entry.poster %}
         <a href="{{ entry.poster }}" target="_blank"><input type="button" class="btn btn--button1 btn--small" value="Poster"/></a>
     {% endif %}

@@ -332,7 +332,7 @@ scholar:
 
   sort_by: year
   order: descending
-  #bibliography_list_tag: ul
+  bibliography_list_tag: ul
 
   source: _bibliography
   repository: pdf
