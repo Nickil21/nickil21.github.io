@@ -1,7 +1,7 @@
 ---
 title: "Publications"
-layout: single
-classes: wide
+layout: splash
+# classes: wide
 # toc: true
 # toc_label: Overview
 permalink: /publications/
@@ -62,6 +62,8 @@ feature_row_1:
         - k-means clustering
 ---
 
+Jump to Year: [2022](#2022){: .btn .btn--info} [2021](#2021){: .btn .btn--info} [2020](#2020){: .btn .btn--info}
+
 ## 2022
 
 {% include feature_row id="feature_row_3" type="left" %}
@@ -69,7 +71,6 @@ feature_row_1:
 ## 2021
 
 {% include feature_row id="feature_row_2" type="left" %}
-
 
 ## 2020
 
