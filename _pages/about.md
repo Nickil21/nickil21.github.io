@@ -58,6 +58,8 @@ Please [contact me](/contact/) if there are relevant openings.</span>
 </div>
 
 
+<!-- {% include carousel.html height="25" unit="%" duration="10" %} -->
+
 
 <!---
 [![EdinburghNLP](https://edinburghnlp.inf.ed.ac.uk/wp-content/uploads/2017/06/edinburghnlp_logo_smallish-1.png)](https://edinburghnlp.inf.ed.ac.uk/index.php/people/){:target="_blank"}
