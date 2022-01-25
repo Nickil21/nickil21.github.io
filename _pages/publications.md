@@ -38,7 +38,7 @@ feature_row_2:
               <span style="color:#717171">MScR thesis submitted to the School of Informatics (ILCC) at the University of Edinburgh</span>
               <br>
               <br>          
-              [Paper](/files/mscr_thesis_nickil.pdf){:target="_blank"}{: .btn .btn--warning .btn--large}
+              [Paper](https://arxiv.org/abs/2110.02283){:target="_blank"}{: .btn .btn--warning .btn--large}
               [BibTex](https://dblp.org/rec/journals/corr/abs-2110-02283.html?view=bibtex){:target="_blank"}{: .btn .btn--facebook .btn--large}'         
 feature_row_1:
   - image_path: /assets/images/publications/emnlp_wnut_2020.png
