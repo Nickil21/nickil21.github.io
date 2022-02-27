@@ -24,7 +24,7 @@ feature_row_3:
               <br>
               <br>          
               [Paper](https://arxiv.org/abs/2110.02283){:target="_blank"}{: .btn .btn--warning .btn--large}
-              [BibTex](https://dblp.org/rec/journals/corr/abs-2110-02283.html?view=bibtex){:target="_blank"}{: .btn .btn--facebook .btn--large}'   
+              [BibTeX](https://dblp.org/rec/journals/corr/abs-2110-02283.html?view=bibtex){:target="_blank"}{: .btn .btn--facebook .btn--large}'   
 feature_row_2:
   - image_path: /assets/images/publications/mscr_thesis.png
     alt: "MscR Thesis"
@@ -39,7 +39,7 @@ feature_row_2:
               <br>
               <br>          
               [Paper](/files/mscr_thesis_nickil.pdf){:target="_blank"}{: .btn .btn--warning .btn--large}
-              [BibTex](https://dblp.org/rec/journals/corr/abs-2110-02283.html?view=bibtex){:target="_blank"}{: .btn .btn--facebook .btn--large}'         
+              [BibTeX](https://dblp.org/rec/journals/corr/abs-2110-02283.html?view=bibtex){:target="_blank"}{: .btn .btn--facebook .btn--large}'         
 feature_row_1:
   - image_path: /assets/images/publications/emnlp_wnut_2020.png
     alt: "EMNLP WNUT 2020"
@@ -54,7 +54,7 @@ feature_row_1:
               <br>
               <br>
               [Paper](https://www.aclweb.org/anthology/2020.wnut-1.67){:target="_blank"}{: .btn .btn--warning .btn--large} 
-              [BibTex](https://www.aclweb.org/anthology/2020.wnut-1.67.bib){:target="_blank"}{: .btn .btn--facebook .btn--large} 
+              [BibTeX](https://www.aclweb.org/anthology/2020.wnut-1.67.bib){:target="_blank"}{: .btn .btn--facebook .btn--large} 
               [Poster](https://github.com/noisy-text/noisy-text.github.io/blob/master/2020/posters/WNUT2020_79_poster%20-%20Nickil%20Maveli.pdf){:target="_blank"}{: .btn .btn--danger .btn--large}'
     tag: 
         - Marketing
