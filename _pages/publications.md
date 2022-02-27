@@ -20,7 +20,7 @@ feature_row_3:
               Co-training an Unsupervised Constituency Parser with Weak Supervision
               <br>
               <br>
-              <span style="color:#717171">Under review at ACL 2022 (Long)</span>
+              <span style="color:#717171">Findings of ACL 2022 (Long)</span>
               <br>
               <br>          
               [Paper](https://arxiv.org/abs/2110.02283){:target="_blank"}{: .btn .btn--warning .btn--large}
