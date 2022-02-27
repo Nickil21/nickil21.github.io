@@ -1,14 +1,23 @@
-- date: Dec 2021
+- date: Feb. 2022
+  news: Paper on Unsupervised Constituency Parsing accepted at ACL Findings.
+
+- date: Dec. 2021
   news: Presented my GSoC project with <a href="https://www.tiagotorrent.com" target="_blank">Tiago Torrent</a> at the <a href="https://imcc.web.ox.ac.uk/home" target="_blank"> IMCC </a> Seminar hosted by the University of Oxford. 
 
-- date: Aug 2021
-  news: Starting as a Research Assistant in joint-collaboration with  <a href="https://www.ed.ac.uk/usher/clinical-natural-language-processing" target="_blank"> Clinical Natural Language Processing Group</a> at the University of Edinburgh and <a href="https://knowlab.github.io/" target="_blank">KnowLab</a> at UCL.
+- date: Aug. 2021
+  news: Starting as a Research Assistant in joint-collaboration with <a href="https://www.ed.ac.uk/usher/clinical-natural-language-processing" target="_blank"> Clinical Natural Language Processing Group</a> at the University of Edinburgh and <a href="https://knowlab.github.io/" target="_blank">KnowLab</a> at UCL.
 
 - date: May 2021
   news: Accepted into the Google Summer of Code (GSoC) 2021 program with Red Hen Lab as the mentoring organization.
 
-- date: October 2020
+- date: Oct. 2020
   news: Paper accepted to <a href="http://noisy-text.github.io/2020/" target="_blank">W-NUT workshop of EMNLP 2020</a> on identification of informative COVID-19 English tweets.
 
-- date: June 2020
-  news: Secured 19<sup>th</sup> position out of 1621 teams (top 2%) in the <a href="https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/overview" target="_blank">Jigsaw Multilingual Toxic Comment Classification Challenge</a> hosted on Kaggle. Elevated to Kaggle Competitions Expert Tier. [<a href="https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/leaderboard" target="_blank">Details</a>]
+# - date: June 2020
+#   news: Secured 19<sup>th</sup> position out of 1621 teams (top 2%) in the <a href="https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/overview" target="_blank">Jigsaw Multilingual Toxic Comment Classification Challenge</a> hosted on Kaggle. Elevated to Kaggle Competitions Expert Tier. [<a href="https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/leaderboard" target="_blank">Details</a>]
+
+# - date: Mar. 2020
+#   news: Reviewer for <a href="https://www.scipy2020.scipy.org" target="_blank">Scipy 2020</a> for Tutorials, Talk and Poster Presentations.
+
+# - date: Nov. 2019
+#   news: Finished 2<sup>nd</sup> out of 479 competitors hosted on <a href="https://www.crowdanalytix.com/contests/quality-forecasting-in-cement-manufacturing" target="_blank">CrowdAnalytix</a>; Won $2,500 as prize money and winner representing India.
