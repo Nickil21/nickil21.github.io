@@ -7,6 +7,19 @@ header:
   overlay_image: /assets/images/competitions/musicfox-fx-ANpeikC7Up4-unsplash.jpg
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "My Performance in data science competitions arranged in reverse chronological order"
+feature_row_8:
+  - image_path: /assets/images/competitions/evaluating_student_writing_2022.png
+    alt: "Feedback Prize - Evaluating Student Writing"
+    title: "Feedback Prize - Evaluating Student Writing<sup><i class='fas fa-medal' style='color:silver;'></i></sup>"
+    excerpt: '<span style="color:#717171">March 2022 | Kaggle</span><br><br>Finished in the top 3%. Won a silver medal.
+    <br>
+    <br>
+    Objective was to automatically segment texts and classify argumentative and rhetorical elements into classes: Lead, Position, Claim, Counterclaim, Rebuttal, Evidence, and Concluding Statement, in essays written by 6th-12th grade students.
+    <br>
+    <br>'
+    url: "https://www.kaggle.com/c/feedback-prize-2021/overview"
+    btn_label: "Read More"
+    btn_class: "btn--info"
 feature_row_7:
   - image_path: /assets/images/competitions/jigsaw_multilingual_toxic_comment_2020.png
     alt: "Jigsaw Multilingual Toxic Comment Classification"
@@ -108,6 +121,7 @@ feature_row_1:
     btn_label: "Read More"
     btn_class: "btn--info"                     
 ---
+{% include feature_row id="feature_row_8" type="left" %}
 {% include feature_row id="feature_row_7" type="left" %}
 {% include feature_row id="feature_row_6" type="left" %}
 {% include feature_row id="feature_row_5" type="left" %}
