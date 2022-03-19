@@ -131,11 +131,11 @@ a {
   }
 
   &:visited {
-    color: #BD2031;
+    color: $primary-color;
   }
 
   &:hover {
-    color: #BD2031;
+    color: $primary-color;
     outline: 1;
   }
 }

@@ -49,7 +49,7 @@ text-decoration: none;
 }
 
 /* Hack for changing colour of Masthead links */
-.greedy-nav .visible-links a:before {background-color: #ff0000};
+// .greedy-nav .visible-links a:before {background-color: #ff0000};
 .greedy-nav .visible-links {font-family: Courier};
 .greedy-nav a.site-title {font-family: Courier};
 .greedy-nav a{font-size: initial};
@@ -72,100 +72,100 @@ html {
   }
 }
 
-html, html[data-theme="light"] {
-  --bold-color: rgb(0, 0, 0);
-  --box-background-color: rgb(249, 249, 250);
-  --highlight-color: hsl(0, 0%, 80%);
-  --light-border-color: rgb(230, 230, 230);
-  --light-text-color: rgb(72, 72, 74);
-  --link-color: rgb(0, 112, 201);
-  --link-color-visited: hsl(250, 100%, 37%);
-  --main-background-color: $background-color;
-  --main-text-color: rgb(51, 51, 51);
-  --medium-text-color: hsl(0, 0%, 20%);
-  --sidebar-color: hsl(0, 0%, 90%);
-  --underline-color: hsl(0, 0%, 60%);
-}
+// html, html[data-theme="light"] {
+//   --bold-color: rgb(0, 0, 0);
+//   --box-background-color: rgb(249, 249, 250);
+//   --highlight-color: hsl(0, 0%, 80%);
+//   --light-border-color: rgb(230, 230, 230);
+//   --light-text-color: rgb(72, 72, 74);
+//   --link-color: rgb(0, 112, 201);
+//   --link-color-visited: hsl(250, 100%, 37%);
+//   --main-background-color: $background-color;
+//   --main-text-color: rgb(51, 51, 51);
+//   --medium-text-color: hsl(0, 0%, 20%);
+//   --sidebar-color: hsl(0, 0%, 90%);
+//   --underline-color: hsl(0, 0%, 60%);
+// }
 
-html[data-theme="dark"] {
-  --bold-color: rgb(240, 240, 240);
-  --box-background-color: hsl(0, 0%, 20%);
-  --highlight-color: hsl(0, 0%, 60%);
-  --light-border-color: hsl(0, 0%, 30%);
-  --light-text-color: rgb(199, 199, 204);
-  --link-color: rgb( 100, 210, 255);
-  --link-color-visited: hsl(250, 100%, 60%);
-  --main-background-color: #252a34;
-  --main-text-color: #fff;
-  --medium-text-color: hsl(0, 0%, 70%);
-  --underline-color: hsl(0, 0%, 50%);
-  .social-icons .fa-github, .social-icons .fa-github-alt, .social-icons .fa-github-square {
-    color: #e64980};
-  .masthead__inner-wrap{background-color: #252a3};
-  .masthead__inner-wrap nav {background-color: #252a34};
-  .page__footer {background-color: #1a1d24};
-  .page__footer {color: #fff};
-  .page__footer-follow ul {background-color: #1a1d24};
-  .archive__item {background: #252a34};
-  .toc__menu {background-color: #252a34};
-  .toc__menu a {color: #fff};
-  //.archive__item {background: #1a1d24};
-  .author__urls {background: #252a34};
-  .toc .active a {background: lightslategray};
-  .search-content .search-input {color: #fff};
-  .search__toggle {color: #fff};
-  .greedy-nav a {color: #fff};
-  #mc_embed_signup form {background: #252a34};
-  #mc_embed_signup label {color: #fff};
-  .greedy-nav .hidden-links {background: #252a34};
-  a {color: #ff1493};
-  //a {&:visited {color: }};
-  //a {&:hover {color: #ff8000}};
-}
-
-
-@media (prefers-color-scheme: dark) {
-    html, html[data-theme="dark"] {
-      --bold-color: rgb(255, 255, 255);
-      --box-background-color: hsl(0, 0%, 20%);
-      --highlight-color: hsl(0, 0%, 60%);
-      --light-border-color: hsl(0, 0%, 30%);
-      --light-text-color: rgb(199, 199, 204);
-      --link-color: rgb( 100, 210, 255);
-      --link-color-visited: hsl(250, 100%, 60%);
-      --main-background-color: rgb(28, 28, 30);
-      --main-text-color: rgb(229, 229, 234);
-      --medium-text-color: hsl(0, 0%, 70%);
-      --underline-color: hsl(0, 0%, 50%);
-    }
-
-    html[data-theme="light"] {
-  --bold-color: rgb(0, 0, 0);
-  --box-background-color: rgb(249, 249, 250);
-  --highlight-color: hsl(0, 0%, 80%);
-  --light-border-color: rgb(230, 230, 230);
-  --light-text-color: rgb(72, 72, 74);
-  --link-color: rgb(0, 112, 201);
-  --link-color-visited: hsl(250, 100%, 37%);
-  --main-background-color: rgb(255, 255, 255);
-  --main-text-color: rgb(51, 51, 51);
-  --medium-text-color: hsl(0, 0%, 20%);
-  --sidebar-color: hsl(0, 0%, 90%);
-  --underline-color: hsl(0, 0%, 60%);
-  }
-}
+// html[data-theme="dark"] {
+//   --bold-color: rgb(240, 240, 240);
+//   --box-background-color: hsl(0, 0%, 20%);
+//   --highlight-color: hsl(0, 0%, 60%);
+//   --light-border-color: hsl(0, 0%, 30%);
+//   --light-text-color: rgb(199, 199, 204);
+//   --link-color: rgb( 100, 210, 255);
+//   --link-color-visited: hsl(250, 100%, 60%);
+//   --main-background-color: #252a34;
+//   --main-text-color: #fff;
+//   --medium-text-color: hsl(0, 0%, 70%);
+//   --underline-color: hsl(0, 0%, 50%);
+//   .social-icons .fa-github, .social-icons .fa-github-alt, .social-icons .fa-github-square {
+//     color: #e64980};
+//   .masthead__inner-wrap{background-color: #252a3};
+//   .masthead__inner-wrap nav {background-color: #252a34};
+//   .page__footer {background-color: #1a1d24};
+//   .page__footer {color: #fff};
+//   .page__footer-follow ul {background-color: #1a1d24};
+//   .archive__item {background: #252a34};
+//   .toc__menu {background-color: #252a34};
+//   .toc__menu a {color: #fff};
+//   //.archive__item {background: #1a1d24};
+//   .author__urls {background: #252a34};
+//   .toc .active a {background: lightslategray};
+//   .search-content .search-input {color: #fff};
+//   .search__toggle {color: #fff};
+//   .greedy-nav a {color: #fff};
+//   #mc_embed_signup form {background: #252a34};
+//   #mc_embed_signup label {color: #fff};
+//   .greedy-nav .hidden-links {background: #252a34};
+//   a {color: #ff1493};
+//   //a {&:visited {color: }};
+//   //a {&:hover {color: #ff8000}};
+// }
 
 
-html, html[data-theme="dark"], html[data-theme="light"] {
-  height: 100%;
-  scroll-behavior: smooth;
-  //-moz-osx-font-smoothing: grayscale;
-  //-webkit-font-smoothing: antialiased;
-}
+// @media (prefers-color-scheme: dark) {
+//     html, html[data-theme="dark"] {
+//       --bold-color: rgb(255, 255, 255);
+//       --box-background-color: hsl(0, 0%, 20%);
+//       --highlight-color: hsl(0, 0%, 60%);
+//       --light-border-color: hsl(0, 0%, 30%);
+//       --light-text-color: rgb(199, 199, 204);
+//       --link-color: rgb( 100, 210, 255);
+//       --link-color-visited: hsl(250, 100%, 60%);
+//       --main-background-color: rgb(28, 28, 30);
+//       --main-text-color: rgb(229, 229, 234);
+//       --medium-text-color: hsl(0, 0%, 70%);
+//       --underline-color: hsl(0, 0%, 50%);
+//     }
+
+//     html[data-theme="light"] {
+//   --bold-color: rgb(0, 0, 0);
+//   --box-background-color: rgb(249, 249, 250);
+//   --highlight-color: hsl(0, 0%, 80%);
+//   --light-border-color: rgb(230, 230, 230);
+//   --light-text-color: rgb(72, 72, 74);
+//   --link-color: rgb(0, 112, 201);
+//   --link-color-visited: hsl(250, 100%, 37%);
+//   --main-background-color: rgb(255, 255, 255);
+//   --main-text-color: rgb(51, 51, 51);
+//   --medium-text-color: hsl(0, 0%, 20%);
+//   --sidebar-color: hsl(0, 0%, 90%);
+//   --underline-color: hsl(0, 0%, 60%);
+//   }
+// }
 
 
-body {
-  background-color: var(--main-background-color);
-  color: var(--main-text-color);
-  text-rendering: optimizeLegibility;
-}
+// html, html[data-theme="dark"], html[data-theme="light"] {
+//   height: 100%;
+//   scroll-behavior: smooth;
+//   //-moz-osx-font-smoothing: grayscale;
+//   //-webkit-font-smoothing: antialiased;
+// }
+
+
+// body {
+//   background-color: var(--main-background-color);
+//   color: var(--main-text-color);
+//   text-rendering: optimizeLegibility;
+// }

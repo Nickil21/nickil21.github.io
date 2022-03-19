@@ -22,7 +22,7 @@ My broad interests are in the intersection of Machine Learning, Natural Language
 Specifically, I am currently interested in unsupervised syntactic parsing, semi-supervised learning,
 interpretability and robustness of machine learning algorithms, and understanding social inequality and bias in language.
 
-During the summer of 2021, I worked with [Red Hen Lab](https://www.redhenlab.org/) and [FrameNet Brazil](https://www2.ufjf.br/framenetbr-en/) as a [Google Summer of Code student](https://summerofcode.withgoogle.com/). Previously, I worked at [niki.ai](https://en.wikipedia.org/wiki/Niki.ai) on building NLP capabilities for a conversational AI system. In addition, I actively participated in crowd-sourced machine learning contests for several years, placing in the money on multiple occasions.
+During the summer of 2021, I worked with [Red Hen Lab](https://www.redhenlab.org/) and [FrameNet Brazil](https://www2.ufjf.br/framenetbr-en/) as a [Google Summer of Code](https://summerofcode.withgoogle.com/) student. Previously, I worked at [niki.ai](https://en.wikipedia.org/wiki/Niki.ai) on building NLP capabilities for a conversational AI system. In addition, I actively participated in crowd-sourced machine learning contests for several years, placing in the money on multiple occasions.
 
 [Academic CV <i class="fas fa-file-pdf"></i>](/files/nickil_cv.pdf){: .btn .btn--info}{:target="_blank"}
 <!-- [Industry resume <i class="fas fa-file-pdf"></i>](/files/nickil_resume.pdf){: .btn .btn--info}{:target="_blank"} -->

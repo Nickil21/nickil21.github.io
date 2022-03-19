@@ -12,8 +12,9 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-remote_theme             : "mmistakes/minimal-mistakes@4.23.0"
+remote_theme             : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "contrast" # "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin2   : "neon"
 
 # Site Settings
 locale                   : "en-US"
@@ -95,7 +96,7 @@ analytics:
 # Site Author
 author:
   name             : "Nickil Maveli"
-  avatar           : "/assets/images/profile-picture/nickil21_pic.jpg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/profile-picture/nickil21_pic.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "MSc (Research) student, ILCC, University of Edinburgh"
   location         : "Scotland, United Kingdom"
   email            :
