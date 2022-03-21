@@ -55,6 +55,11 @@ text-decoration: none;
 .greedy-nav a{font-size: initial};
 .page__hero--overlay {padding: 5em 0};
 
+.ai-google-scholar, .ai-google-scholar-square {
+  color: $google-scholar-color-new;
+}
+
+
 /* Hack to make font size smaller */
 html {
   font-size: 14px; // change to whatever

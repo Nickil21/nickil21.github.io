@@ -16,7 +16,7 @@ $code-background-color-dark : $light-gray !default;
 $text-color                 : $dark-gray !default;
 $border-color               : $lighter-gray !default;
 
-$primary-color              : $gray !default;
+$primary-color              : #BD2031 !default;
 $success-color              : #27ae60 !default;
 $warning-color              : #e67e22 !default;
 $danger-color               : #c0392b !default;
@@ -29,3 +29,10 @@ $link-color-visited         : mix(#fff, $link-color, 25%) !default;
 $masthead-link-color        : $primary-color !default;
 $masthead-link-color-hover  : mix(#000, $primary-color, 25%) !default;
 $archive-background-color   : #fff !default;
+
+$google-scholar-color-new: #4285f4 !default;
+
+.page__footer-follow .social-icons .svg-inline--fa {
+   color: inherit;
+ }
+ 
