@@ -50,8 +50,8 @@ text-decoration: none;
 
 /* Hack for changing colour of Masthead links */
 // .greedy-nav .visible-links a:before {background-color: #ff0000};
-.greedy-nav .visible-links {font-family: Courier};
-.greedy-nav a.site-title {font-family: Courier};
+// .greedy-nav .visible-links {font-family: Courier};
+// .greedy-nav a.site-title {font-family: Courier};
 .greedy-nav a{font-size: initial};
 .page__hero--overlay {padding: 5em 0};
 
@@ -62,10 +62,10 @@ text-decoration: none;
 
 /* Hack to make font size smaller */
 html {
-  font-size: 14px; // change to whatever
+  font-size: 12px; // change to whatever
 
   @include breakpoint($medium) {
-    font-size: 16px; // change to whatever
+    font-size: 15px; // change to whatever
   }
 
   @include breakpoint($large) {
@@ -73,7 +73,7 @@ html {
   }
 
   @include breakpoint($x-large) {
-    font-size: 20px; // change to whatever
+    font-size: 21px; // change to whatever
   }
 }
 

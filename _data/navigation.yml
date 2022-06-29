@@ -4,6 +4,9 @@ main:
   - title: "BLOG"
     url: /blog/
 
+  - title: "CV"
+    url: /files/nickil_resume.pdf
+
   - title: "COMPETITIONS"
     url: /competitions/
 

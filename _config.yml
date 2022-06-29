@@ -96,8 +96,8 @@ analytics:
 # Site Author
 author:
   name             : "Nickil Maveli"
-  avatar           : "/assets/images/profile-picture/nickil21_pic.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "MSc (Research) student, ILCC, University of Edinburgh"
+  avatar           : "/assets/images/profile-picture/nickil21_pic.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "PhD student in NLP at the University of Edinburgh"
   location         : "Scotland, United Kingdom"
   email            :
   links:
@@ -325,6 +325,7 @@ defaults:
       comments: false
       sidebar:
         nav: "gsoc"
+
 
 # Jekyll Scholar
 scholar:

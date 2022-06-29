@@ -22,9 +22,11 @@ feature_row_3:
               <br>
               <span style="color:#717171">Findings of ACL 2022 (Long)</span>
               <br>
-              <br>          
+              <br>
               [Paper](https://arxiv.org/abs/2110.02283){:target="_blank"}{: .btn .btn--warning .btn--large}
-              [BibTeX](https://dblp.org/rec/journals/corr/abs-2110-02283.html?view=bibtex){:target="_blank"}{: .btn .btn--facebook .btn--large}'   
+              [BibTeX](https://aclanthology.org/2022.findings-acl.101){:target="_blank"}{: .btn .btn--facebook .btn--large}
+              [Slides](/files/acl-findings-22-cotraining-slides.pdf){:target="_blank"}{: .btn .btn--reddit .btn--large}
+              [Poster](/files/acl-findings-22-cotraining-poster.pdf){:target="_blank"}{: .btn .btn--danger .btn--large}'
 feature_row_2:
   - image_path: /assets/images/publications/mscr_thesis.png
     alt: "MscR Thesis"
