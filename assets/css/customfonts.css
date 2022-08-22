@@ -1,6 +1,13 @@
 @font-face {
+    font-family: Proxima Nova Regular;
+    src: url("/assets/fonts/Proxima\ Nova\ Font.otf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: Proxima Soft;
     src: url("/assets/fonts/ProximaSoft-Medium.ttf") format('truetype');
-    font-weight: bold;
+    font-weight: normal;
     font-style: normal;
 }
