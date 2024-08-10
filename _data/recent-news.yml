@@ -1,3 +1,9 @@
+- date: Aug. 2024
+  news: Started as a Research Intern at Huawei Edinburgh Research Center.
+
+- date: Sep. 2022
+  news: Started my PhD in NLP at the University of Edinburgh.
+
 - date: Feb. 2022
   news: Paper on Unsupervised Constituency Parsing accepted to ACL Findings.
 
@@ -10,8 +16,8 @@
 - date: May 2021
   news: Accepted into the Google Summer of Code (GSoC) 2021 program with Red Hen Lab as the mentoring organization.
 
-- date: Oct. 2020
-  news: Paper accepted to <a href="http://noisy-text.github.io/2020/" target="_blank">W-NUT workshop of EMNLP 2020</a> on identification of informative COVID-19 English tweets.
+# - date: Oct. 2020
+#   news: Paper accepted to <a href="http://noisy-text.github.io/2020/" target="_blank">W-NUT workshop of EMNLP 2020</a> on identification of informative COVID-19 English tweets.
 
 # - date: June 2020
 #   news: Secured 19<sup>th</sup> position out of 1621 teams (top 2%) in the <a href="https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/overview" target="_blank">Jigsaw Multilingual Toxic Comment Classification Challenge</a> hosted on Kaggle. Elevated to Kaggle Competitions Expert Tier. [<a href="https://www.kaggle.com/c/jigsaw-multilingual-toxic-comment-classification/leaderboard" target="_blank">Details</a>]
