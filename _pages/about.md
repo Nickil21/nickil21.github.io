@@ -10,6 +10,7 @@ header:
   #  - label: "CONTACT"
   #    url: "/contact/"
 permalink: /
+description: "Nickil Maveli - PhD student in NLP at the University of Edinburgh. Research on benchmarking and evaluation of LLMs for code understanding and generation."
 excerpt: "Welcome to my personal website!"
 title: "Nickil Maveli"
 author_profile: true

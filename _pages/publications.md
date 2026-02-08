@@ -9,6 +9,7 @@ header:
   overlay_filter: "0.5"
   overlay_image: /assets/images/publications/photos-hobby-U3sOwViXhkY-unsplash.jpg
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+description: "Research publications by Nickil Maveli on NLP, code generation, and LLMs."
 excerpt: "My Publications arranged in reverse chronological order"
 feature_row_4:
   - image_path: /assets/images/publications/naacl_2025.png

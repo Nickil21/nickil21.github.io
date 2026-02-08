@@ -2,6 +2,7 @@
 title: "My Tech Blog"
 layout: splash
 permalink: /blog/
+description: "Technical blog posts by Nickil Maveli on NLP, machine learning, and open-source contributions."
 header:
   overlay_filter: 0.1
   overlay_image: /assets/images/blog/aaron-burden-y02jEX_B0O0-unsplash.jpg

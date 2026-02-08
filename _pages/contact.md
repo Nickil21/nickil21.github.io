@@ -2,6 +2,7 @@
 title: "Contact"
 layout: single
 permalink: /contact/
+description: "Contact details and office location for Nickil Maveli at the University of Edinburgh."
 author_profile: true
 ---
 

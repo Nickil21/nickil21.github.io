@@ -6,6 +6,7 @@ header:
   overlay_filter: "0.5"
   overlay_image: /assets/images/competitions/musicfox-fx-ANpeikC7Up4-unsplash.jpg
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+description: "Data science and machine learning competition results by Nickil Maveli."
 excerpt: "My Performance in data science competitions arranged in reverse chronological order"
 feature_row_8:
   - image_path: /assets/images/competitions/evaluating_student_writing_2022.png

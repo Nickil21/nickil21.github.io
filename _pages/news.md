@@ -3,6 +3,7 @@ layout: single
 classes: wide
 permalink: /news/
 title: News Archive
+description: "Latest news and updates from Nickil Maveli including paper acceptances and research milestones."
 author_profile: true
 ---
 
