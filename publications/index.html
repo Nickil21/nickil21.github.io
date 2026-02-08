@@ -1,0 +1,532 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Publications | Nickil’s Website</title>
+<meta name="description" content="Research publications by Nickil Maveli on NLP, code generation, and LLMs. ">
+
+
+  <meta name="author" content="Nickil Maveli">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Nickil's Website">
+<meta property="og:title" content="Publications">
+<meta property="og:url" content="https://nickil21.github.io/publications/">
+
+
+  <meta property="og:description" content="Research publications by Nickil Maveli on NLP, code generation, and LLMs. ">
+
+
+
+  <meta property="og:image" content="https://nickil21.github.io/assets/images/publications/photos-hobby-U3sOwViXhkY-unsplash.jpg">
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://nickil21.github.io/publications/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Nickil Maveli",
+      "url": "https://nickil21.github.io/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Nickil's Website Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css" id="theme_source">
+
+<link rel="stylesheet alternate" href="/assets/css/theme2.css" id="theme_source_2">
+<script>
+  let theme = sessionStorage.getItem('theme');
+  if (theme === "dark") {
+    sessionStorage.setItem('theme', 'dark');
+    node1 = document.getElementById('theme_source');
+    node2 = document.getElementById('theme_source_2');
+    node1.setAttribute('rel', 'stylesheet alternate');
+    node2.setAttribute('rel', 'stylesheet');
+  }
+  else {
+    sessionStorage.setItem('theme', 'light');
+  }
+</script>
+
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <html>
+
+
+
+<!-- start custom head snippets -->
+<link rel="apple-touch-icon" sizes="57x57" href="https://nickil21.github.io/assets/images/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://nickil21.github.io/assets/images/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://nickil21.github.io/assets/images/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://nickil21.github.io/assets/images/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://nickil21.github.io/assets/images/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://nickil21.github.io/assets/images/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://nickil21.github.io/assets/images/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://nickil21.github.io/assets/images/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nickil21.github.io/assets/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="https://nickil21.github.io/assets/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nickil21.github.io/assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://nickil21.github.io/assets/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nickil21.github.io/assets/images/favicon-16x16.png">
+<link rel="manifest" href="https://nickil21.github.io/assets/images/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://nickil21.github.io/assets/images/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="https://nickil21.github.io/assets/css/customfonts.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" >
+
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "all" } } }); </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+<script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--splash">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon-96x96.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          HOME
+          <span class="site-subtitle"></span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href=""></a>
+            </li><li class="masthead__menu-item">
+              <a href="/blog/">BLOG</a>
+            </li><li class="masthead__menu-item">
+              <a href="/files/nickil_resume.pdf">CV</a>
+            </li><li class="masthead__menu-item">
+              <a href="/competitions/">COMPETITIONS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/publications/">PUBLICATIONS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/contact/">CONTACT</a>
+            </li></ul>
+        
+          <i class="fas fa-fw fa-adjust" aria-hidden="true" onclick="node1=document.getElementById('theme_source');node2=document.getElementById('theme_source_2');if(node1.getAttribute('rel')=='stylesheet'){node1.setAttribute('rel', 'stylesheet alternate'); node2.setAttribute('rel', 'stylesheet');sessionStorage.setItem('theme', 'dark');}else{node2.setAttribute('rel', 'stylesheet alternate'); node1.setAttribute('rel', 'stylesheet');sessionStorage.setItem('theme', 'light');} return false;"></i>
+        
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        <a style="color: orange" id="theme-toggle" onclick="modeSwitcher()" role="button"></a>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/publications/photos-hobby-U3sOwViXhkY-unsplash.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          Publications
+
+        
+      </h1>
+      
+        <p class="page__lead">My Publications arranged in reverse chronological order
+</p>
+      
+      
+      
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Photo credit: <a href="https://unsplash.com"><strong>Unsplash</strong></a>
+</span>
+  
+</div>
+
+
+
+<div id="main" role="main">
+  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Publications">
+    <meta itemprop="description" content="My Publications arranged in reverse chronological order">
+    
+    
+
+    <section class="page__content" itemprop="text">
+      <p>Jump to Year: <a href="#2025" class="btn btn--info">2025</a> <a href="#2022" class="btn btn--info">2022</a> <a href="#2021" class="btn btn--info">2021</a> <a href="#2020" class="btn btn--info">2020</a></p>
+
+<h2 id="2025">2025</h2>
+
+<div class="feature__wrapper">
+
+  
+    <div class="feature__item--left">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img src="/assets/images/publications/naacl_2025.png" alt="NAACL 2025" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p><br /> <strong>Nickil Maveli</strong>, Antonio Vergari, Shay B. Cohen <br /> <br /> What can Large Language Models Capture about Code Functional Equivalence? <br /> <br /> <span style="color:#717171">Findings of NAACL 2025 (Long)</span> <br /> <br /> <a href="https://arxiv.org/abs/2408.11081" target="_blank" class="btn btn--warning btn--large">Paper</a> <a href="https://aclanthology.org/2025.findings-naacl.382" target="_blank" class="btn btn--facebook btn--large">BibTeX</a> <a href="/files/naacl-findings-25-seqcobench-poster.pdf" target="_blank" class="btn btn--danger btn--large">Poster</a></p>
+
+            </div>
+          
+
+          
+        </div>
+      </div>
+    </div>
+  
+
+</div>
+
+<h2 id="2022">2022</h2>
+
+<div class="feature__wrapper">
+
+  
+    <div class="feature__item--left">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img src="/assets/images/publications/acl_2022.png" alt="ACL 2022" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p><br /> <strong>Nickil Maveli</strong>, Shay B. Cohen <br /> <br /> Co-training an Unsupervised Constituency Parser with Weak Supervision <br /> <br /> <span style="color:#717171">Findings of ACL 2022 (Long)</span> <br /> <br /> <a href="https://arxiv.org/abs/2110.02283" target="_blank" class="btn btn--warning btn--large">Paper</a> <a href="https://aclanthology.org/2022.findings-acl.101" target="_blank" class="btn btn--facebook btn--large">BibTeX</a> <a href="/files/acl-findings-22-cotraining-slides.pdf" target="_blank" class="btn btn--reddit btn--large">Slides</a> <a href="/files/acl-findings-22-cotraining-poster.pdf" target="_blank" class="btn btn--danger btn--large">Poster</a></p>
+
+            </div>
+          
+
+          
+        </div>
+      </div>
+    </div>
+  
+
+</div>
+
+<h2 id="2021">2021</h2>
+
+<div class="feature__wrapper">
+
+  
+    <div class="feature__item--left">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img src="/assets/images/publications/mscr_thesis.png" alt="MscR Thesis" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p><br /> <strong>Nickil Maveli</strong> <br /> <br /> Co-training a Weakly Supervised Constituency Parser of Natural Language <br /> <br /> <span style="color:#717171">MScR thesis submitted to the School of Informatics (ILCC) at the University of Edinburgh</span> <br /> <br /> <a href="/files/mscr_thesis_nickil.pdf" target="_blank" class="btn btn--warning btn--large">Paper</a> <a href="https://dblp.org/rec/journals/corr/abs-2110-02283.html?view=bibtex" target="_blank" class="btn btn--facebook btn--large">BibTeX</a></p>
+
+            </div>
+          
+
+          
+        </div>
+      </div>
+    </div>
+  
+
+</div>
+
+<h2 id="2020">2020</h2>
+
+<div class="feature__wrapper">
+
+  
+    <div class="feature__item--left">
+      <div class="archive__item">
+        
+          <div class="archive__item-teaser">
+            <img src="/assets/images/publications/emnlp_wnut_2020.png" alt="EMNLP WNUT 2020" />
+            
+          </div>
+        
+
+        <div class="archive__item-body">
+          
+
+          
+            <div class="archive__item-excerpt">
+              <p><br /> <strong>Nickil Maveli</strong> <br /> <br /> EdinburghNLP at WNUT-2020 Task 2: Leveraging Transformers with Generalized Augmentation for Identifying Informativeness in COVID-19 Tweets <br /> <br /> <span style="color:#717171">EMNLP 2020 W-NUT Workshop</span> <br /> <br /> <a href="https://www.aclweb.org/anthology/2020.wnut-1.67" target="_blank" class="btn btn--warning btn--large">Paper</a> <a href="https://www.aclweb.org/anthology/2020.wnut-1.67.bib" target="_blank" class="btn btn--facebook btn--large">BibTeX</a> <a href="https://github.com/noisy-text/noisy-text.github.io/blob/master/2020/posters/WNUT2020_79_poster%20-%20Nickil%20Maveli.pdf" target="_blank" class="btn btn--danger btn--large">Poster</a></p>
+
+            </div>
+          
+
+          
+        </div>
+      </div>
+    </div>
+  
+
+</div>
+
+<!-- ---
+# layout: single
+# classes: wide
+layout: splash
+toc: true
+toc_label: Overview
+title: "Publications"
+permalink: /publications/
+header:
+  overlay_filter: "0.5"
+  overlay_image: /assets/images/publications/photos-hobby-U3sOwViXhkY-unsplash.jpg
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
+excerpt: "My Publications arranged in reverse chronological order"
+---
+
+## 2022
+
+* **Nickil Maveli**, Shay B. Cohen      
+<span style="color:grey">Co-training an Unsupervised Constituency Parser with Weak Supervision</span>   
+*ACL 2022 (Long)*                     
+[Paper](https://arxiv.org/abs/2110.02283){:target="_blank"}{: .btn .btn--warning .btn--small}
+[BibTex](https://dblp.org/rec/journals/corr/abs-2110-02283.html?view=bibtex){:target="_blank"}{: .btn .btn--facebook .btn--small} 
+
+## 2020
+
+* **Nickil Maveli**       
+<span style="color:grey">EdinburghNLP at WNUT-2020 Task 2: Leveraging Transformers with Generalized Augmentation for Identifying Informativeness in COVID-19 Tweets</span>   
+*EMNLP 2020 W-NUT Workshop*                 
+[Paper](https://www.aclweb.org/anthology/2020.wnut-1.67){:target="_blank"}{: .btn .btn--warning .btn--small} 
+[BibTex](https://www.aclweb.org/anthology/2020.wnut-1.67.bib){:target="_blank"}{: .btn .btn--facebook .btn--small} 
+[Poster](https://github.com/noisy-text/noisy-text.github.io/blob/master/2020/posters/WNUT2020_79_poster%20-%20Nickil%20Maveli.pdf){:target="_blank"}{: .btn .btn--danger .btn--small} 
+ -->
+
+    </section>
+  </article>
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/nickilmaveli" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/nickil21" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2026 Nickil Maveli. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.
+</div>
+
+
+<!-- AJax for DropDown Effect of Abstract and BibTex -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var str =$(this).attr('id');
+
+    $(".btnId").click(function(){
+        var str = $(this).attr('id');
+		var ret = str.split("_");
+		var id = ret[1];
+		$('#' + id).toggle();
+    });
+});
+</script>
+      </footer>
+    </div>
+
+    <script>addBackToTop({
+      backgroundColor: '#ff4500',
+      innerHTML: '<svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>',
+      textColor: '#FFFFFF'
+    })</script>
+
+    <!-- <aside class="sidebar__top">
+      <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i></a>
+    </aside> -->
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+    <!--<script src="/assets/js/mode-switcher.js"></script>-->
+
+  </body>
+</html>
