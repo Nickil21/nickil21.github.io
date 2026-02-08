@@ -9,6 +9,7 @@ author_profile: true
 <br>
 <br>
 <span style="font-family:monospace">
+Informatics Forum (IF 4.31)<br>
 10 Crichton Street<br>
 Newington<br>
 Edinburgh EH8 9AB<br>

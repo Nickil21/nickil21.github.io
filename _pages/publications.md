@@ -10,6 +10,22 @@ header:
   overlay_image: /assets/images/publications/photos-hobby-U3sOwViXhkY-unsplash.jpg
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 excerpt: "My Publications arranged in reverse chronological order"
+feature_row_4:
+  - image_path: /assets/images/publications/naacl_2025.png
+    alt: "NAACL 2025"
+    excerpt: '<br>
+              **Nickil Maveli**, Antonio Vergari, Shay B. Cohen
+              <br>
+              <br>
+              What can Large Language Models Capture about Code Functional Equivalence?
+              <br>
+              <br>
+              <span style="color:#717171">Findings of NAACL 2025 (Long)</span>
+              <br>
+              <br>
+              [Paper](https://arxiv.org/abs/2408.11081){:target="_blank"}{: .btn .btn--warning .btn--large}
+              [BibTeX](https://aclanthology.org/2025.findings-naacl.382){:target="_blank"}{: .btn .btn--facebook .btn--large}
+              [Poster](/files/naacl-findings-25-seqcobench-poster.pdf){:target="_blank"}{: .btn .btn--danger .btn--large}'
 feature_row_3:
   - image_path: /assets/images/publications/acl_2022.png
     alt: "ACL 2022"
@@ -64,7 +80,11 @@ feature_row_1:
         - k-means clustering
 ---
 
-Jump to Year: [2022](#2022){: .btn .btn--info} [2021](#2021){: .btn .btn--info} [2020](#2020){: .btn .btn--info}
+Jump to Year: [2025](#2025){: .btn .btn--info} [2022](#2022){: .btn .btn--info} [2021](#2021){: .btn .btn--info} [2020](#2020){: .btn .btn--info}
+
+## 2025
+
+{% include feature_row id="feature_row_4" type="left" %}
 
 ## 2022
 

@@ -16,7 +16,7 @@ author_profile: true
 show_tweet: false
 ---
 # About Me
-I am a second-year PhD student at the [Institute for Language, Cognition and Computation](http://web.inf.ed.ac.uk/ilcc/) (School of Informatics)
+I am a final-year PhD student at the [Institute for Language, Cognition and Computation](http://web.inf.ed.ac.uk/ilcc/) (School of Informatics)
 academic unit of the [University of Edinburgh](https://www.ed.ac.uk/). My PhD studies is fully-funded by the UKRI CDT in Natural Language Processing Scholarship. I am grateful to be supervised by Prof. [Shay Cohen](http://homepages.inf.ed.ac.uk/scohen/) and Prof. [Antonio Vergari](http://nolovedeeplearning.com/). I am also a member of the [Cohort](https://bollin.inf.ed.ac.uk/) and [APRIL](https://april-tools.github.io/) research labs.
 
 My broad interests are in the intersection of Machine Learning, Natural Language Processing, and Information Retrieval.
