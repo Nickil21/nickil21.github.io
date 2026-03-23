@@ -20,22 +20,6 @@ feature_row:
       url: "/blog/gsoc-2021"
       btn_label: "Read More"
       btn_class: "btn--info"
-  # - image_path: /assets/images/blog/main-folder/bert-distilbert-sentence-classification.png
-  #   #image_caption: "Photo credit: [Jay Alammar](https://jalammar.github.io/)"
-  #   alt: "Bert Distilbert Sentence Classification"
-  #   title: "Summary of NLP Research Papers"
-  #   excerpt: 'Making NLP papers understandable and approachable from a beginner standpoint in under 5 minutes read.'
-  #   url: "/blog/nlp-papers-summary"
-  #   btn_label: "Read More"
-  #   btn_class: "btn--info"
-  #- image_path: /assets/images/blog/main-folder/jared-brashier-duNHkmSkW6M-unsplash.jpg
-  #  #image_caption: "Photo credit: [Unsplash](https://unsplash.com/)"
-  #  alt: "Placeholder for Image"
-  #  title: "Primer"
-  #  excerpt: 'Detailed posts on ML/NLP topics.'
-  #  url: "/blog/primer"
-  #  btn_label: "Read More"
-  #  btn_class: "btn--info"
 ---
 
 {% include feature_row id="feature_row" type="left" %}

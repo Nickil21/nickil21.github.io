@@ -16,16 +16,16 @@
 {% if site.minimal_mistakes_skin2 %}
 <link rel="stylesheet alternate" href="{{ '/assets/css/theme2.css' | relative_url }}" id="theme_source_2">
 <script>
-  let theme = sessionStorage.getItem('theme');
+  const theme = localStorage.getItem('theme');
   if (theme === "dark") {
-    sessionStorage.setItem('theme', 'dark');
-    node1 = document.getElementById('theme_source');
-    node2 = document.getElementById('theme_source_2');
+    localStorage.setItem('theme', 'dark');
+    const node1 = document.getElementById('theme_source');
+    const node2 = document.getElementById('theme_source_2');
     node1.setAttribute('rel', 'stylesheet alternate');
     node2.setAttribute('rel', 'stylesheet');
   }
   else {
-    sessionStorage.setItem('theme', 'light');
+    localStorage.setItem('theme', 'light');
   }
 </script>
 {% endif %}

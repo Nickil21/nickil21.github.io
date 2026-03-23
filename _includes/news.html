@@ -1,5 +1,5 @@
 
-<td width="160">
+<td width="160" class="fade-in">
 <em>{{ article.date }}</em>
 </td>
 
@@ -10,15 +10,15 @@
 &nbsp;&nbsp;
 
 {% if article.pdf contains '://' %}
-[<a href="{{ article.pdf }}" target="_blank">pdf</a>]
+[<a href="{{ article.pdf }}" target="_blank" rel="noopener noreferrer">pdf</a>]
 {% else %}
-[<a href="{{site.url}}{{site.baseurl}}/docs/{{ article.category }}/{{ article.pdf }}" target="_blank">pdf</a>]
+[<a href="{{site.url}}{{site.baseurl}}/docs/{{ article.category }}/{{ article.pdf }}" target="_blank" rel="noopener noreferrer">pdf</a>]
 {% endif %}
 
 {% endif %}
 
 {% if article.url %}
-[<a href="{{ article.url }}" target="_blank">{% if article.display %}{{ article.display }}{% else %}url{% endif %}</a>]
+[<a href="{{ article.url }}" target="_blank" rel="noopener noreferrer">{% if article.display %}{{ article.display }}{% else %}url{% endif %}</a>]
 {% endif %}
 
 </td>

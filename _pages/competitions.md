@@ -12,7 +12,7 @@ feature_row_8:
   - image_path: /assets/images/competitions/evaluating_student_writing_2022.png
     alt: "Feedback Prize - Evaluating Student Writing"
     title: "Feedback Prize - Evaluating Student Writing<sup><i class='fas fa-medal' style='color:silver;'></i></sup>"
-    excerpt: '<span style="color:#717171">March 2022 | Kaggle</span><br><br>Finished in the top 3%. Won a silver medal.
+    excerpt: '<span class="text-muted">March 2022 | Kaggle</span><br><br>Finished in the top 3%. Won a silver medal.
     <br>
     <br>
     Objective was to automatically segment texts and classify argumentative and rhetorical elements into classes: Lead, Position, Claim, Counterclaim, Rebuttal, Evidence, and Concluding Statement, in essays written by 6th-12th grade students.
@@ -25,7 +25,7 @@ feature_row_7:
   - image_path: /assets/images/competitions/jigsaw_multilingual_toxic_comment_2020.png
     alt: "Jigsaw Multilingual Toxic Comment Classification"
     title: "Jigsaw Multilingual Toxic Comment Classification<sup><i class='fas fa-medal' style='color:silver;'></i></sup>"
-    excerpt: '<span style="color:#717171">June 2020 | Kaggle</span><br><br>Finished in the top 2%. Won a silver medal.
+    excerpt: '<span class="text-muted">June 2020 | Kaggle</span><br><br>Finished in the top 2%. Won a silver medal.
     <br>
     <br>
     Objective was to predict toxicity for 6 different languages given a dataset consisting of only English comments from the previous two jigsaw competitions. 
@@ -40,7 +40,7 @@ feature_row_6:
   - image_path: /assets/images/competitions/quality_cement_2019.jpg
     alt: "Quality Forecasting in Cement Manufacturing"
     title: "Quality Forecasting in Cement Manufacturing<sup><i class='fas fa-medal' style='color:gold;'></i></sup>"
-    excerpt: '<span style="color:#717171">Nov 2019 | CrowdAnalytix</span><br><br>Finished 2<sup>nd</sup> out of 479 participants and awarded a prize money of 2500 USD.
+    excerpt: '<span class="text-muted">Nov 2019 | CrowdAnalytix</span><br><br>Finished 2<sup>nd</sup> out of 479 participants and awarded a prize money of 2500 USD.
     <br>
     <br>
     Objective was to develop a robust model to predict Free Lime. What makes this challenge interesting was the small 
@@ -56,7 +56,7 @@ feature_row_5:
   - image_path: /assets/images/competitions/quora_question_2018.png
     alt: "Quora Insincere Questions Classification Challenge"
     title: "Quora Insincere Questions Classification Challenge<sup><i class='fas fa-medal' style='color:silver;'></i></sup>"
-    excerpt: '<span style="color:#717171">Feb 2019 | Kaggle</span><br><br>Finished in the top 3%. Won a silver medal.
+    excerpt: '<span class="text-muted">Feb 2019 | Kaggle</span><br><br>Finished in the top 3%. Won a silver medal.
     <br>
     <br>
     Objective was to develop models that identify and flag insincere questions. 
@@ -70,7 +70,7 @@ feature_row_4:
   - image_path: /assets/images/competitions/cold_start_2018.png
     alt: "Cold Start Energy Forecasting"
     title: "Cold Start Energy Forecasting"
-    excerpt: '<span style="color:#717171">Oct 2018 | DrivenData</span><br><br>Finished 11<sup>th</sup> out of 1291 participants.
+    excerpt: '<span class="text-muted">Oct 2018 | DrivenData</span><br><br>Finished 11<sup>th</sup> out of 1291 participants.
     <br>
     <br>
     My algorithm brought down the median absolute percent error across daily and weekly forecasts to 7% - less than half 
@@ -86,7 +86,7 @@ feature_row_3:
     # image_caption: "Image courtesy of [DrivenData](https://www.drivendata.org/competitions/50/worldbank-poverty-prediction/page/97/)"
     alt: "Pover-T Tests: Predicting Poverty"
     title: "Pover-T Tests: Predicting Poverty"
-    excerpt: '<span style="color:#717171">Feb 2018 | DrivenData</span><br><br>Finished 6<sup>th</sup> out of 2,310 participants hosted by the 
+    excerpt: '<span class="text-muted">Feb 2018 | DrivenData</span><br><br>Finished 6<sup>th</sup> out of 2,310 participants hosted by the 
     [World Bank](https://www.worldbank.org/).
     <br>
     <br>
@@ -102,7 +102,7 @@ feature_row_2:
   - image_path: /assets/images/competitions/tennis_australia_2018.jpg
     alt: "Predicting How Points End in Tennis"
     title: "Predicting How Points End in Tennis<sup><i class='fas fa-medal' style='color:gold;'></i></sup>"
-    excerpt: '<span style="color:#717171">Jan 2018 | CrowdAnalytix</span><br><br>Finished 2<sup>nd</sup> out of 750 participants and awarded a prize money of 2500 USD.
+    excerpt: '<span class="text-muted">Jan 2018 | CrowdAnalytix</span><br><br>Finished 2<sup>nd</sup> out of 750 participants and awarded a prize money of 2500 USD.
     Featured in Tennis Australia official press release. See [here](https://ausopen.com/articles/news/tennis-hackathon-draws-record-participation){:target="_blank"}.
     <br>
     <br>
@@ -117,7 +117,7 @@ feature_row_1:
   - image_path: /assets/images/competitions/click_prediction.png
     alt: "Click Prediction Hackathon"
     title: "Click Prediction Hackathon"
-    excerpt: '<span style="color:#717171">Oct 2017 | AnalyticsVidhya</span><br><br>Finished 3<sup>rd</sup> out of 2975 participants and awarded a prize money of ₹25000.'
+    excerpt: '<span class="text-muted">Oct 2017 | AnalyticsVidhya</span><br><br>Finished 3<sup>rd</sup> out of 2975 participants and awarded a prize money of ₹25000.'
     url: "https://datahack.analyticsvidhya.com/contest/click-prediction/"
     btn_label: "Read More"
     btn_class: "btn--info"                     

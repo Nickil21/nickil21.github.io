@@ -345,6 +345,9 @@ scholar:
   replace_strings: true
 
 
+after_footer_scripts:
+  - "/assets/js/fade-in.js"
+
 permalink: /:year/:month/:title.html
 #permalink: pretty
 
