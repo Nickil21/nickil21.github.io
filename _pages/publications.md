@@ -11,6 +11,22 @@ header:
   caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 description: "Research publications by Nickil Maveli on NLP, code generation, and LLMs."
 excerpt: "My Publications arranged in reverse chronological order"
+feature_row_5:
+  - image_path: /assets/images/publications/acl_2026.png
+    alt: "ACL 2026"
+    excerpt: '<br>
+              **Nickil Maveli**, Antonio Vergari, Shay B. Cohen
+              <br>
+              <br>
+              Can LLMs Compress (and Decompress)? Evaluating Code Understanding and Execution via Invertibility
+              <br>
+              <br>
+              <span class="text-muted">Findings of ACL 2026 (Long)</span>
+              <br>
+              <br>
+              [Paper](https://arxiv.org/abs/2601.13398){:target="_blank"}{: .btn .btn--warning .btn--large}
+              [BibTeX](https://aclanthology.org/2026.findings-acl.1279){:target="_blank"}{: .btn .btn--facebook .btn--large}
+              [Poster](/files/acl-findings-26-roundtripcodeeval-poster.pdf){:target="_blank"}{: .btn .btn--danger .btn--large}'
 feature_row_4:
   - image_path: /assets/images/publications/naacl_2025.png
     alt: "NAACL 2025"
@@ -81,7 +97,11 @@ feature_row_1:
         - k-means clustering
 ---
 
-Jump to Year: [2025](#2025){: .btn .btn--info} [2022](#2022){: .btn .btn--info} [2021](#2021){: .btn .btn--info} [2020](#2020){: .btn .btn--info}
+Jump to Year: [2026](#2026){: .btn .btn--info} [2025](#2025){: .btn .btn--info} [2022](#2022){: .btn .btn--info} [2021](#2021){: .btn .btn--info} [2020](#2020){: .btn .btn--info}
+
+## 2026
+
+{% include feature_row id="feature_row_5" type="left" %}
 
 ## 2025
 
